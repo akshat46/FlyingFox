@@ -16,9 +16,9 @@ Has custom CSS for following extensions:
 
 ## Installation
 
-1. Copy userChrome.css in the Chrome directory in your Firefox profile directory. To find your profile directory, go to about:support.
+1. Copy `userChrome.css` in the Chrome directory in your Firefox profile directory. To find your profile directory, go to about:support.
 
-2. Go to about:config and set toolkit.legacyUserProfileCustomizations.stylesheets to true.
+2. Go to about:config and set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
 
 3. Follow instructions for each extension in readme under their respective directories.
 
