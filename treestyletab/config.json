@@ -1,0 +1,41 @@
+{
+  "autoAttach": false,
+  "autoAttachOnDuplicated": 2,
+  "autoCollapseExpandSubtreeOnAttach": false,
+  "autoCollapseExpandSubtreeOnSelect": false,
+  "autoGroupNewTabs": false,
+  "closeParentBehaviorMode": 1,
+  "collapseExpandSubtreeByDblClick": false,
+  "configsVersion": 9,
+  "incognitoAllowedExternalAddons": [
+    "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}"
+  ],
+  "lastDraggedTabs": {
+    "tabIds": [
+      12
+    ],
+    "urlsDigest": "bb27f4cdd807dc0e35118de8df236e19ff15534e"
+  },
+  "maxTreeLevel": -2,
+  "migratedBookmarkUrls": [
+    "moz-extension://d5c3e323-a590-4085-ad3b-c7c07be7636d/resources/group-tab.html",
+    "moz-extension://d5c3e323-a590-4085-ad3b-c7c07be7636d/options/options.html",
+    "moz-extension://d5c3e323-a590-4085-ad3b-c7c07be7636d/resources/startup.html",
+    "moz-extension://d5c3e323-a590-4085-ad3b-c7c07be7636d/tests/runner.html"
+  ],
+  "notifiedFeaturesVersion": 4,
+  "optionsExpandedSections": [
+    "section-appearance",
+    "section-advanced",
+    "section-treeBehavior",
+    "section-debug"
+  ],
+  "showExpertOptions": true,
+  "sidebarPosition": 2,
+  "style": "vertigo",
+  "syncParentTabAndOpenerTab": false,
+  "userStyleRules": ":root{\n  --active-tab-color-a     : #6b5874;\n  --active-tab-color-b     : #d5749d;\n  --active-tab-color-shadow: rgba(210, 115, 156, 0.5);\n  --active-tab-text-color  : white;\n  --tab-hover-color        : #28282f;\n  --tab-text-color         : white;\n  --close-box-background   : #31313a;\n}\n\ntab-item {\n  margin       : 15px 10px;\n  margin-right : 30px;\n  border-radius: 5px;\n  padding-top  : 5px;\n  padding-right: 10px;\n  transition   : all 0.3s ease-i-out !important;\n}\n\ntab-item .label{   \n  color: var(--active-tab-text-color ) !important;\n}\n\ntab-item.active {\n  background  : linear-gradient(to right, var(--active-tab-color-a), var(--active-tab-color-b)) !important;\n  box-shadow  : 5px 0 15px -1px var(--active-tab-color-shadow);\n  margin-right: 18px;\n  font-weight : bolder;\n  transition  : scale 0.3s ease-i-out !important;\n  color       : var(--tab-text-color ) !important;\n}\ntab-item:hover {\n  background: var(--tab-hover-color ) !important;\n  box-shadow: 0 5px 20px -5px var(--tab-hover-color ) !important;\n}\n\ntab-item:not(:hover) tab-closebox {\n  right    : -30px;\n  transform: scale(110%);\n}\n\ntab-item tab-closebox{\n  position     : absolute;\n  right        : 10px;\n  height       : 25px;\n  padding-top  : 5px;\n  background   : var(--close-box-background);\n  opacity      : 1;\n  border-radius: 50%;\n  transition   : all 0.1s ease-in-out;\n}\n\n:root.right tab-item tab-twisty {\n  display: none;\n}\n\n:root.right tab-item tab-favicon {\n  transform: scale(120%);\n  margin-left: 20px;\n  margin-bottom: 8px;\n  order: 1000;\n  filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2)) grayscale(80%) opacity(80%);\n  transition: all 0.2s ease-in-out;\n}\n\n:root.right tab-item.active:not(:hover) tab-favicon {\n  filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2)) grayscale(10%) opacity(80%);\n  transform: scale(150%);\n  margin-right: 5px;\n}\n\n:root.right tab-item:hover tab-favicon, :root.right tab-favicon {\n  transform: translateX(30px);\n}\n\n:root.right tab-item:hover tab-favicon \n{\n  margin-left: -15px;\n}\n\n.tab:not(.group-tab):not([data-current-uri^=\"chrome:\"]):not([data-current-uri^=\"about:addons\"]):not([data-current-uri^=\"about:preferences\"]) \n.favicon .favicon-default::before {\n  background: url(\"chrome://branding/content/identity-icons-brand.svg\") no-repeat center / 100% !important;\n  mask: none !important;\n}\n",
+  "warnOnAutoGroupNewTabs": false,
+  "warnOnCloseTabs": false,
+  "warnOnCloseTabsByClosebox": false
+}
