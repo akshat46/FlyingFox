@@ -2,7 +2,7 @@
 
 This configuration changes the sidebar style. There are two ways to install:
 
-## 1. Import settings
+### 1. Import settings
 
 Follow these steps if you do not have, or want to keep your old configurations for hntp.
 
@@ -10,7 +10,7 @@ Follow these steps if you do not have, or want to keep your old configurations f
 
 2. Scroll all the way down to "Import" and select treestyletab/config.json file.
 
-## Manual Installation
+### 2. Manual Installation
 
 Follow these steps if you have want to keep your configurations for hntp.
 
