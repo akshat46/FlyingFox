@@ -2,6 +2,8 @@
 
 An opinionated set of configurations for firefox.
 
+![FlyinfFox](https://github.com/akshat46/FlyingFox/blob/master/img/screenshot.png)
+
 Has custom CSS for following extensions: 
 1. [Tree Style Tab](https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/)
 2. [Humble New Tab Page](https://addons.mozilla.org/en-US/firefox/addon/humble-new-tab/)
@@ -13,6 +15,7 @@ Has custom CSS for following extensions:
 4. To show pinned-style links instead of folders in hntp: 
   1. Uncheck "Show top-level folders" under Settings tab. 
   2. Only keep the *pinned* urls under bookmarks under "other bookmarks" in firefox. 
+  ![Bookmarks](https://github.com/akshat46/FlyingFox/blob/master/img/bookmarks.png)
   3. On hntp, drag and arrange the bookmarks so that "Other Bookmarks" has a column to itself. 
 4. Go to extensions page > treestyletab > preferences.
 5. Paste contents of `treeStyleTab.css` to the textfield under "Advanced" section. *(Make sure you have "vertigo" theme selected. The CSS doesn't act as desired under any other theme.)*
