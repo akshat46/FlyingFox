@@ -61,7 +61,7 @@ There's two main sidebar components.
 /* move inner to show entire sidebar */
 #sidebar-box #sidebar:hover {
     transform : translateX(0) !important;
-    box-shadow: 2px 0 33px #28282F;
+    box-shadow: 2px 0 33px var(--shadow-color);
 }
 
 #main-window[title^="Firefox Developer Edition"] #sidebar-box {
