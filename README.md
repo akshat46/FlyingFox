@@ -2,7 +2,9 @@
 
 An opinionated set of configurations for firefox.
 
-![FlyinfFox](https://github.com/akshat46/FlyingFox/blob/master/img/screenshot.png)
+![FlyinfFox-normal](https://github.com/akshat46/FlyingFox/blob/master/img/normal.png)
+
+![FlyinfFox-hovered](https://github.com/akshat46/FlyingFox/blob/master/img/hovered.png)
 
 Has custom CSS for following extensions:
 
