@@ -6,6 +6,8 @@ An opinionated set of configurations for firefox.
 
 ![FlyinfFox-hovered](https://github.com/akshat46/FlyingFox/blob/master/img/hovered.png)
 
+*Screenshots with [Material Fox](https://github.com/muckSponge/MaterialFox)*
+
 Has custom CSS for following extensions:
 
 1. [Tree Style Tab](https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/)
