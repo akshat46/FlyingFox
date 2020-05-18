@@ -83,3 +83,24 @@ tab-item tab-closebox{
   background: url("chrome://branding/content/identity-icons-brand.svg") no-repeat center / 100% !important;
   mask: none !important;
 }
+
+tab-item.pinned{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0px !important;
+}
+
+:root.right tab-item.pinned tab-favicon {
+  transform: scale(120%);
+  margin-left: 10px;
+}
+
+:root.right tab-item.active.pinned{
+  position: relative;
+  left: 190px !important;
+}
+
+:root.right tab-item.active.pinned tab-favicon {
+  transform: scale(130%) !important;
+  margin-left: 7px;
+}

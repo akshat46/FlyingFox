@@ -44,7 +44,7 @@ There's two main sidebar components.
   position     : relative!important;
   margin-top   : var(--menubar-height) !important;
   padding-top  : calc(-1*var(--menubar-height));
-  border-radius: 0 5px 0px 0;
+  border-radius: 0 5px 0 0;
   min-width    : var(--initial-width) !important;
   max-width    : var(--initial-width) !important;
 }
@@ -54,8 +54,8 @@ There's two main sidebar components.
     min-width    : var(--sidebar-width) !important;
     max-width    : var(--sidebar-width) !important;
     transform    : translateX(calc(var(--initial-width) - var(--sidebar-width))) !important;
-    border-radius: 0 3px 0px 0;
     transition   : all 0.2s ease-in-out;
+    border-radius: 0 5px 0 0;
 }
 
 /* move inner to show entire sidebar */
