@@ -15,6 +15,7 @@ tab-item {
   padding-top  : 5px;
   padding-right: 10px;
   transition   : all 0.3s ease-i-out !important;
+  cursor: pointer;
 }
 
 tab-item .label{   
