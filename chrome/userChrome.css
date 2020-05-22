@@ -76,10 +76,10 @@ There's two main sidebar components.
 }
 
 /* Hide the title bar */
-#titlebar{ visibility: collapse; }
+#titlebar{ visibility: collapse !important; }
 
 /* hide normal horizontal tab bar */
-#TabsToolbar { visibility: collapse; }
+#TabsToolbar { visibility: collapse !important; }
 
 #sidebar { border-right: none !important; }
 
