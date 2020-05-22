@@ -2,11 +2,9 @@
 
 An opinionated set of configurations for firefox.
 
-![FlyinfFox-normal](https://github.com/akshat46/FlyingFox/blob/master/img/normal.png)
+![FlyinfFox](https://github.com/akshat46/FlyingFox/blob/master/img/demo.gif)
 
-![FlyinfFox-hovered](https://github.com/akshat46/FlyingFox/blob/master/img/hovered.png)
-
-*Screenshots with [Material Fox](https://github.com/muckSponge/MaterialFox)*
+*^ with [Material Fox](https://github.com/muckSponge/MaterialFox)*
 
 Has custom CSS for following extensions:
 
@@ -28,6 +26,8 @@ Has custom CSS for following extensions:
 
 2. **Top bar tabs still showing up/ minimize-close buttons disapeeared:** Make sure you have the following setup in your "Customize Toolbar" page: (*Title Bar: on; Toolbars: None Selected*)
 ![Customization](https://github.com/akshat46/FlyingFox/blob/master/img/customization.png)
+
+3. **White area above the sidebar:** In `userChrome.css` change change menu-bar height to `--menubar-height : 0px;`. 
 
 ## Optional
 
