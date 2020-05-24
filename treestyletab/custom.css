@@ -1,6 +1,7 @@
 :root{
   --active-tab-color-a     : #6b5874;
   --active-tab-color-b     : #d5749d;
+  --last-active-tab-color  : #35B5B82b;
   --active-tab-color-shadow: rgba(210, 115, 156, 0.5);
   --active-tab-text-color  : white;
   --tab-hover-color        : #28282f;
@@ -15,7 +16,10 @@ tab-item {
   padding-top  : 5px;
   padding-right: 10px;
   transition   : all 0.3s ease-i-out !important;
-  cursor: pointer;
+}
+
+.tab.last-active {
+ background: var(--last-active-tab-color);
 }
 
 tab-item .label{   
@@ -30,6 +34,7 @@ tab-item.active {
   transition  : scale 0.3s ease-i-out !important;
   color       : var(--tab-text-color ) !important;
 }
+
 tab-item:hover {
   background: var(--tab-hover-color ) !important;
   box-shadow: 0 5px 20px -5px var(--tab-hover-color ) !important;
@@ -40,7 +45,7 @@ tab-item:not(:hover) tab-closebox {
   transform: scale(110%);
 }
 
-tab-item tab-closebox{
+tab-item:not(pinned) tab-closebox{
   position     : absolute;
   right        : 10px;
   height       : 25px;
