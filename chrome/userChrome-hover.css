@@ -36,8 +36,8 @@ There's two main sidebar components.
   position     : relative!important;
   margin-top   : var(--menubar-height) !important;
   padding-top  : calc(-1*var(--menubar-height));
-  min-width    : 0px !important;
-  max-width    : 0px !important;
+  min-width    : var(--initial-width) !important;
+  max-width    : var(--initial-width) !important;
 }
 
 #sidebar-header, #sidebar-splitter{

@@ -14,17 +14,19 @@ Has custom CSS for following extensions:
 
 ## Installation
 
-1. Copy `userChrome.css` in the Chrome directory in your Firefox profile directory. To find your profile directory, go to about:support.
+Follow instructions in each section's `README` readme under their respective directories.
 
-2. Go to about:config and set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
+- `chrome`: Firefox UI changes such as sidebar behavior, hide tab row, etc.
 
-3. Follow instructions for each extension in readme under their respective directories.
+- `hntp`: New tab page UI.
+
+- `treestyletab`: Tab behavior for tst and my entire tst config.
 
 ### Known Issues: 
 
 1. **Sidebar wont collapse:** Firefox should be restarted ***completely*** after making any changes to `userChrome.css`. If you do not see any changes you might have to log out and log back in. (Alternatively, if you are on Linux, run `killall firefox` in terminal). 
 
-2. **Top bar tabs still showing up/ minimize-close buttons disapeeared:** Make sure you have the following setup in your "Customize Toolbar" page: (*Title Bar: on; Toolbars: None Selected*)
+2. **Top bar tabs still showing up/minimize-close buttons disappeared:** Make sure you have the following setup in your "Customize Toolbar" page: (*Title Bar: on; Toolbars: None Selected*)
 ![Customization](https://github.com/akshat46/FlyingFox/blob/master/img/customization.png)
 
 3. **White area above the sidebar:** In `userChrome.css` change change menu-bar height to `--menubar-height : 0px;`. 
