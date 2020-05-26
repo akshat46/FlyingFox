@@ -14,7 +14,7 @@ Has custom CSS for following extensions:
 
 ## Installation
 
-Follow instructions in each section's `README` readme under their respective directories.
+Follow instructions in each section's `README` under their respective directories.
 
 - `chrome`: Firefox UI changes such as sidebar behavior, hide tab row, etc.
 
