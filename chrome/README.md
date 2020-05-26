@@ -19,5 +19,3 @@ This configuration changes the sidebar behavior. There are three options.
 3. *(Optional)* Change values in `vars.css` according to your liking.
 
 4. Go to `about:config` and set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
-
-5. Follow instructions for each extension in readme under their respective directories.
