@@ -9,15 +9,8 @@
 @import "urlbar/urlbar.css";
 @import "findbar/findbar.css";
 
-:root {
-  --initial-width           : 70px;     /* initial width of the sidebar */
-  --sidebar-width           : 250px;    /* expanded width of the sidebar */
-  --toolbar-height          : 0;
-  --menubar-height          : -40px;
-  --toolmenubar-height      : -40px;    /* sum of previous two */
-  --shadow-color            : #28282F;  /* shadow color. set to #00000000 for no shadow. same as folder color from hntp and tab-hover color from tst*/
-  --sidebar-background-color: #31313a;
-}
+/* Vars Import */
+@import "vars.css";
 
 /* show bookmarks toolbar on new tab only */
 #main-window #PersonalToolbar {
@@ -45,25 +38,21 @@ There's two main sidebar components.
   position     : relative!important;
   margin-top   : var(--menubar-height) !important;
   padding-top  : calc(-1*var(--menubar-height));
-  border-radius: 0 5px 0 0;
-  min-width    : var(--initial-width) !important;
-  max-width    : var(--initial-width) !important;
-  background   : var(--sidebar-background-color);
+  max-width    : 0px;
+  min-width    : 0px;
+}
+
+#sidebar-header{
+  color: var(--sidebar-background-color) !important;
 }
 
 /* inner width = expanded width & move inner to only show initial-width long section */
 #sidebar-box #sidebar {
-    min-width    : var(--sidebar-width) !important;
-    max-width    : var(--sidebar-width) !important;
-    transform    : translateX(calc(var(--initial-width) - var(--sidebar-width))) !important;
-    transition   : all 0.2s ease-in-out;
-    border-radius: 0 5px 0 0;
-}
-
-/* move inner to show entire sidebar */
-#sidebar-box #sidebar:hover {
-    transform : translateX(0) !important;
-    box-shadow: 2px 0 33px var(--shadow-color);
+  min-width : var(--sidebar-width) !important;
+  max-width : var(--sidebar-width) !important;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 2px 0 33px -5px var(--shadow-color);
+  background: var(--sidebar-background-color) !important;
 }
 
 #main-window[title^="Firefox Developer Edition"] #sidebar-box {
@@ -96,6 +85,6 @@ toolbar{
 }
 
 /* Hide splitter, when using Tree Style Tab. */
-#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] + #sidebar-splitter {
+#sidebar-splitter {
   display: none !important;
 }
