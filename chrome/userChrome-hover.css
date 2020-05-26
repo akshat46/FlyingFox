@@ -59,6 +59,11 @@ There's two main sidebar components.
   box-shadow: 2px 0 33px var(--shadow-color);
 }
 
+#sidebar-box[sidebarcommand="viewBookmarksSidebar"] #sidebar {
+  transform : translateX(0) !important;
+  box-shadow: 2px 0 33px var(--shadow-color);
+}
+
 #main-window[title^="Firefox Developer Edition"] #sidebar-box {
   margin-top: var(--toolmenubar-height) !important;
 }
