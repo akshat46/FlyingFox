@@ -7,6 +7,13 @@
   --tab-hover-color        : #28282f;
   --tab-text-color         : white;
   --close-box-background   : #31313a;
+
+  /*
+  Adjust value of favicon-shift if tab icons are incorrectly positioned.
+  >0 shifts left, <0 shifts right. 1=10px.
+  */
+  --favicon-shift          : 0;
+
 }
 
 tab-item {
@@ -47,7 +54,7 @@ tab-item:not(:hover) tab-closebox {
 
 tab-item:not(pinned) tab-closebox{
   position     : absolute;
-  right        : 10px;
+  right        : calc(10px + (10px * var(--favicon-shift)));
   height       : 25px;
   padding-top  : 5px;
   background   : var(--close-box-background);
@@ -62,6 +69,7 @@ tab-item:not(pinned) tab-closebox{
 
 :root.right tab-item tab-favicon {
   transform: scale(120%);
+  margin-right: calc(10px * var(--favicon-shift));
   margin-left: 20px;
   margin-bottom: 8px;
   order: 1000;
@@ -72,11 +80,11 @@ tab-item:not(pinned) tab-closebox{
 :root.right tab-item.active:not(:hover) tab-favicon {
   filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2)) grayscale(10%) opacity(80%);
   transform: scale(150%);
-  margin-right: 5px;
+  margin-right: calc(5px + (10px * var(--favicon-shift)));
 }
 
 :root.right tab-item:hover tab-favicon, :root.right tab-favicon {
-  transform: translateX(30px);
+  transform: translateX(calc(30px + (10px * var(--favicon-shift))));
 }
 
 :root.right tab-item:hover tab-favicon 
