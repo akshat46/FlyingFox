@@ -16,6 +16,8 @@ This configuration changes the sidebar behavior. There are three options.
 
 2. Copy the chosen `userChrome-*.css` and `vars.css`, and paste them in the Chrome directory in your Firefox profile directory. To find your profile directory, go to `about:support`. *Alternative if you are on linux you can create symlink to whichever `userChrome` you want in your Chrome directory, and modify your copy of `vars.css` in case you decide to update with any new changes.*
 
-3. *(Optional)* Change values in `vars.css` according to your liking.
+3. Rename the copied `userChrome-*.css` file to `userChrome.css`. 
 
-4. Go to `about:config` and set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
+4. *(Optional)* Change values in `vars.css` according to your liking.
+
+5. Go to `about:config` and set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
