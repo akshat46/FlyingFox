@@ -12,6 +12,7 @@
 /* Vars Import */
 @import "vars.css";
 
+
 /* show bookmarks toolbar on new tab only */
 #main-window #PersonalToolbar {
   visibility : collapse !important;

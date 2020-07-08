@@ -10,62 +10,64 @@
 @import "findbar/findbar.css";
 @import "vars.css";
 
+
 /* show bookmarks toolbar on new tab only */
 #main-window #PersonalToolbar {
-  visibility : collapse !important;
-  z-index    : 1!important;
-  position   : relative!important;
-  margin-left: var(--initial-width);              /* shift toolbar to the right based on initial width */
-  margin-top : var(--toolbar-height) !important;
+    visibility : collapse !important;
+    z-index    : 1!important;
+    position   : relative!important;
+    margin-left: var(--initial-width);              /* shift toolbar to the right based on initial width */
+    margin-top : var(--toolbar-height) !important;
 }
 
 #main-window[title^="Firefox Developer Edition"] #PersonalToolbar {
-  visibility: visible !important;
-  margin-top: -1px !important;
+    visibility: visible !important;
+    margin-top: -1px !important;
 }
 
 /* 
 There's two main sidebar components. 
 1. #sidebar-box (outer)
 2. #sidebar (inner) 
-*/
+ */
 /* lock outer to height by doing the inverse margin of the toolbar element */
 /* set outer width = initial width */
 #sidebar-box {
-  z-index      : 1000 !important;
-  position     : relative!important;
-  margin-top   : var(--menubar-height) !important;
-  padding-top  : calc(-1*var(--menubar-height));
-  min-width    : var(--initial-width) !important;
-  max-width    : var(--initial-width) !important;
+    z-index      : 1000 !important;
+    position     : relative!important;
+    background   : var(--sidebar-background-color) !important;
+    padding-top  : calc(-1*var(--menubar-height));
+    min-width    : var(--initial-width) !important;
+    max-width    : var(--initial-width) !important;
 }
 
 #sidebar-header, #sidebar-splitter{
-  display: none !important;
+    display: none !important;
 }
 
 /* inner width = expanded width & move inner to only show initial-width long section */
 #sidebar-box #sidebar {
-  min-width    : var(--sidebar-width) !important;
-  max-width    : var(--sidebar-width) !important;
-  background   : var(--sidebar-background-color);
-  transform    : translateX(calc(var(--initial-width) - var(--sidebar-width))) !important;
-  transition   : all 0.2s ease-in-out;
+    min-width    : var(--sidebar-width) !important;
+    max-width    : var(--sidebar-width) !important;
+    background   : var(--sidebar-background-color) !important;
+    transform    : translateX(calc(var(--initial-width) - var(--sidebar-width))) !important;
+    transition   : all 0.2s ease-in-out;
+    margin-top   : var(--menubar-height) !important;
 }
 
 /* move inner to show entire sidebar */
 #sidebar-box #sidebar:hover {
-  transform : translateX(0) !important;
-  box-shadow: 2px 0 33px var(--shadow-color);
+    transform : translateX(0) !important;
+    box-shadow: 2px 0 33px var(--shadow-color);
 }
 
 #sidebar-box[sidebarcommand="viewBookmarksSidebar"] #sidebar {
-  transform : translateX(0) !important;
-  box-shadow: 2px 0 33px var(--shadow-color);
+    transform : translateX(0) !important;
+    box-shadow: 2px 0 33px var(--shadow-color);
 }
 
 #main-window[title^="Firefox Developer Edition"] #sidebar-box {
-  margin-top: var(--toolmenubar-height) !important;
+    margin-top: var(--toolmenubar-height) !important;
 }
 
 
@@ -78,13 +80,13 @@ There's two main sidebar components.
 #sidebar { border-right: none !important; }
 
 toolbar#nav-bar {
-  padding-top   : 12px;
-  padding-bottom: 7px;
-  margin-left   : var(--initial-width);
-  padding-left  : 7px;
-  border        : none !important;
+    padding-top   : 12px;
+    padding-bottom: 7px;
+    margin-left   : var(--initial-width);
+    padding-left  : 7px;
+    border        : none !important;
 }
 
 toolbar{
-  border: none !important;
+    border: none !important;
 }
