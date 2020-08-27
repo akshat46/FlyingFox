@@ -28,6 +28,6 @@ Follow these steps if you have want to keep your configurations for hntp.
 
 ## A few notes
 
-- This configuration asthetically breaks the "Bookmarks" sidebar. Will try to fix it in future updates.
+- ~~This configuration asthetically breaks the "Bookmarks" sidebar. Will try to fix it in future updates.~~ Fixed.
 
 - I have turned the "tree" functionality of treestyle tab off and only using it as a vertical tab list (as seen in **Manual Installation #4**). I have also disabled the dropdown button that shows up next to a tab with child nodes. And so it's pretty much broken for branching functionality as of right now. Will fix it later.
