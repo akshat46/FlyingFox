@@ -3,18 +3,22 @@
   "autoAttachOnDuplicated": 2,
   "autoCollapseExpandSubtreeOnAttach": false,
   "autoCollapseExpandSubtreeOnSelect": false,
-  "autoGroupNewTabs": false,
+  "cachedExternalAddons": [
+    "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}"
+  ],
+  "chunkedUserStyleRules0": "OnJvb3R7CiAgLS1hY3RpdmUtdGFiLWNvbG9yLWEgICAgIDogIzVBQTZDNzsKICAtLWFjdGl2ZS10YWItY29sb3ItYiAgICAgOiAjNjNDRENGOwogIC0tYWN0aXZlLXRhYi1jb2xvci1zaGFkb3c6ICMxNTFEMjg7CgogIC0tbGFzdC1hY3RpdmUtdGFiLWNvbG9yICA6ICM2M0NEQ0Y7CgogIC0tdGFiLWhvdmVyLWNvbG9yICAgICAgICA6ICMyMjMwNDI7CgogIC0tdGFiLXRleHQtY29sb3IgICAgICAgICA6ICNEM0U4RTY7CiAgLS1hY3RpdmUtdGFiLXRleHQtY29sb3IgIDogI0VERjVGNDsKCiAgLS1jbG9zZS1ib3gtYmFja2dyb3VuZCAgIDogIzE5MjMzMDsKICAKICAtLW5ld3RhYi1idG4tYmFja2dyb3VuZCAgOiAjMTkyMzMwOwoKCiAgLyoKICBBZGp1c3QgdmFsdWUgb2YgZmF2aWNvbi1zaGlmdCBpZiB0YWIgaWNvbnMgYXJlIGluY29ycmVjdGx5IHBvc2l0aW9uZWQuCiAgPjAgc2hpZnRzIGxlZnQsIDwwIHNoaWZ0cyByaWdodC4gMT0xMHB4LgogICovCiAgLS1mYXZpY29uLXNoaWZ0ICAgICAgICAgIDogMDsKCn0KCnRhYi1pdGVtIHsKICBtYXJnaW4gICAgICAgOiAxNXB4IDEwcHg7CiAgbWFyZ2luLXJpZ2h0IDogMzBweDsKICBib3JkZXItcmFkaXVzOiA1cHg7CiAgcGFkZGluZy10b3AgIDogNXB4OwogIHBhZGRpbmctcmlnaHQ6IDEwcHg7CiAgdHJhbnNpdGlvbiAgIDogYWxsIDAuM3MgZWFzZS1pLW91dCAhaW1wb3J0YW50OwogIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50Owp9CgouaGlnaGxpZ2h0ZXJ7CiAgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50Owp9CgoudGFiLmxhc3QtYWN0aXZlIHsKIGJhY2tncm91bmQ6IHZhcigtLWxhc3QtYWN0aXZlLXRhYi1jb2xvcik7Cn0KCnRhYi1pdGVtIC5sYWJlbHsgICAKICBjb2xvcjogdmFyKC0tYWN0aXZlLXRhYi10ZXh0LWNvbG9yICkgIWltcG9ydGFudDsKfQoKdGFiLWl0ZW0uYWN0aXZlIHsKICBiYWNrZ3JvdW5kICA6IGxpbmVhci1ncmFkaWVudCh0byByaWdodCwgdmFyKC0tYWN0aXZlLXRhYi1jb2xvci1hKSwgdmFyKC0tYWN0aXZlLXRhYi1jb2xvci1iKSkgIWltcG9ydGFudDsKICBib3gtc2hhZG93ICA6IDVweCAwIDE1cHggLTFweCB2YXIoLS1hY3RpdmUtdGFiLWNvbG9yLXNoYWRvdyk7CiAgbWFyZ2luLXJpZ2h0OiAxOHB4OwogIGZvbnQtd2VpZ2h0IDogYm9sZGVyOwogIHRyYW5zaXRpb24gIDogc2NhbGUgMC4zcyBlYXNlLWktb3V0ICFpbXBvcnRhbnQ7CiAgY29sb3IgICAgICAgOiB2YXIoLS10YWItdGV4dC1jb2xvciApICFpbXBvcnRhbnQ7Cn0KCnRhYi1pdGVtOmhvdmVyIHsKICBiYWNrZ3JvdW5kOiB2YXIoLS10YWItaG92ZXItY29sb3IgKSAhaW1wb3J0YW50OwogIGJveC1zaGFkb3c6IDAgNXB4IDIwcHggLTVweCB2YXIoLS10YWItaG92ZXItY29sb3IgKSAhaW1wb3J0YW50Owp9Cgp0YWItaXRlbTpub3QoOmhvdmVyKSB0YWItY2xvc2Vib3ggewogIHJpZ2h0ICAgIDogLTMwcHg7CiAgdHJhbnNmb3JtOiBzY2FsZSgxMTAlKTsKfQoKdGFiLWl0ZW06bm90KHBpbm5lZCkgdGFiLWNsb3NlYm94ewogIHBvc2l0aW9uICAgICA6IGFic29sdXRlOwogIHJpZ2h0ICAgICAgICA6IGNhbGMoMTBweCArICgxMHB4ICogdmFyKC0tZmF2aWNvbi1zaGlmdCkpKTsKICBoZWlnaHQgICAgICAgOiAyNXB4OwogIHBhZGRpbmctdG9wICA6IDVweDsKICBiYWNrZ3JvdW5kICAgOiB2YXIoLS1jbG9zZS1ib3gtYmFja2dyb3VuZCk7CiAgb3BhY2l0eSAgICAgIDogMTsKICBib3JkZXItcmFkaXVzOiA1MCU7CiAgdHJhbnNpdGlvbiAgIDogYWxsIDAuMXMgZWFzZS1pbi1vdXQ7Cn0KCjpyb290LnJpZ2h0IHRhYi1pdGVtIHRhYi10d2lzdHkgewogIGRpc3BsYXk6IG5vbmU7Cn0KCjpyb290LnJpZ2h0IHRhYi1pdGVtIHRhYi1mYXZpY29uIHsKICB0cmFuc2Zvcm06IHNjYWxlKDEyMCUpOwogIG1hcmdpbi1yaWdodDogY2FsYygxMHB4ICogdmFyKC0tZmF2aWNvbi1zaGlmdCkpOwogIG1hcmdpbi1sZWZ0OiAyMHB4OwogIG1hcmdpbi1ib3R0b206IDhweDsKICBvcmRlcjogMTAwMDsKICBmaWx0ZXI6IGRyb3Atc2hhZG93KDBweCA0cHggNnB4IHJnYmEoMCwwLDAsMC4yKSkgZ3JheXNjYWxlKDgwJSkgb3BhY2l0eSg4MCUpOwogIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2UtaW4tb3V0Owp9Cgo6cm9vdC5yaWdodCB0YWItaXRlbS5hY3RpdmU6bm90KDpob3ZlcikgdGFiLWZhdmljb24gewogIGZpbHRlcjogZHJvcC1zaGFkb3coMHB4IDRweCA2cHggcmdiYSgwLDAsMCwwLjIpKSBncmF5c2NhbGUoMTAlKSBvcGFjaXR5KDgwJSk7CiAgdHJhbnNmb3JtOiBzY2FsZSgxNTAlKTsKICBtYXJnaW4tcmlnaHQ6IGNhbGMoNXB4ICsgKDEwcHggKiB2YXIoLS1mYXZpY29uLXNoaWZ0KSkpOwp9Cgo6cm9vdC5yaWdodCB0YWItaXRlbTpob3ZlciB0YWItZmF2aWNvbiwgOnJvb3QucmlnaHQgdGFiLWZhdmljb24gewogIHRyYW5zZm9ybTogdHJhbnNsYXRlWChjYWxjKDMwcHggKyAoMTBweCAqIHZhcigtLWZhdmljb24tc2hpZnQpKSkpOwp9Cgo6cm9vdC5yaWdodCB0YWItaXRlbTpob3ZlciB0YWItZmF2aWNvbiAKewogIG1hcmdpbi1sZWZ0OiAtMTVweDsKfQoKLnRhYjpub3QoLmdyb3VwLXRhYik6bm90KFtkYXRhLWN1cnJlbnQtdXJpXj0iY2hyb21lOiJdKTpub3QoW2RhdGEtY3VycmVudC11cmlePSJhYm91dDphZGRvbnMiXSk6bm90KFtkYXRhLWN1cnJlbnQtdXJpXj0iYWJvdXQ6cHJlZmVyZW5jZXMiXSkgCi5mYXZpY29uIC5mYXZpY29uLWRlZmF1bHQ6OmJlZm9yZSB7CiAgYmFja2dyb3VuZDogdXJsKCJjaHJvbWU6Ly9icmFuZGluZy9jb250ZW50L2lkZW50aXR5LWljb25zLWJyYW5kLnN2ZyIpIG5vLXJlcGVhdCBjZW50ZXIgLyAxMDAlICFpbXBvcnRhbnQ7CiAgbWFzazogbm9uZSAhaW1wb3J0YW50Owp9CgoubmV3dGFiLWJ1dHRvbi1ib3ggewogIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50OwogIG1hcmdpbjogMCA1MHB4Owp9CgoubmV3dGFiLWJ1dHRvbiB7CiAgYm9yZGVyOiBub25lICFpbXBvcnRhbnQ7CiAgYm9yZGVyLXJhZGl1czogOHB4OwogIHBhZGRpbmc6IDhweCAwICFpbXBvcnRhbnQ7CiAgbWFyZ2luOiAwIDVweDsKfQoKLm5ld3RhYi1hY3Rpb24tc2VsZWN0b3ItYW5jaG9yIHsKICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDsKICBtYXJnaW4tcmlnaHQ6IDEwcHg7CiAgbWFyZ2luLXRvcCA6IDNweDsKfQogCi5uZXd0YWItYnV0dG9uOmhvdmVyewogIGJhY2tncm91bmQ6IHZhcigtLW5ld3RhYi1idG4tYmFja2dyb3VuZCk7Cn0KCnRhYi1pdGVtLnBpbm5lZHsKICBtYXJnaW4tdG9wOiAxMHB4OwogIG1hcmdpbi1ib3R0b206IDEwcHg7CiAgcGFkZGluZzogMHB4ICFpbXBvcnRhbnQ7Cn0KCjpyb290LnJpZ2h0IHRhYi1pdGVtLnBpbm5lZCB0YWItZmF2aWNvbiB7CiAgdHJhbnNmb3JtOiBzY2FsZSgxMjAlKTsKICBtYXJnaW4tbGVmdDogMTBweDsKfQoKOnJvb3QucmlnaHQgdGFiLWl0ZW0uYWN0aXZlLnBpbm5lZHsKICBwb3NpdGlvbjogcmVsYXRpdmU7CiAgbGVmdDogMTkwcHggIWltcG9ydGFudDsKfQoKOnJvb3QucmlnaHQgdGFiLWl0ZW0uYWN0aXZlLnBpbm5lZCB0YWItZmF2aWNvbiB7CiAgdHJhbnNmb3JtOiBzY2FsZSgxMzAlKSAhaW1wb3J0YW50OwogIG1hcmdpbi1sZWZ0OiA3cHg7Cn0=",
   "closeParentBehaviorMode": 1,
   "collapseExpandSubtreeByDblClick": false,
-  "configsVersion": 9,
+  "colorScheme": "photon",
+  "configsVersion": 14,
   "incognitoAllowedExternalAddons": [
     "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}"
   ],
   "lastDraggedTabs": {
     "tabIds": [
-      12
+      18
     ],
-    "urlsDigest": "bb27f4cdd807dc0e35118de8df236e19ff15534e"
+    "urlsDigest": "646948d0f1d2f451d402894d89fc807948f48021"
   },
   "maxTreeLevel": -2,
   "migratedBookmarkUrls": [
@@ -23,18 +27,18 @@
     "moz-extension://d5c3e323-a590-4085-ad3b-c7c07be7636d/resources/startup.html",
     "moz-extension://d5c3e323-a590-4085-ad3b-c7c07be7636d/tests/runner.html"
   ],
-  "notifiedFeaturesVersion": 4,
+  "notifiedFeaturesVersion": 5,
   "optionsExpandedSections": [
     "section-appearance",
     "section-advanced",
-    "section-treeBehavior",
-    "section-debug"
+    "section-debug",
+    "section-newTab",
+    "section-treeBehavior"
   ],
-  "showExpertOptions": true,
   "sidebarPosition": 2,
-  "style": "vertigo",
+  "style": "plain",
   "syncParentTabAndOpenerTab": false,
-  "userStyleRules": ":root{\n  --active-tab-color-a     : #6b5874;\n  --active-tab-color-b     : #d5749d;\n  --active-tab-color-shadow: rgba(210, 115, 156, 0.5);\n  --active-tab-text-color  : white;\n  --tab-hover-color        : #28282f;\n  --tab-text-color         : white;\n  --close-box-background   : #31313a;\n}\n\ntab-item {\n  margin       : 15px 10px;\n  margin-right : 30px;\n  border-radius: 5px;\n  padding-top  : 5px;\n  padding-right: 10px;\n  transition   : all 0.3s ease-i-out !important;\n}\n\ntab-item .label{   \n  color: var(--active-tab-text-color ) !important;\n}\n\ntab-item.active {\n  background  : linear-gradient(to right, var(--active-tab-color-a), var(--active-tab-color-b)) !important;\n  box-shadow  : 5px 0 15px -1px var(--active-tab-color-shadow);\n  margin-right: 18px;\n  font-weight : bolder;\n  transition  : scale 0.3s ease-i-out !important;\n  color       : var(--tab-text-color ) !important;\n}\ntab-item:hover {\n  background: var(--tab-hover-color ) !important;\n  box-shadow: 0 5px 20px -5px var(--tab-hover-color ) !important;\n}\n\ntab-item:not(:hover) tab-closebox {\n  right    : -30px;\n  transform: scale(110%);\n}\n\ntab-item tab-closebox{\n  position     : absolute;\n  right        : 10px;\n  height       : 25px;\n  padding-top  : 5px;\n  background   : var(--close-box-background);\n  opacity      : 1;\n  border-radius: 50%;\n  transition   : all 0.1s ease-in-out;\n}\n\n:root.right tab-item tab-twisty {\n  display: none;\n}\n\n:root.right tab-item tab-favicon {\n  transform: scale(120%);\n  margin-left: 20px;\n  margin-bottom: 8px;\n  order: 1000;\n  filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2)) grayscale(80%) opacity(80%);\n  transition: all 0.2s ease-in-out;\n}\n\n:root.right tab-item.active:not(:hover) tab-favicon {\n  filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2)) grayscale(10%) opacity(80%);\n  transform: scale(150%);\n  margin-right: 5px;\n}\n\n:root.right tab-item:hover tab-favicon, :root.right tab-favicon {\n  transform: translateX(30px);\n}\n\n:root.right tab-item:hover tab-favicon \n{\n  margin-left: -15px;\n}\n\n.tab:not(.group-tab):not([data-current-uri^=\"chrome:\"]):not([data-current-uri^=\"about:addons\"]):not([data-current-uri^=\"about:preferences\"]) \n.favicon .favicon-default::before {\n  background: url(\"chrome://branding/content/identity-icons-brand.svg\") no-repeat center / 100% !important;\n  mask: none !important;\n}\n",
+  "userStyleRules": "",
   "warnOnAutoGroupNewTabs": false,
   "warnOnCloseTabs": false,
   "warnOnCloseTabsByClosebox": false
