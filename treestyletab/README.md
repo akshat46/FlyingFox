@@ -18,7 +18,7 @@ Follow these steps if you have want to keep your configurations for hntp.
 
 1. Go to extensions page (ctrl+shift+a) > treestyletab > preferences.
 
-2. Make sure you have "vertigo" theme selected. The CSS doesn't act as desired under any other theme.
+2. Make sure you have ~~"vertigo"~~(deprecated) "Plain" theme selected. The CSS doesn't act as desired under any other theme.
 
 3. Make sure you have "Right Side" selected for the setting "Style of contents for the sidebar position".
 
