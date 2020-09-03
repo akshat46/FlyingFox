@@ -86,7 +86,7 @@ toolbar {
     border: none !important;
 }
 
-/* hide normal horizontal tab bar */
+/* /1* hide normal horizontal tab bar *1/ */
 #TabsToolbar {
     display: none;
 }
@@ -98,4 +98,11 @@ toolbar {
 
 /* #tabs-newtab-button { */
 /*     display: none; */
+/* } */
+
+/* #TabsToolbar.browser-toolbar { */
+/*     display: inline-block !important; */
+/*     position: absolute; */
+/*     top: -22px !important; */
+/*     left: 10px; */
 /* } */
