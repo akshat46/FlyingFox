@@ -86,7 +86,7 @@ toolbar {
     border: none !important;
 }
 
-/* /1* hide normal horizontal tab bar *1/ */
+/* hide normal horizontal tab bar */
 #TabsToolbar {
     display: none;
 }

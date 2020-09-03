@@ -1,0 +1,25 @@
+/* shifts navbar to right. vars from flyingfox/chrome/vars.css */
+#main-window #PersonalToolbar {
+    visibility: collapse !important;
+    z-index: 1 !important;
+    position: relative !important;
+    margin-left: var(--initial-width); /* shift toolbar to the right based on initial width */
+    margin-top: var(--toolbar-height) !important;
+}
+
+/* hide tabs */
+.tabbrowser-tab {
+    display: none;
+}
+
+#tabs-newtab-button {
+    display: none;
+}
+
+/* move window-controls down */
+#TabsToolbar.browser-toolbar {
+    display: inline-block !important;
+    position: absolute;
+    top: -22px !important;
+    left: 10px;
+}
