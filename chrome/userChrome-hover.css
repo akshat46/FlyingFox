@@ -90,19 +90,3 @@ toolbar {
 #TabsToolbar {
     display: none;
 }
-
-/* Show firefox titlebar */
-/* .tabbrowser-tab { */
-/*     display: none; */
-/* } */
-
-/* #tabs-newtab-button { */
-/*     display: none; */
-/* } */
-
-/* #TabsToolbar.browser-toolbar { */
-/*     display: inline-block !important; */
-/*     position: absolute; */
-/*     top: -22px !important; */
-/*     left: 10px; */
-/* } */
