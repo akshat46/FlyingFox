@@ -4,7 +4,7 @@ An opinionated set of configurations for firefox.
 
 ![FlyinfFox](https://github.com/akshat46/FlyingFox/blob/master/img/demo.gif)
 
-*^ with [Material Fox](https://github.com/muckSponge/MaterialFox)*
+*^ with [Material Fox](https://github.com/muckSponge/MaterialFox), [github-moonlight userstyle](https://github.com/brettm12345/github-moonlight)*
 
 Has custom CSS for following extensions:
 
