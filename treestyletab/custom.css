@@ -23,7 +23,7 @@ tab-item {
     border-radius: var(--tab-border-radius);
     padding-top: 5px;
     padding-right: 10px;
-    transition: all 0.3s ease-i-out !important;
+    transition: all 0.3s ease-in-out !important;
     border: none !important;
 }
 
@@ -44,7 +44,7 @@ tab-item.active {
     box-shadow: 5px 0 15px -1px var(--active-tab-color-shadow);
     margin-right: 18px;
     font-weight: bolder;
-    transition: scale 0.3s ease-i-out !important;
+    transition: scale 0.3s ease-in-out !important;
     color: var(--tab-text-color) !important;
 }
 
@@ -112,7 +112,7 @@ tab-item:not(pinned) tab-closebox {
 
 .newtab-button {
     border: none !important;
-    border-radius: 25px;
+    border-radius: var(--tab-border-radius);
     padding: 8px 0 !important;
     margin: 0 5px;
 }
