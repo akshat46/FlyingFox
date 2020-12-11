@@ -1,0 +1,83 @@
+/* material firefox imports */
+
+/* @import "global/global.css";
+@import "tabbar/tabbar.css"; */
+/* @import "personalbar/personalbar.css";
+@import "popup/popup.css";
+@import "findbar/findbar.css"; */
+@import "icons/icons.css";
+@import "urlbar/urlbar.css";
+@import "navbar/navbar.css";
+@import "variables.css";
+@import "vars.css";
+
+:root {
+    --sidebar-width: 250px; /* expanded width of the sidebar. used for both userChrome-overlay and userChrome-static */
+}
+
+#main-window[title^="Firefox Developer Edition"] #PersonalToolbar {
+    visibility: visible !important;
+    margin-top: -1px !important;
+}
+
+/* 
+There's two main sidebar components. 
+1. #sidebar-box (outer)
+2. #sidebar (inner) 
+*/
+/* lock outer to height by doing the inverse margin of the toolbar element */
+/* set outer width = initial width */
+
+/* inner width = expanded width & move inner to only show initial-width long section */
+
+#sidebar-box #sidebar {
+    min-width: var(--sidebar-width) !important;
+    max-width: var(--sidebar-width) !important;
+    box-shadow: none !important;
+}
+
+/* hide sidebar header for tree style tabs sidebar */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    display: none;
+}
+
+#sidebar {
+    border-right: solid 1px black !important;
+}
+
+toolbar {
+    border: none !important;
+}
+
+/* Hide splitter, when using Tree Style Tab. */
+#sidebar-splitter {
+    display: none !important;
+}
+
+/* hide normal horizontal tab bar */
+/* #TabsToolbar {
+    display: none;
+} */
+
+:root:not([inFullscreen]) toolbar#nav-bar {
+    z-index: 1 !important;
+    position: relative !important;
+    margin-left: 80px !important; /* shift toolbar to the right based on initial width */
+}
+
+/* hide tabs */
+.tabbrowser-tab {
+    display: none;
+}
+
+#tabs-newtab-button {
+    display: none;
+}
+
+/* move window-controls down */
+#TabsToolbar.browser-toolbar {
+    display: inline-block !important;
+    position: absolute;
+    top: -12px !important;
+    left: 10px;
+}

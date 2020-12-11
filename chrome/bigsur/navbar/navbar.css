@@ -1,0 +1,92 @@
+toolbox#navigator-toolbox{
+	border-bottom: solid 1px black !important;
+}
+
+#nav-bar
+{
+	min-height: 36px !important;
+	box-shadow: none !important;
+	padding-inline: 5px 6px !important;
+	background-color: var(--toolbar-bgcolor) !important;
+	padding-top: 12px;
+    padding-bottom: 7px;
+    padding-left: 7px;
+}
+
+#reload-button[disabled]:not(:-moz-window-inactive) > .toolbarbutton-icon
+{
+	opacity: 1 !important;
+}
+
+toolbar .toolbarbutton-1{
+	margin-left: 3px !important;
+	margin-right: 3px !important;
+}
+
+toolbar .toolbarbutton-1 > .toolbarbutton-icon{
+	border-radius: 7px !important;
+	padding: 7px !important;
+}
+
+:root:not([customizing]) #back-button[disabled="true"]{
+	opacity: 0.5 !important;
+}
+
+/* Remove Back button circle, fix size */
+#back-button:not(:hover), #back-button:not(:hover) > .toolbarbutton-icon {
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+#back-button:hover, #back-button:hover > .toolbarbutton-icon {
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+	border: none !important;
+}
+
+#back-button:hover:not([disabled]) > .toolbarbutton-icon{
+	background: #3A3234 !important;
+}
+
+#back-button > .toolbarbutton-icon, #forward-button > .toolbarbutton-icon{
+	padding: 2px !important;
+}
+
+.webextension-browser-action:not([badge]) > .toolbarbutton-badge-stack > .toolbarbutton-icon{
+	filter: grayscale(100%) contrast(1.5) invert(80%);
+}
+
+
+/* Windows */
+#PanelUI-button
+{
+	border: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+#PanelUI-menu-button[badge-status|="update"] .toolbarbutton-badge
+{
+	display: none !important;
+}
+
+:root[privatebrowsingmode] #fxa-toolbar-menu-button
+{
+	pointer-events: none !important;
+}
+
+/* show "Private" label for en languages only */
+:root[titlemodifier="(Private Browsing)"] #fxa-toolbar-menu-button::before
+{
+	content: "Private" !important;
+	display: -moz-box !important;
+	margin-inline-start: 12px !important;
+	margin-inline-end: 6px !important;
+}
+
+#nav-bar-customization-target
+{
+	overflow: visible !important;
+}
