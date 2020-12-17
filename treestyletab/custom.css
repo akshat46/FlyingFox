@@ -1,28 +1,34 @@
 :root {
-    --tab-border-radius: 5px;
-    --active-tab-color-a: #6b5874;
-    --active-tab-color-b: #d5749d;
-    --last-active-tab-color: #35b5b82b;
-    --active-tab-color-shadow: rgba(210, 115, 156, 0.5);
-    --active-tab-text-color: white;
-    --tab-hover-color: #28282f;
-    --tab-text-color: white;
-    --close-box-background: #31313a;
-    --newtab-btn-background: #28282f;
+    --tab-border-radius: 6px;
 
-    /*
-  Adjust value of favicon-shift if tab icons are incorrectly positioned.
-  >0 shifts left, <0 shifts right. 1=10px.
-  */
-    --favicon-shift: 0;
+    --dark-0: #151d28;
+    --dark-base: #192330;
+    --dark-1: #223042;
+    --dark-2: #2a3c52;
+    --dark-3: #31455e;
+    --dark-4: #384f6b;
+
+    --light-0: #d9e0e8;
+    --light-base: #afc0d5;
+    --light-1: #a1b5ce;
+    --light-2: #94abc7;
+    --light-3: #87a0c0;
+    --light-4: #7995b9;
+
+    --yellow: #dbc074;
+    --green: #5cb8a7;
+    --red: #c94f6d;
+}
+
+:root,
+#background {
+    background: var(--dark-base);
 }
 
 tab-item {
-    margin: 15px 10px;
-    margin-right: 30px;
+    margin: 10px 15px;
     border-radius: var(--tab-border-radius);
-    padding-top: 5px;
-    padding-right: 10px;
+    padding: 10px;
     transition: all 0.3s ease-in-out !important;
     border: none !important;
 }
@@ -31,79 +37,118 @@ tab-item {
     display: none !important;
 }
 
-.tab.last-active {
-    background: var(--last-active-tab-color);
+tab-item .label {
+    color: var(--light-2) !important;
 }
 
-tab-item .label {
-    color: var(--active-tab-text-color) !important;
+tab-item.active .label {
+    color: var(--light-0) !important;
 }
 
 tab-item.active {
-    background: linear-gradient(to right, var(--active-tab-color-a), var(--active-tab-color-b)) !important;
-    box-shadow: 5px 0 15px -1px var(--active-tab-color-shadow);
-    margin-right: 18px;
-    font-weight: bolder;
+    background: var(--dark-3) !important;
     transition: scale 0.3s ease-in-out !important;
-    color: var(--tab-text-color) !important;
 }
 
-tab-item:hover {
-    background: var(--tab-hover-color) !important;
-    box-shadow: 0 5px 20px -5px var(--tab-hover-color) !important;
+tab-item:not(active):hover {
+    background: var(--dark-1);
 }
 
 tab-item:not(:hover) tab-closebox {
     right: -30px;
+    opacity: 1;
     transform: scale(110%);
 }
 
 tab-item:not(pinned) tab-closebox {
     position: absolute;
-    right: calc(10px + (10px * var(--favicon-shift)));
-    height: 25px;
-    padding-top: 5px;
-    background: var(--close-box-background);
-    opacity: 1;
+    right: 10px;
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
+    padding-top: 2px;
+    padding-left: 2px;
+    background: var(--light-4);
     transition: all 0.1s ease-in-out;
 }
 
-:root.right tab-item tab-twisty {
-    display: none;
+/********LEFT CONTENT TAB*************/
+
+:root.left tab-item {
+    padding-left: 0;
 }
+
+:root.left tab-item tab-favicon {
+    transform: scale(120%);
+    filter: grayscale(50%) opacity(80%);
+    margin-right: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+:root.left tab-item .label {
+    transform: translateX(10px);
+    transition: all 0.1s ease-in-out;
+}
+
+:root.left tab-item:not(.pinned):hover tab-favicon,
+:root.left tab-favicon {
+    transform: translateX(-200%);
+}
+
+:root.left tab-item:hover .label,
+:root.left .label {
+    transform: translateX(-25px);
+}
+
+/********RIGHT CONTENT TAB*************/
 
 :root.right tab-item tab-favicon {
     transform: scale(120%);
-    margin-right: calc(10px * var(--favicon-shift));
-    margin-left: 20px;
-    margin-bottom: 8px;
     order: 1000;
-    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.2)) grayscale(80%) opacity(80%);
+    filter: grayscale(50%) opacity(80%);
     transition: all 0.2s ease-in-out;
 }
 
 :root.right tab-item.active:not(:hover) tab-favicon {
-    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.2)) grayscale(10%) opacity(80%);
+    filter: grayscale(10%) opacity(80%);
     transform: scale(150%);
-    margin-right: calc(5px + (10px * var(--favicon-shift)));
+    margin-right: 15px;
 }
 
 :root.right tab-item:hover tab-favicon,
 :root.right tab-favicon {
-    transform: translateX(calc(30px + (10px * var(--favicon-shift))));
+    transform: translateX(30px);
 }
 
 :root.right tab-item:hover tab-favicon {
     margin-left: -15px;
 }
 
+:root.right tab-item.pinned tab-favicon {
+    transform: scale(120%);
+}
+
+:root.right tab-item.active.pinned {
+    position: relative;
+    left: 190px !important;
+}
+
+:root.right tab-item.active.pinned tab-favicon {
+    transform: scale(130%) !important;
+    margin-left: 7px;
+}
+
+/***********************************/
+
 .tab:not(.group-tab):not([data-current-uri^="chrome:"]):not([data-current-uri^="about:addons"]):not([data-current-uri^="about:preferences"])
     .favicon
     .favicon-default::before {
     background: url("chrome://branding/content/identity-icons-brand.svg") no-repeat center / 100% !important;
+    filter: invert(80%); // change for light theme
     mask: none !important;
 }
+
+/***********NEW TAB BUTTON**********/
 
 .newtab-button-box {
     border: none !important;
@@ -112,7 +157,7 @@ tab-item:not(pinned) tab-closebox {
 
 .newtab-button {
     border: none !important;
-    border-radius: var(--tab-border-radius);
+    border-radius: 8px;
     padding: 8px 0 !important;
     margin: 0 5px;
 }
@@ -124,26 +169,18 @@ tab-item:not(pinned) tab-closebox {
 }
 
 .newtab-button:hover {
-    background: var(--newtab-btn-background);
+    background: var(--light-4);
 }
+
+/**********PINNED TAB***************/
 
 tab-item.pinned {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 0px !important;
+    margin: 4px;
+    padding: 5px !important;
 }
 
-:root.right tab-item.pinned tab-favicon {
-    transform: scale(120%);
-    margin-left: 10px;
-}
+/***********************************/
 
-:root.right tab-item.active.pinned {
-    position: relative;
-    left: 190px !important;
-}
-
-:root.right tab-item.active.pinned tab-favicon {
-    transform: scale(130%) !important;
-    margin-left: 7px;
+#all-tabs {
+    border: none !important;
 }

@@ -13,6 +13,7 @@
     --light-3: #87a0c0;
     --light-4: #7995b9;
 
+    --accent: #63CDCF;
     --yellow: #dbc074;
     --green: #5cb8a7;
     --red: #c94f6d;
@@ -42,7 +43,7 @@
     --lwt-toolbarbutton-icon-fill: var(--dark-1) !important;
 
     /* icons_attention */
-    --lwt-toolbarbutton-icon-fill-attention: var(--red) !important;
+    --lwt-toolbarbutton-icon-fill-attention: var(--accent) !important;
 
     /* button_background_hover */
     --lwt-toolbarbutton-hover-background: var(--light-2) !important;
@@ -83,7 +84,7 @@
     --lwt-toolbarbutton-icon-fill: var(--light-1) !important;
 
     /* icons_attention */
-    --lwt-toolbarbutton-icon-fill-attention: var(--red) !important;
+    --lwt-toolbarbutton-icon-fill-attention: var(--accent) !important;
 
     /* button_background_hover */
     --lwt-toolbarbutton-hover-background: var(--dark-2) !important;
@@ -94,16 +95,16 @@
     --lwt-toolbar-field-color: var(--light-2) !important;
 
     /* popup */
-    --arrowpanel-background: var(--dark-base) !important;
+    --arrowpanel-background: var(--dark-1) !important;
 
     /* popup_text */
-    --arrowpanel-color: var(--light-4) !important;
-    --autocomplete-popup-color: var(--light-4) !important;
+    --arrowpanel-color: var(--light-1) !important;
+    --autocomplete-popup-color: var(--light-1) !important;
     --panel-disabled-color: hsla(0, 0%, 100%, 0.5) !important;
 
     /* popup_border */
-    --arrowpanel-border-color: var(--dark-base) !important;
-    --autocomplete-popup-border-color: var(--dark-base) !important;
+    --arrowpanel-border-color: var(--dark-1) !important;
+    --autocomplete-popup-border-color: var(--dark-1) !important;
 
     /* popup_highlight */
     --autocomplete-popup-highlight-background: var(--dark-2) !important;
@@ -125,7 +126,7 @@
     --lwt-sidebar-background-color: var(--dark-base) !important;
 
     /* sidebar_text */
-    --lwt-sidebar-text-color: #f1f3ee !important;
+    --lwt-sidebar-text-color: var(--light-base) !important;
 }
 
 :root {
@@ -156,13 +157,13 @@
 :root {
     --tab-separator-opacity: 0.35 !important;
 
-    --toolbar-field-background-color: var(--dark-2) !important;
-    --toolbar-field-focus-background-color: var(--dark-2) !important;
+    --toolbar-field-background-color: var(--light-1) !important;
+    --toolbar-field-focus-background-color: var(--light-1) !important;
 }
 
 :root:-moz-any(:-moz-lwtheme-brighttext, [privatebrowsingmode="temporary"]) {
-    --toolbar-field-background-color: var(--dark-2) !important;
-    --toolbar-field-hover-background-color: var(--dark-3) !important;
+    --toolbar-field-background-color: var(--dark-1) !important;
+    --toolbar-field-hover-background-color: var(--dark-1) !important;
     --toolbar-field-focus-background-color: var(--dark-1) !important;
 }
 
@@ -202,11 +203,11 @@
 
 /* special case for urlbar buttons */
 :-moz-any(#urlbar, #searchbar) {
-    --toolbarbutton-hover-background: var(--dark-3) !important;
-    --toolbarbutton-active-background: rgba(242, 242, 242, 0.33) !important;
+    --toolbarbutton-hover-background: var(--dark-4) !important;
+    --toolbarbutton-active-background: var(--dark-base) !important;
 }
 
 :root:-moz-any([privatebrowsingmode="temporary"], :-moz-lwtheme-brighttext) :-moz-any(#urlbar, #searchbar) {
-    --toolbarbutton-hover-background: hsl(206, 5%, 26%) !important;
-    --toolbarbutton-active-background: hsl(210, 4%, 31%) !important;
+    --toolbarbutton-hover-background: var(--dark-4) !important;
+    --toolbarbutton-active-background: var(--dark-base) !important;
 }
