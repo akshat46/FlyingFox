@@ -6,7 +6,7 @@ This configuration changes the new tab page. There are two ways to install:
 
 Follow these steps if you do not have, or want to keep your old configurations for hntp.
 
-1. Copy the contents of `custom.css` and paste them in "Import" text field under "Import/Export" tab of HNTP configurations.
+1. Copy the contents of `config.json` and paste them in "Import" text field under "Import/Export" tab of HNTP configurations.
 
 ## 2. Manual Installation
 
