@@ -1,6 +1,7 @@
 ## Mini Tasks
 
--   window control buttons
+x window control buttons
+
 -   adding more icons
     -   urlbar icons
     -   popup icons

@@ -42,7 +42,7 @@
 
 #star-button[starred],
 #tracking-protection-icon-box[active] {
-    fill: var(--toolbarbutton-icon-fill-attention) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill-attention) !important;
 }
 
 #star-button[starred],
@@ -171,6 +171,7 @@ richlistitem[originaltype="loginsFooter"] .ac-site-icon {
 #appMenu-find-button,
 #panelMenu_searchBookmarks {
     list-style-image: url(search.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
 }
 
 #appMenu-cut-button {
