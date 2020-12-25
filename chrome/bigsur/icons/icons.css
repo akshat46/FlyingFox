@@ -37,11 +37,12 @@
 #pageAction-panel-bookmark,
 #panelMenuBookmarkThisPage {
     list-style-image: url(star-1x.svg) !important;
-    fill-opacity: 0 !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
 }
 
 #star-button[starred],
 #tracking-protection-icon-box[active] {
+    list-style-image: url(star-filled.svg) !important;
     fill: var(--lwt-toolbarbutton-icon-fill-attention) !important;
 }
 
