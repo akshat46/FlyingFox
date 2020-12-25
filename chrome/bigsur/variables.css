@@ -13,10 +13,14 @@
     --light-3: #87a0c0;
     --light-4: #7995b9;
 
-    --accent: #63CDCF;
+    --accent: #63cdcf;
     --yellow: #dbc074;
     --green: #5cb8a7;
     --red: #c94f6d;
+
+    /* flyingfox vars*/
+    --initial-width: 70px; /* initial width of the sidebar. used for userChrome-hover */
+    --sidebar-width: 250px; /* expanded width of the sidebar. used for userChrome-static */
 }
 
 /* light mode */
