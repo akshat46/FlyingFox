@@ -54,3 +54,7 @@ toolbar {
 #tabs-newtab-button {
     display: none;
 }
+
+.titlebar-spacer {
+    display: none !important;
+}

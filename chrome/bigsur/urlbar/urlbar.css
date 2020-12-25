@@ -153,6 +153,7 @@
     margin: 0 !important;
     top: 2px !important;
     color: inherit !important;
+    block-size: border-block !important;
 
     --urlbar-height: 32px !important;
 
@@ -213,6 +214,7 @@
     height: auto !important;
     padding: 0 !important;
     border: 0 !important;
+    margin-top: 2px !important;
 }
 
 .urlbar-input-box,
