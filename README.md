@@ -16,11 +16,11 @@ Has custom CSS for following extensions:
 
 Follow instructions in each section's `README` under their respective directories.
 
-- `chrome`: Firefox UI changes such as sidebar behavior, hide tab row, etc.
+- [`chrome`](https://github.com/akshat46/FlyingFox/tree/master/chrome): Firefox UI changes such as sidebar behavior, hide tab row, etc.
 
-- `hntp`: New tab page UI.
+- [`hntp`](https://github.com/akshat46/FlyingFox/tree/master/hntp): New tab page UI.
 
-- `treestyletab`: Tab behavior for tst and my entire tst config.
+- [`treestyletab`](https://github.com/akshat46/FlyingFox/tree/master/treestyletab): Tab behavior for tst and my entire tst config.
 
 ### Known Issues: 
 
