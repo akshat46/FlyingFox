@@ -1,6 +1,7 @@
 :root{
-    --tab-border-radius: 6px;
-    --animation-duration: 0.1s;
+    --tab-border-radius: 6px; /* border radius of tabs */
+    --animation-duration: 0.1s; /* duration of different animations [0s: off] */
+    --spacing: 15px; /* spacing between tabs. [<15px: compact tabs] */
 }
 
 :root{
@@ -39,17 +40,33 @@
     background:  var(--dark-base);
 }
 
-tab-item {
-    margin: 10px 15px;
+#all-tabs{
+   margin: 10px 15px;
+}
+
+tab-item:not(collapsed) {
+    margin-top: var(--spacing);
     border-radius: var(--tab-border-radius);
     border: none !important;
-    padding-top: 8px;
+    padding-top: 9px;
     padding-bottom: 10px;
 }
 
+tab-item:not([data-level="0"]){
+    border-left: dashed 2px var(--light-4) !important;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-top: calc(var(--spacing)/2);
+}
+
 tab-item tab-favicon{
+    left: 0;
     filter: grayscale(50%) opacity(80%);
-    transition: all calc(var(--animation-duration)*2) ease-in-out;
+    transition: left calc(var(--animation-duration)*2) ease-in-out;
+}
+
+tab-item[data-child-ids] .twisty{
+    margin-right: 5px;
 }
 
 .highlighter {
@@ -61,8 +78,18 @@ tab-item .label {
     padding-bottom: 2px;
 }
 
+
+tab-item .twisty:before{
+   background: var(--light-3) !important;
+}
+
 tab-item.active .label {
     color: var(--light-0) !important;
+}
+
+
+:root tab-item.active .twisty:before{
+   background: var(--light-2) !important;
 }
 
 tab-item.active {
@@ -104,12 +131,16 @@ tab-item:not(pinned) tab-closebox {
 
 :root.left tab-item .label {
     transform: translateX(10px);
-transition   : all var(--animation-duration) ease-in-out;
+    transition   : all var(--animation-duration) ease-in-out;
 }
 
-:root.left tab-item:not(.pinned):hover tab-favicon,
-:root.left tab-favicon {
-    transform: translateX(-200%);
+:root.left tab-item:not(.pinned):hover tab-favicon {
+    left: -35px;
+}
+
+
+:root.left tab-item[data-child-ids]:not(.pinned):hover tab-favicon {
+    left: -40px;
 }
 
 :root.left tab-item:hover .label,
