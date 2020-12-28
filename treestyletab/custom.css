@@ -1,6 +1,9 @@
-:root {
+:root{
     --tab-border-radius: 6px;
+    --animation-duration: 0.1s;
+}
 
+:root{
     --dark-0: #151d28;
     --dark-base: #192330;
     --dark-1: #223042;
@@ -14,24 +17,39 @@
     --light-2: #94abc7;
     --light-3: #87a0c0;
     --light-4: #7995b9;
-
-    --yellow: #dbc074;
-    --green: #5cb8a7;
-    --red: #c94f6d;
 }
 
-:root,
-#background {
-    background: var(--dark-base);
+:root.incognito {
+    --dark-0: #151d28;
+    --dark-base: #20103c !important;
+    --dark-1: #271447;
+    --dark-2: #321c5d;
+    --dark-3: #422778;
+    --dark-4: #512f95;
+
+    --light-0: #fe7676bc;
+    --light-base: #f86288bc;
+    --light-1: #f05294bc;
+    --light-2: #ec4a9bbc;
+    --light-3: #eb3fa3bc;
+    --light-4: #ea38b5bc;
+}
+
+:root, #background{
+    background:  var(--dark-base);
 }
 
 tab-item {
     margin: 10px 15px;
     border-radius: var(--tab-border-radius);
-    transition: all 0.3s ease-in-out !important;
     border: none !important;
     padding-top: 8px;
     padding-bottom: 10px;
+}
+
+tab-item tab-favicon{
+    filter: grayscale(50%) opacity(80%);
+    transition: all calc(var(--animation-duration)*2) ease-in-out;
 }
 
 .highlighter {
@@ -49,7 +67,6 @@ tab-item.active .label {
 
 tab-item.active {
     background: var(--dark-3) !important;
-    transition: scale 0.3s ease-in-out !important;
 }
 
 tab-item:not(active):hover {
@@ -71,25 +88,23 @@ tab-item:not(pinned) tab-closebox {
     padding-top: 2px;
     padding-left: 2px;
     background: var(--light-4);
-    transition: all 0.1s ease-in-out;
+    transition   : all var(--animation-duration) ease-in-out;
 }
 
-/********LEFT CONTENT TAB*************/
+/********LEFT CONTENT TAB(static)*************/
 
-:root.left tab-item {
+:root.left tab-item{
     padding-left: 0;
 }
 
-:root.left tab-item tab-favicon {
+:root.left tab-item tab-favicon {    
     transform: scale(120%);
-    filter: grayscale(50%) opacity(80%);
     margin-right: 5px;
-    transition: all 0.2s ease-in-out;
 }
 
 :root.left tab-item .label {
     transform: translateX(10px);
-    transition: all 0.1s ease-in-out;
+transition   : all var(--animation-duration) ease-in-out;
 }
 
 :root.left tab-item:not(.pinned):hover tab-favicon,
@@ -102,7 +117,7 @@ tab-item:not(pinned) tab-closebox {
     transform: translateX(-25px);
 }
 
-/********RIGHT CONTENT TAB*************/
+/********RIGHT CONTENT TAB(hover)*************/
 
 :root.right tab-item tab-favicon {
     transform: scale(120%);
@@ -126,6 +141,7 @@ tab-item:not(pinned) tab-closebox {
     margin-left: -15px;
 }
 
+
 :root.right tab-item.pinned tab-favicon {
     transform: scale(120%);
 }
@@ -142,11 +158,16 @@ tab-item:not(pinned) tab-closebox {
 
 /***********************************/
 
-.tab:not(.group-tab):not([data-current-uri^="chrome:"]):not([data-current-uri^="about:addons"]):not([data-current-uri^="about:preferences"])
+.tab
     .favicon
     .favicon-default::before {
-    background: url("chrome://branding/content/identity-icons-brand.svg") no-repeat center / 100% !important;
-    filter: invert(80%); // change for light theme
+    filter: invert(88%) sepia(50%) saturate(1339%) hue-rotate(176deg) brightness(82%) contrast(95%); // change for light theme
+}
+
+.tab[data-current-favicon-uri="undefined"]
+    .favicon
+    .favicon-default::before{
+    background: url("chrome://branding/content/identity-icons-brand.svg") no-repeat center !important;
     mask: none !important;
 }
 
@@ -164,6 +185,10 @@ tab-item:not(pinned) tab-closebox {
     margin: 0 5px;
 }
 
+.newtab-button::before{
+   background: var(--light-3) !important;
+}
+
 .newtab-action-selector-anchor {
     border: none !important;
     margin-right: 10px;
@@ -171,7 +196,7 @@ tab-item:not(pinned) tab-closebox {
 }
 
 .newtab-button:hover {
-    background: var(--light-4);
+    background: var(--dark-1);
 }
 
 /**********PINNED TAB***************/
@@ -179,7 +204,7 @@ tab-item:not(pinned) tab-closebox {
 tab-item.pinned {
     margin: 4px;
     padding: 5px !important;
-    transition: all 0.1s ease-in-out;
+    transition   : all 0.1s ease-in-out;
 }
 
 /***********************************/
@@ -187,3 +212,4 @@ tab-item.pinned {
 #all-tabs {
     border: none !important;
 }
+
