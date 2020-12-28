@@ -10,6 +10,10 @@ toolbox#navigator-toolbox {
     padding: 8px !important;
 }
 
+.private-browsing-indicator {
+    display: none !important;
+}
+
 #reload-button[disabled]:not(:-moz-window-inactive) > .toolbarbutton-icon {
     opacity: 1 !important;
 }
@@ -55,10 +59,6 @@ toolbar .toolbarbutton-1 > .toolbarbutton-icon {
 #fxa-toolbar-menu-button > .toolbarbutton-icon,
 #library-button > .toolbarbutton-icon {
     padding: 5px !important;
-}
-
-.webextension-browser-action:not([badge]) > .toolbarbutton-badge-stack > .toolbarbutton-icon {
-    filter: grayscale(100%) contrast(1.5) invert(80%);
 }
 
 /* Windows */
