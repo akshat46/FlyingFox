@@ -52,13 +52,26 @@ toolbar .toolbarbutton-1 > .toolbarbutton-icon {
     background: var(--lwt-toolbarbutton-hover-background) !important;
 }
 
-#back-button > .toolbarbutton-icon,
-#forward-button > .toolbarbutton-icon,
-#home-button > .toolbarbutton-icon,
-#reload-button > .toolbarbutton-icon,
-#fxa-toolbar-menu-button > .toolbarbutton-icon,
-#library-button > .toolbarbutton-icon {
-    padding: 5px !important;
+/* #home-button > .toolbarbutton-icon, */
+/* #reload-button > .toolbarbutton-icon, */
+/* #fxa-toolbar-menu-button > .toolbarbutton-icon, */
+/* #nav-bar-overflow-button > .toolbarbutton-icon, */
+/* #library-button > .toolbarbutton-icon { */
+/*     padding: var(--navbar-icon-size) !important; */
+/* } */
+#back-button > .toolbarbutton-icon {
+    padding: 4px !important;
+}
+#forward-button > .toolbarbutton-icon {
+    padding: 3px !important;
+}
+toolbar:not([customizing="true"])
+    .toolbarbutton-1:not(.titlebar-button):not(#back-button):not(#forward-button)
+    > .toolbarbutton-icon {
+    padding: 6px !important;
+}
+.toolbarbutton-1 .toolbarbutton-badge-stack #fxa-avatar-image {
+    padding: 1px !important;
 }
 
 /* Windows */
@@ -92,4 +105,23 @@ toolbar .toolbarbutton-1 > .toolbarbutton-icon {
     transform: translateX(-80px) !important;
     top: 1px !important;
     z-index: 10 !important;
+}
+
+#PersonalToolbar {
+    margin-top: -40px !important;
+    opacity: 0;
+    transition: all 200ms ease-in-out !important;
+}
+
+toolbox[id="navigator-toolbox"]:hover #PersonalToolbar {
+    opacity: 1;
+    margin: 0 !important;
+}
+
+#PlacesToolbarItems {
+    margin: 7px 4px !important;
+}
+
+toolbarbutton[class="bookmark-item"]:not(:hover) {
+    opacity: 0.6 !important;
 }

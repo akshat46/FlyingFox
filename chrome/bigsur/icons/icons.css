@@ -70,6 +70,10 @@
     list-style-image: url(settings.svg) !important;
 }
 
+#appMenu-customize-button {
+    list-style-image: url(customize.svg) !important;
+}
+
 #history-panelmenu,
 #appMenu-library-history-button {
     list-style-image: url(history.svg) !important;
@@ -119,6 +123,10 @@ richlistitem[originaltype="loginsFooter"] .ac-site-icon {
     list-style-image: inherit !important;
 }
 
+#nav-bar-overflow-button {
+    list-style-image: url(overflow.svg) !important;
+}
+
 #screenshots_mozilla_org-menuitem-_create-screenshot .menu-iconic-left {
     background-image: url(screenshot.svg) !important;
     background-position: 4px center !important;
@@ -154,15 +162,41 @@ richlistitem[originaltype="loginsFooter"] .ac-site-icon {
 
 #tracking-protection-icon {
     list-style-image: url(tracking-protection.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
 }
 
 #pageActionButton {
     list-style-image: url(menu.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
 }
 
 #identity-icon {
     margin-inline-start: 2px !important;
     list-style-image: url(lock.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+}
+
+.blocked-permission-icon.autoplay-media-icon {
+    list-style-image: url(block-media.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+}
+
+.blocked-permission-icon.camera-icon {
+    list-style-image: url(camera-off.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+}
+.blocked-permission-icon.microphone-icon {
+    list-style-image: url(mic-off.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+}
+.blocked-permission-icon.desktop-notification-icon {
+    list-style-image: url(notification-off.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+}
+
+#permissions-granted-icon {
+    list-style-image: url(permissions.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
 }
 
 #urlbar[pageproxystate="invalid"] #identity-icon,
@@ -192,6 +226,11 @@ richlistitem[originaltype="loginsFooter"] .ac-site-icon {
 #appMenu-fxa-icon,
 #PanelUI-remotetabs-syncnow {
     list-style-image: url(sync.svg) !important;
+}
+
+/* toolbarbutton bookmark folder icon */
+toolbarbutton[class="bookmark-item"][container="true"] > .toolbarbutton-icon {
+    list-style-image: url(folder.svg) !important;
 }
 
 .tab-icon-image:not([src]) {

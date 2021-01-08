@@ -8,9 +8,11 @@
 @import "variables.css";
 @import "vars.css";
 
+@import "icons/extension-icons.css";
 @import "icons/icons.css";
 @import "urlbar/urlbar.css";
 @import "navbar/navbar.css";
+@import "popup/popup.css";
 @import "window-controls/window-controls.css"; /* comment this out if you don't want flyingfox to handle maximize/minimize/close buttons*/
 
 :root {

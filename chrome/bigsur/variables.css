@@ -44,15 +44,6 @@
     --red: #eb227b;
 }
 
-/**extension filter based on --light-base**/
-.webextension-browser-action:not([badge]) > .toolbarbutton-badge-stack > .toolbarbutton-icon {
-    filter: grayscale(100%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%);
-}
-
-:root[privatebrowsingmode="temporary"] .webextension-browser-action:not([badge]) > .toolbarbutton-badge-stack > .toolbarbutton-icon {
-    filter: grayscale(100%) invert(37%) sepia(47%) saturate(1401%) hue-rotate(288deg) brightness(83%);
-}
-
 /* light mode */
 :root:not([style]),
 :root[style*="--lwt-accent-color:rgb(227, 228, 230);"],
@@ -130,6 +121,8 @@
 
     /* popup */
     --arrowpanel-background: var(--dark-1) !important;
+    --arrowpanel-dimmed: var(--dark-2) !important; /* hover color */
+    --arrowpanel-dimmed-further: var(--dark-3) !important; /* hover color */
 
     /* popup_text */
     --arrowpanel-color: var(--light-1) !important;
@@ -175,7 +168,7 @@
 
     --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor) !important;
     --toolbar-non-lwt-textcolor: var(--toolbar-color) !important;
-    --toolbar-field-focus-border-color : var(--lwt-toolbar-field-color) !important;
+    --toolbar-field-focus-border-color: var(--lwt-toolbar-field-color) !important;
 }
 
 #titlebar,

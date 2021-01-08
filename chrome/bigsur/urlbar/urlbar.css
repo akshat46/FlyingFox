@@ -7,6 +7,12 @@
     border-radius: 0 !important;
 }
 
+.urlbarView-row:hover,
+.urlbarView-row-inner:hover {
+    background: var(--lwt-accent-color) !important;
+    background-color: var(--lwt-accent-color) !important;
+}
+
 .urlbarView-row-inner {
     align-items: center !important;
     position: relative !important;
@@ -67,7 +73,7 @@
 }
 
 .urlbarView-title {
-    color: #f2f2f2 !important;
+    color: var(--light-2) !important;
     flex: 1 !important;
     flex-basis: unset !important;
 }
@@ -75,7 +81,7 @@
 .urlbarView-url {
     max-width: 100% !important;
     font-size: revert !important;
-    color: #f2f2f2b7 !important;
+    color: var(--light-3) !important;
     padding: 0 !important;
 }
 
@@ -103,7 +109,7 @@
 
 .urlbarView .search-one-offs {
     padding: 4px !important;
-    display: flex !important;
+    display: none !important;
 }
 
 .urlbarView .search-panel-one-offs-header {
@@ -194,8 +200,8 @@
     border-radius: 8px !important;
     min-height: 40px !important;
     margin: -4px 0 -1px !important;
-    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
-        0 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 5px 4px 16px -10px rgba(0, 0, 0, 0.2), -5px 4px 16px -10px rgba(0, 0, 0, 0.2),
+        0 8px 32px -16px rgba(0, 0, 0, 0.6) !important;
     z-index: 99999 !important;
 }
 
@@ -397,7 +403,7 @@
     border: 0 !important;
     border-radius: 7px !important;
     fill-opacity: 1 !important;
-    fill: #bcbcbc !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
     transition: background-color 0.2s var(--ease-basic) !important;
     background: 0 !important;
     background-color: transparent !important;

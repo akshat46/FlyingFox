@@ -1,3 +1,1 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-	<path fill-rule="evenodd" fill="context-fill" stroke-opacity="context-fill-opacity" d="M8,0A8,8,0,1,1,0,8,8,8,0,0,1,8,0ZM6,9h4v3H6V9ZM8,4l4,5H4Z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 10h3l-4-4-4 4h3v4h2v-4z" fill="context-fill" fill-opacity="context-fill-opacity"/></svg>

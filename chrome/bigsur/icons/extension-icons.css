@@ -1,0 +1,35 @@
+.webextension-browser-action > .toolbarbutton-badge-stack > .toolbarbutton-badge {
+    background-color: var(--lwt-toolbarbutton-icon-fill-attention) !important;
+    color: var(--dark-base) !important;
+}
+
+/**extension filter based on --light-base**/
+.webextension-browser-action:not(badge):not(#ublock0_raymondhill_net-browser-action):not(#support_lastpass_com-browser-action):not(#privacy_privacy_com-browser-action):not(#addon_darkreader_org-browser-action)
+    > .toolbarbutton-badge-stack
+    > .toolbarbutton-icon {
+    padding: 1px !important;
+    filter: grayscale(100%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%);
+}
+
+:root[privatebrowsingmode="temporary"]
+    .webextension-browser-action:not(#ublock0_raymondhill_net-browser-action):not(#support_lastpass_com-browser-action):not(#privacy_privacy_com-browser-action):not(#addon_darkreader_org-browser-action)
+    > .toolbarbutton-badge-stack
+    > .toolbarbutton-icon {
+    filter: grayscale(100%) invert(37%) sepia(47%) saturate(1401%) hue-rotate(288deg) brightness(83%);
+}
+
+.webextension-browser-action[data-extensionid="uBlock0@raymondhill.net"] {
+    list-style-image: url(custom-adblock.svg) !important;
+}
+
+.webextension-browser-action[data-extensionid="support@lastpass.com"] {
+    list-style-image: url(key.svg) !important;
+}
+
+.webextension-browser-action[data-extensionid="privacy@privacy.com"] {
+    list-style-image: url(bank-card.svg) !important;
+}
+
+.webextension-browser-action[data-extensionid="addon@darkreader.org"] {
+    list-style-image: url(dark-mode.svg) !important;
+}
