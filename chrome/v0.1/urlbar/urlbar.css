@@ -640,6 +640,50 @@
     --warning-icon: url(connection-warning-1x.svg);
 }
 
+.notSecure #identity-icon {
+    fill: var(--yellow) !important;
+}
+
+#tracking-protection-icon-box[hasException=""] #tracking-protection-icon {
+    fill: var(--red) !important;
+}
+#pageActionButton {
+    list-style-image: url(page-action.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+}
+
+#tracking-protection-icon {
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+}
+
+#identity-icon {
+    margin-inline-start: 2px !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+}
+
+.blocked-permission-icon.autoplay-media-icon {
+    list-style-image: url(block-media.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+}
+
+.blocked-permission-icon.camera-icon {
+    list-style-image: url(camera-off.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+}
+.blocked-permission-icon.microphone-icon {
+    list-style-image: url(mic-off.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+}
+.blocked-permission-icon.desktop-notification-icon {
+    list-style-image: url(notification-off.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+}
+
+#permissions-granted-icon {
+    list-style-image: url(permissions.svg) !important;
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+}
+
 #urlbar,
 #searchbar {
     --input-offset: -1px;
