@@ -2,7 +2,7 @@
 
 # WIP
 
-![Preview](https://github.com/akshat46/FlyingFox/blob/master/img/normal.png)
+![Preview](https://raw.githubusercontent.com/akshat46/FlyingFox/v0.1/img/normal.png)
 
 
 
