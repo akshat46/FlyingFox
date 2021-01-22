@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^10.4.9",
     "@testing-library/user-event": "^12.6.0",
+    "color-convert": "^2.0.1",
     "framer-motion": "^3.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

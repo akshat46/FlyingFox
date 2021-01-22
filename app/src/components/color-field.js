@@ -1,9 +1,25 @@
 import React, { useState } from 'react';
-import { Box, Input, Text, HStack } from '@chakra-ui/react';
-import { RiContrast2Fill, RiContrast2Line, RiPaintFill } from 'react-icons/ri';
+import {
+  Tooltip,
+  Box,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Text,
+  HStack,
+} from '@chakra-ui/react';
+import {
+  RiContrast2Fill,
+  RiContrast2Line,
+  RiErrorWarningFill,
+  RiPaintFill,
+} from 'react-icons/ri';
+const convert = require('color-convert');
 
 function ColorField(props) {
   const [value, setValue] = React.useState(props.default);
+  const [tooLight, setTooLight] = React.useState(false);
+  const [error, setError] = React.useState(false);
   const handleChange = event => {
     let v = event.target.value;
     v = v[0] !== '#' ? '#' + v : v;
@@ -11,7 +27,13 @@ function ColorField(props) {
     v.toLowerCase();
     setValue(v);
     if (/^#[0-9A-F]{6}$/i.test(v) || /^#([0-9A-F]{3}){1,2}$/i.test(v)) {
+      if (props.name == 'Dark') setTooLight(convert.hex.hsl(v)[2] > 40);
+      else if (props.name == 'Light') setTooLight(convert.hex.hsl(v)[2] < 60);
+
+      setError(false);
       props.onChange(v, props.name);
+    } else {
+      setError(true);
     }
   };
   let icon;
@@ -27,17 +49,35 @@ function ColorField(props) {
     <Box width="100%" color="gray.600">
       <HStack spacing={2} float="left">
         {icon}
-        <Text size="md">{props.name}</Text>
+        <Text fontSize="md">{props.name}</Text>
+        {/* when color is too light */}
       </HStack>
-      <Input
-        width="130px"
-        size="sm"
-        float="right"
-        value={value}
-        borderRadius="md"
-        onChange={handleChange}
-        placeholder={props.default}
-      />
+      <InputGroup width="130px" size="sm" float="right" size="sm">
+        <Input
+          borderRadius="md"
+          value={value}
+          onChange={handleChange}
+          onKeyPress={handleChange}
+          onBlur={handleChange}
+          placeholder={props.default}
+          variant="filled"
+          errorBorderColor="red.300"
+          isInvalid={error}
+        />
+        <InputRightElement opacity={tooLight ? 1 : 0}>
+          <Tooltip
+            shouldWrapChildren
+            label={`Color might be too ${
+              props.name === 'Light' ? 'dark' : 'light'
+            }.`}
+            placement="bottom"
+          >
+            <Box color="orange.200">
+              <RiErrorWarningFill />
+            </Box>
+          </Tooltip>
+        </InputRightElement>
+      </InputGroup>
     </Box>
   );
 }

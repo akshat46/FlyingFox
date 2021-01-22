@@ -30,14 +30,45 @@ import NumberField from './number-field';
 import BrowserPreview from './browser/browser-preview';
 import PaletteGroup from './palette/palette-group';
 import ButtonPair from './button-pair';
+const convert = require('color-convert');
 
 function Generator() {
+  function paletteGenerator(callback, color) {
+    let arr = [];
+    let hsl = convert.hex.hsl(color);
+    let paletteProfile = data.paletteProfiles.contrast;
+    hsl[2] = hsl[2] > paletteProfile[0] ? hsl[2] - paletteProfile[0] : hsl[2];
+    arr.push('#' + convert.hsl.hex(hsl));
+    for (let i = 1; i < paletteProfile.length; i++) {
+      hsl[2] =
+        hsl[2] + paletteProfile[i] > 99 ? 100 : hsl[2] + paletteProfile[i];
+      arr.push('#' + convert.hsl.hex(hsl));
+    }
+    callback(arr);
+  }
   const colorCallback = (value, name) => {
     // check if valid
-    if (name == 'Dark') {
-      setDark(value);
-    } else if (name == 'Light') {
-      setLight(value);
+    switch (name) {
+      case 'Dark':
+        setDark(value);
+        paletteGenerator(setDarkPalette, dark);
+        break;
+      case 'Light':
+        setLight(value);
+        paletteGenerator(setLightPalette, light);
+        break;
+      case 'Red':
+        setRed(value);
+        break;
+      case 'Yellow':
+        setYellow(value);
+        break;
+      case 'Green':
+        setGreen(value);
+        break;
+      case 'Accent':
+        setAccent(value);
+        break;
     }
     // TODO: handle other colors
   };
@@ -55,21 +86,22 @@ function Generator() {
   const [selectedView, setSelectedView] = useState(0);
   const [dark, setDark] = useState(colors.main.dark['--dark-base']);
   const [light, setLight] = useState(colors.main.light['--light-base']);
+  const [accent, setAccent] = useState(colors.main.other['--accent']);
+  const [red, setRed] = useState(colors.main.other['--red']);
+  const [yellow, setYellow] = useState(colors.main.other['--yellow']);
+  const [green, setGreen] = useState(colors.main.other['--green']);
   const [darkPalette, setDarkPalette] = useState(
     setDefaultPalette('dark', 'main')
   );
   const [lightPalette, setLightPalette] = useState(
     setDefaultPalette('light', 'main')
   );
-  const [otherPalette, setOtherPalette] = useState(
-    setDefaultPalette('other', 'main')
-  );
-
   const colorFields = data.colorField.main;
   const colorFieldsPrivate = data.colorField.private;
 
   return (
     <Stack direction="row" spacing={0}>
+      paletteGenerator(setDarkPalette, dark);
       <Box
         w="30%"
         minW="440px"
@@ -81,10 +113,7 @@ function Generator() {
       >
         <ButtonPair
           content={[RiPaletteFill, RiSoundModuleFill]}
-          bg={{
-            selected: [otherPalette[2], otherPalette[2]],
-            regular: 'gray.100',
-          }}
+          bgSelected={['#63CDCF', 'teal.300']}
           selected={selectedConfig}
           onClick={setSelectedConfig}
           icon
@@ -163,10 +192,8 @@ function Generator() {
         <Flex w="100%">
           <ButtonPair
             content={[RiFirefoxFill, RiSpyFill]}
-            bg={{
-              selected: [otherPalette[3], otherPalette[3]],
-              regular: lightPalette[3],
-            }}
+            bgSelected={[darkPalette[1], darkPalette[2]]}
+            color={{ selected: light, regular: dark }}
             selected={selectedView}
             onClick={setSelectedView}
             icon
@@ -174,10 +201,8 @@ function Generator() {
           <Spacer />
           <ButtonPair
             content={[RiBrush3Fill, RiCodeSSlashFill]}
-            bg={{
-              selected: [otherPalette[0], otherPalette[0]],
-              regular: lightPalette[3],
-            }}
+            bgSelected={[darkPalette[1], darkPalette[2]]}
+            color={{ selected: light, regular: dark }}
             alignSelf="end"
             selected={selectedView}
             onClick={setSelectedView}
@@ -197,9 +222,9 @@ function Generator() {
             darkPalette={darkPalette}
             light={light}
             lightPalette={lightPalette}
-            red={otherPalette[3]}
-            yellow={otherPalette[1]}
-            green={otherPalette[2]}
+            red={red}
+            yellow={yellow}
+            green={green}
           >
             <VStack
               paddingY={12}
@@ -215,7 +240,7 @@ function Generator() {
               />
               <PaletteGroup colors={lightPalette} />
               <PaletteGroup colors={darkPalette} />
-              <PaletteGroup colors={otherPalette} detached />
+              <PaletteGroup colors={[accent, red, yellow, green]} detached />
             </VStack>
           </BrowserPreview>
         </Container>

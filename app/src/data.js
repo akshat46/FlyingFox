@@ -66,6 +66,11 @@ const data = {
       subtext: 'Only used with hover sidebar.',
     },
   ],
+  paletteProfiles: {
+    gradient: [2, 6, 4, 8, 4],
+    mono: [2, 5, 3, 6, 4],
+    contrast: [2, 8, 4, 8, 4],
+  },
 };
 
 export default data;
