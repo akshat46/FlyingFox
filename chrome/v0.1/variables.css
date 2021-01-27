@@ -14,6 +14,10 @@
     /* toolbar_text */
     --toolbar-color: var(--dark-1) !important;
 
+    --urlbarView-popup-title: var(--dark-1) !important;
+
+    --urlbarView-popup-url: var(--dark-4) !important;
+
     /* toolbar_bottom_separator */
     --toolbox-border-bottom-color: var(--light-base) !important; /* legacy */
     --chrome-content-separator-color: var(--light-base) !important;
@@ -32,11 +36,31 @@
 
     --lwt-toolbar-field-color: var(--dark-2) !important;
 
+    /* popup */
+    --arrowpanel-background: var(--light-1) !important;
+    --arrowpanel-dimmed: var(--light-2) !important; /* hover color */
+    --arrowpanel-dimmed-further: var(--light-3) !important; /* hover color */
+
+    /* popup_text */
+    --arrowpanel-color: var(--dark-1) !important;
+    --autocomplete-popup-color: var(--dark-1) !important;
+    --panel-disabled-color: hsla(0, 0%, 100%, 0.5) !important;
+
+    /* popup_border */
+    --arrowpanel-border-color: var(--light-1) !important;
+    --autocomplete-popup-border-color: var(--light-1) !important;
+
     /* popup_highlight */
     --autocomplete-popup-highlight-background: var(--light-2) !important;
 
     /* popup_highlight_text */
     --autocomplete-popup-highlight-color: var(--dark-2) !important;
+
+    /* urlbar icon */
+    --toolbarbutton-hover-background: var(--light-4) !important;
+    --toolbarbutton-active-background: var(--light-base) !important;
+
+    --sidebar-shadow-color: var(--dark-4);
 }
 
 /* don't bother with sidebar in light mode */
@@ -54,6 +78,10 @@
 
     /* toolbar_text */
     --toolbar-color: var(--light-1) !important;
+
+    --urlbarView-popup-title: var(--light-1) !important;
+
+    --urlbarView-popup-url: var(--light-4) !important;
 
     /* toolbar_bottom_separator */
     --toolbox-border-bottom-color: var(--dark-base) !important; /* legacy */
@@ -92,6 +120,12 @@
 
     /* popup_highlight_text */
     --autocomplete-popup-highlight-color: var(--light-2) !important;
+
+    /* urlbar icon */
+    --toolbarbutton-hover-background: var(--dark-4) !important;
+    --toolbarbutton-active-background: var(--dark-base) !important;
+
+    --sidebar-shadow-color: var(--dark-0);
 }
 
 :-moz-any(#sidebar-box, #sidebar) {
@@ -111,8 +145,10 @@
 }
 
 :root {
-    --ease-in: cubic-bezier(0.4, 0, 1, 1);
-    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --transition-time: 0.4s !important;
     --ease-basic: linear;
 
     --button-size: 32px; /* is this used? */
@@ -123,24 +159,18 @@
     --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor) !important;
     --toolbar-non-lwt-textcolor: var(--toolbar-color) !important;
     --toolbar-field-focus-border-color: var(--lwt-toolbar-field-color) !important;
+
+    --tab-separator-opacity: 0.35 !important;
+    --sidebar-width: 250px !important;
+    --sidebar-collapsed-width: calc(60px) !important;
+
+    --toolbar-field-background-color: var(--light-1) !important;
+    --toolbar-field-focus-background-color: var(--light-1) !important;
 }
 
 #titlebar,
 #tabbrowser-tabs {
     --tab-min-height: 34px !important;
-}
-
-@supports -moz-bool-pref("materialFox.reduceTabOverflow") {
-    #tabbrowser-tabs {
-        --tab-min-width: 32px !important;
-    }
-}
-
-:root {
-    --tab-separator-opacity: 0.35 !important;
-
-    --toolbar-field-background-color: var(--light-1) !important;
-    --toolbar-field-focus-background-color: var(--light-1) !important;
 }
 
 :root:-moz-any(:-moz-lwtheme-brighttext, [privatebrowsingmode="temporary"]) {
@@ -183,13 +213,13 @@
     --toolbarbutton-active-background: var(--lwt-toolbarbutton-active-background, hsla(0, 0%, 100%, 0.17)) !important;
 }
 
-/* special case for urlbar buttons */
-:-moz-any(#urlbar, #searchbar) {
-    --toolbarbutton-hover-background: var(--dark-4) !important;
-    --toolbarbutton-active-background: var(--dark-base) !important;
-}
+/* /1* special case for urlbar buttons *1/ */
+/* :-moz-any(#urlbar, #searchbar) { */
+/*     --toolbarbutton-hover-background: var(--dark-4) !important; */
+/*     --toolbarbutton-active-background: var(--dark-base) !important; */
+/* } */
 
-:root:-moz-any([privatebrowsingmode="temporary"], :-moz-lwtheme-brighttext) :-moz-any(#urlbar, #searchbar) {
-    --toolbarbutton-hover-background: var(--dark-4) !important;
-    --toolbarbutton-active-background: var(--dark-base) !important;
-}
+/* :root:-moz-any([privatebrowsingmode="temporary"], :-moz-lwtheme-brighttext) :-moz-any(#urlbar, #searchbar) { */
+/*     --toolbarbutton-hover-background: var(--dark-4) !important; */
+/*     --toolbarbutton-active-background: var(--dark-base) !important; */
+/* } */

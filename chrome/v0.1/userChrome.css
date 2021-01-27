@@ -13,5 +13,7 @@
 @import "urlbar/urlbar.css";
 @import "navbar/navbar.css";
 @import "popup/popup.css";
+@import "interface/interface.css";
 @import "window-controls/window-controls.css"; /* comment this out if you don't want flyingfox to handle maximize/minimize/close buttons */
 @import "userChrome-static.css";
+/* @import "userChrome-hover.css"; */

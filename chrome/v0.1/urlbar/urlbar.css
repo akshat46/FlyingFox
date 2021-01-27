@@ -73,7 +73,7 @@
 }
 
 .urlbarView-title {
-    color: var(--light-2) !important;
+    color: var(--urlbarView-popup-title) !important;
     flex: 1 !important;
     flex-basis: unset !important;
 }
@@ -81,7 +81,7 @@
 .urlbarView-url {
     max-width: 100% !important;
     font-size: revert !important;
-    color: var(--light-3) !important;
+    color: var(--urlbarView-popup-url) !important;
     padding: 0 !important;
 }
 

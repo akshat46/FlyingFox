@@ -110,7 +110,7 @@ toolbar:not([customizing="true"])
 #PersonalToolbar {
     margin-top: -40px !important;
     opacity: 0;
-    transition: all 200ms ease-in-out !important;
+    transition: all var(--transition-time) var(--ease-out) !important;
 }
 
 toolbox[id="navigator-toolbox"]:hover #PersonalToolbar {
