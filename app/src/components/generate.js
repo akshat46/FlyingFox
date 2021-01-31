@@ -1,42 +1,43 @@
 import React, { useState } from 'react';
 import {
+  useToast,
   Box,
-  Button,
-  ButtonGroup,
-  Input,
   Text,
   Stack,
-  Grid,
   VStack,
   HStack,
   Divider,
   Flex,
   Spacer,
   Container,
+  Select,
 } from '@chakra-ui/react';
 import {
   RiBrush3Fill,
   RiCodeSSlashFill,
   RiFirefoxFill,
+  RiListSettingsFill,
   RiPaletteFill,
   RiSideBarFill,
   RiSoundModuleFill,
   RiSpyFill,
 } from 'react-icons/ri';
 import data from '../data';
-import colors from '../colors.json';
+import config from '../config.json';
 import ColorField from './color-field';
 import NumberField from './number-field';
 import BrowserPreview from './browser/browser-preview';
 import PaletteGroup from './palette/palette-group';
 import ButtonPair from './button-pair';
+import Code from './code/code';
+import DropdownField from './dropdown-field';
 const convert = require('color-convert');
 
 function Generator() {
-  function paletteGenerator(callback, color) {
+  function paletteGenerator(callback, color, palette) {
     let arr = [];
     let hsl = convert.hex.hsl(color);
-    let paletteProfile = data.paletteProfiles.contrast;
+    let paletteProfile = palette;
     hsl[2] = hsl[2] > paletteProfile[0] ? hsl[2] - paletteProfile[0] : hsl[2];
     arr.push('#' + convert.hsl.hex(hsl));
     for (let i = 1; i < paletteProfile.length; i++) {
@@ -47,15 +48,14 @@ function Generator() {
     callback(arr);
   }
   const colorCallback = (value, name) => {
-    // check if valid
     switch (name) {
       case 'Dark':
         setDark(value);
-        paletteGenerator(setDarkPalette, dark);
+        paletteGenerator(setDarkPalette, dark, data.paletteProfiles.dark);
         break;
       case 'Light':
         setLight(value);
-        paletteGenerator(setLightPalette, light);
+        paletteGenerator(setLightPalette, light, data.paletteProfiles.light);
         break;
       case 'Red':
         setRed(value);
@@ -70,10 +70,20 @@ function Generator() {
         setAccent(value);
         break;
     }
-    // TODO: handle other colors
   };
+  const numberCallback = (value, name) => {
+    switch (name) {
+      case 'Width':
+        setSidebarWidth(value);
+        break;
+      case 'Collapsed Width':
+        setSidebarCollapsedWidth(value);
+        break;
+    }
+  };
+
   const setDefaultPalette = (name, type) => {
-    let d = colors[type][name];
+    let d = config[type][name];
     let arr = [];
     for (const s in d) {
       if (s.endsWith('base')) continue;
@@ -84,33 +94,34 @@ function Generator() {
 
   const [selectedConfig, setSelectedConfig] = useState(0);
   const [selectedView, setSelectedView] = useState(0);
-  const [dark, setDark] = useState(colors.main.dark['--dark-base']);
-  const [light, setLight] = useState(colors.main.light['--light-base']);
-  const [accent, setAccent] = useState(colors.main.other['--accent']);
-  const [red, setRed] = useState(colors.main.other['--red']);
-  const [yellow, setYellow] = useState(colors.main.other['--yellow']);
-  const [green, setGreen] = useState(colors.main.other['--green']);
+  // const [darkMain, setDarkMain] = useState({color: config.main.dark['dark-base'],})
+  const [dark, setDark] = useState(config.main.dark['dark-base']);
+  const [light, setLight] = useState(config.main.light['light-base']);
+  const [accent, setAccent] = useState(config.main.other['accent']);
+  const [red, setRed] = useState(config.main.other['red']);
+  const [yellow, setYellow] = useState(config.main.other['yellow']);
+  const [green, setGreen] = useState(config.main.other['green']);
   const [darkPalette, setDarkPalette] = useState(
     setDefaultPalette('dark', 'main')
   );
   const [lightPalette, setLightPalette] = useState(
     setDefaultPalette('light', 'main')
   );
+  const [sidebarType, setSidebarType] = useState(data.dropdown.sidebar.default);
+  const [sidebarWidth, setSidebarWidth] = useState(
+    config.main['sidebar-width']
+  );
+  const [sidebarCollapsedWidth, setSidebarCollapsedWidth] = useState(
+    config.main['sidebar-collapsed-width']
+  );
   const colorFields = data.colorField.main;
   const colorFieldsPrivate = data.colorField.private;
+  const toast = useToast();
 
   return (
     <Stack direction="row" spacing={0}>
       paletteGenerator(setDarkPalette, dark);
-      <Box
-        w="30%"
-        minW="440px"
-        maxW="560px"
-        h="auto"
-        bg="white"
-        p="8"
-        overflowY="auto"
-      >
+      <Box w="30%" minW="440px" h="auto" bg="white" p="8" overflowY="auto">
         <ButtonPair
           content={[RiPaletteFill, RiSoundModuleFill]}
           bgSelected={['#63CDCF', 'teal.300']}
@@ -118,68 +129,90 @@ function Generator() {
           onClick={setSelectedConfig}
           icon
         />
-        <HStack
-          spacing={2}
-          mb={4}
-          fontSize="xl"
-          color="gray.600"
-          alignSelf="start"
-        >
-          <RiFirefoxFill />
-          <Text fontWeight="bold">Main</Text>
-        </HStack>
-        <VStack spacing={6} p="2" marginX={4} mb={8}>
-          {colorFields.map(cf => (
-            <ColorField
-              name={cf.name}
-              onChange={colorCallback}
-              default={cf.default}
-            />
-          ))}
-        </VStack>
-        <Divider mb={8} />
-        <HStack
-          spacing={2}
-          mb={4}
-          fontSize="xl"
-          color="gray.600"
-          alignSelf="start"
-        >
-          <RiSpyFill />
-          <Text fontWeight="bold">Private Mode</Text>
-        </HStack>
-        <VStack spacing={6} p="2" marginX={4} mb={8}>
-          {colorFieldsPrivate.map(cf => (
-            <ColorField
-              name={cf.name}
-              onChange={colorCallback}
-              default={cf.default}
-            />
-          ))}
-        </VStack>
-        <Divider mb={8} />
-        <HStack
-          spacing={2}
-          mb={4}
-          fontSize="xl"
-          color="gray.600"
-          alignSelf="start"
-        >
-          <RiSideBarFill />
-          <Text fontWeight="bold">Sidebar</Text>
-        </HStack>
-        <VStack spacing={6} p="2" marginX={4} mb={8}>
-          {data.sidebarWidths.map(cf => (
-            <NumberField
-              name={cf.name}
-              type="width"
-              subtext={cf.subtext}
-              onChange={colorCallback}
-              default={cf.default.replace('px', '')}
-              unit="px"
-            />
-          ))}
-        </VStack>
+        {selectedConfig == 0 ? (
+          <>
+            <HStack
+              spacing={2}
+              mb={4}
+              fontSize="xl"
+              color="gray.600"
+              alignSelf="start"
+            >
+              <RiFirefoxFill />
+              <Text fontWeight="bold">Main</Text>
+            </HStack>
+            <VStack w="100%" spacing={6} p="2" pr="10" marginX={4} mb={8}>
+              {colorFields.map(cf => (
+                <ColorField
+                  name={cf.name}
+                  onChange={colorCallback}
+                  default={cf.default}
+                />
+              ))}
+            </VStack>
+            <Divider mb={8} />
+            <HStack
+              spacing={2}
+              mb={4}
+              fontSize="xl"
+              color="gray.600"
+              alignSelf="start"
+            >
+              <RiSpyFill />
+              <Text fontWeight="bold">Private Mode</Text>
+            </HStack>
+            <VStack w="100%" spacing={6} p="2" pr="10" marginX={4} mb={8}>
+              {colorFieldsPrivate.map(cf => (
+                <ColorField
+                  name={cf.name}
+                  onChange={colorCallback}
+                  default={cf.default}
+                />
+              ))}
+            </VStack>
+          </>
+        ) : (
+          <>
+            <HStack
+              spacing={2}
+              mb={4}
+              fontSize="xl"
+              color="gray.600"
+              alignSelf="start"
+            >
+              <RiSideBarFill />
+              <Text fontWeight="bold">Sidebar</Text>
+            </HStack>
+            <VStack w="100%" spacing={6} p="2" pr="10" marginX={4} mb={8}>
+              <DropdownField
+                icon={RiListSettingsFill}
+                name={data.dropdown.sidebar.name}
+                onChange={setSidebarType}
+                options={data.dropdown.sidebar.values.map((v, i) => (
+                  <option
+                    value={i.toString()}
+                    onClick={() => {
+                      setSidebarType(i);
+                    }}
+                    colorScheme="teal"
+                  >
+                    {v}
+                  </option>
+                ))}
+              />
+              {data.numberFields.sidebar.map(cf => (
+                <NumberField
+                  name={cf.name}
+                  type="width"
+                  subtext={cf.subtext}
+                  onChange={numberCallback}
+                  default={cf.default.replace('px', '')}
+                  unit="px"
+                />
+              ))}
+            </VStack>
+          </>
+        )}
       </Box>
       <Box
         w={{ lg: '70%', md: '60%', sm: '100%' }}
@@ -194,8 +227,18 @@ function Generator() {
             content={[RiFirefoxFill, RiSpyFill]}
             bgSelected={[darkPalette[1], darkPalette[2]]}
             color={{ selected: light, regular: dark }}
-            selected={selectedView}
-            onClick={setSelectedView}
+            selected={0}
+            onClick={() =>
+              toast({
+                title: 'Work In Progress :(',
+                position: 'bottom-right',
+                description:
+                  'Private mode preview has not been implemented yet.',
+                status: 'error',
+                duration: 5000,
+                isClosable: false,
+              })
+            }
             icon
           />
           <Spacer />
@@ -209,41 +252,57 @@ function Generator() {
             icon
           />
         </Flex>
-        <Container
-          maxW="100%"
-          pos="absolute"
-          left="50%"
-          top="50%"
-          transform="translate(-50%, -50%)"
-          centerContent
-        >
-          <BrowserPreview
+        {selectedView == 0 ? (
+          <Container
+            maxW="100%"
+            pos="absolute"
+            left="50%"
+            top="50%"
+            transform="translate(-50%, -50%)"
+            centerContent
+          >
+            <BrowserPreview
+              dark={dark}
+              darkPalette={darkPalette}
+              light={light}
+              lightPalette={lightPalette}
+              red={red}
+              yellow={yellow}
+              green={green}
+            >
+              <VStack
+                paddingY={12}
+                w="100%"
+                spacing={8}
+                mt={2}
+                borderTop={`solid 2px ${darkPalette[0]}`}
+              >
+                <PaletteGroup
+                  colors={[dark, light]}
+                  contrast={darkPalette[3]}
+                  detached
+                />
+                <PaletteGroup colors={lightPalette} />
+                <PaletteGroup colors={darkPalette} />
+                <PaletteGroup colors={[accent, red, yellow, green]} detached />
+              </VStack>
+            </BrowserPreview>
+          </Container>
+        ) : (
+          <Code
             dark={dark}
-            darkPalette={darkPalette}
             light={light}
+            darkPalette={darkPalette}
             lightPalette={lightPalette}
             red={red}
-            yellow={yellow}
             green={green}
-          >
-            <VStack
-              paddingY={12}
-              w="100%"
-              spacing={8}
-              mt={2}
-              borderTop={`solid 2px ${darkPalette[0]}`}
-            >
-              <PaletteGroup
-                colors={[dark, light]}
-                contrast={darkPalette[3]}
-                detached
-              />
-              <PaletteGroup colors={lightPalette} />
-              <PaletteGroup colors={darkPalette} />
-              <PaletteGroup colors={[accent, red, yellow, green]} detached />
-            </VStack>
-          </BrowserPreview>
-        </Container>
+            yellow={yellow}
+            accent={accent}
+            sidebarType={sidebarType}
+            sidebarWidth={sidebarWidth}
+            sidebarCollapsedWidth={sidebarCollapsedWidth}
+          />
+        )}
       </Box>
     </Stack>
   );

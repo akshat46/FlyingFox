@@ -25,10 +25,11 @@ function ButtonPair(props) {
             _hover={
               props.selected == i
                 ? { background: '' }
-                : { background: 'gray.300' }
+                : { background: props.hoverBg ? props.hoverBg : 'gray.300' }
             }
             _focus={{ border: 'none' }}
             onClick={() => props.onClick(i)}
+            fontWeight="500"
           >
             {props.icon ? c() : c}
           </Button>

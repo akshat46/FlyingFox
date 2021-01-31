@@ -17,7 +17,7 @@ function NumberField(props) {
   const handleChange = event => {
     let v = event.target.value;
     setValue(v);
-    if (/^#[0-9A-F]{6}$/i.test(v) || /^#([0-9A-F]{3}){1,2}$/i.test(v)) {
+    if (/^\d+$/.test(v)) {
       props.onChange(v, props.name);
     }
   };

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  CSSReset,
-  theme,
-  ThemeProvider,
-} from '@chakra-ui/react';
-import colors from './colors.json';
+import { ChakraProvider, theme } from '@chakra-ui/react';
 import Generator from './components/generate';
 
 function App() {
