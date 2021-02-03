@@ -31,27 +31,27 @@ const data = {
     private: [
       {
         name: 'Dark',
-        default: config.private['dark-base'],
+        default: config.private.dark['dark-base'],
       },
       {
         name: 'Light',
-        default: config.private['light-base'],
+        default: config.private.light['light-base'],
       },
       {
         name: 'Accent',
-        default: config.private['accent'],
+        default: config.private.other['accent'],
       },
       {
         name: 'Red',
-        default: config.private['red'],
+        default: config.private.other['red'],
       },
       {
         name: 'Yellow',
-        default: config.private['yellow'],
+        default: config.private.other['yellow'],
       },
       {
         name: 'Green',
-        default: config.private['green'],
+        default: config.private.other['green'],
       },
     ],
   },
@@ -79,6 +79,8 @@ const data = {
     hljs: {
       display: 'block',
       overflow: 'auto',
+      'scrollbar-color': `${darkPalette[0]} ${darkPalette[2]}`,
+      'scrollbar-width': 'thin',
       'max-height': '65vh',
       background: dark,
       color: light,
@@ -199,11 +201,11 @@ const data = {
   --accent: ${accent};
   --yellow: ${yellow};
   --green: ${green};
-  --red: ${red};`,
-  configMain: (sidebarWidth, sidebarCollapsedWidth) => `
-  --sidebar-width: ${sidebarWidth}; 
-  --sidebar-collapsed-width: ${sidebarCollapsedWidth}; 
+  --red: ${red};
   --extension-icon-mask: grayscale(100%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%);`,
+  configMain: (sidebarWidth, sidebarCollapsedWidth) => `
+  --sidebar-width: ${sidebarWidth}px; 
+  --sidebar-collapsed-width: ${sidebarCollapsedWidth}px;`,
   configSidebarType: type => {
     switch (type) {
       case 0:

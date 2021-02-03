@@ -5,14 +5,13 @@ import ButtonPair from '../button-pair';
 import data from '../../data';
 
 function CodeView({
-  darkPalette,
-  lightPalette,
-  dark,
-  light,
-  red,
-  yellow,
-  green,
-  accent,
+  darkMain,
+  lightMain,
+  otherMain,
+  darkPrivate,
+  lightPrivate,
+  otherPrivate,
+  theme,
   sidebarType,
   sidebarWidth,
   sidebarCollapsedWidth,
@@ -20,29 +19,42 @@ function CodeView({
   let files = ['config.css', 'tree-style-tab.css', 'window-controls'];
   const [currentFile, setCurrentFile] = useState(0);
   let syntaxHighlightStyle = data.syntaxHighlight(
-    dark,
-    darkPalette,
-    light,
-    accent,
-    yellow,
-    green,
-    red
+    theme.dark,
+    theme.darkPalette,
+    theme.light,
+    theme.other.accent,
+    theme.other.yellow,
+    theme.other.green,
+    theme.other.red
   );
   let includeSidebarType = data.configSidebarType(sidebarType);
-  let configColors = data.configColors(
-    dark,
-    darkPalette,
-    light,
-    lightPalette,
-    accent,
-    yellow,
-    green,
-    red
+  let mainColors = data.configColors(
+    darkMain.color,
+    darkMain.palette,
+    lightMain.color,
+    lightMain.palette,
+    otherMain.accent,
+    otherMain.yellow,
+    otherMain.green,
+    otherMain.red
   );
   let configMain = data.configMain(sidebarWidth, sidebarCollapsedWidth);
+  let privateColors = data.configColors(
+    darkPrivate.color,
+    darkPrivate.palette,
+    lightPrivate.color,
+    lightPrivate.palette,
+    otherPrivate.accent,
+    otherPrivate.yellow,
+    otherPrivate.green,
+    otherPrivate.red
+  );
   let config = `${includeSidebarType}
-:root { ${configColors}
+:root { ${mainColors}
     ${configMain}
+}
+
+:root[privatebrowsingmode="temporary"]{ ${privateColors} 
 }`;
 
   return (
@@ -56,15 +68,15 @@ function CodeView({
     >
       <ButtonPair
         content={files}
-        bgSelected={[darkPalette[1], darkPalette[2]]}
-        color={{ selected: light, regular: dark }}
+        bgSelected={[theme.darkPalette[1], theme.darkPalette[2]]}
+        color={{ selected: theme.light, regular: theme.dark }}
         selected={currentFile}
         onClick={setCurrentFile}
       />
       <CodeBlock
-        dark={dark}
-        darkPalette={darkPalette}
-        light={light}
+        dark={theme.dark}
+        darkPalette={theme.darkPalette}
+        light={theme.light}
         style={syntaxHighlightStyle}
         code={config}
         name="config.css"

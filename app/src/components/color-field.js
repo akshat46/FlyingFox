@@ -27,11 +27,13 @@ function ColorField(props) {
     v.toLowerCase();
     setValue(v);
     if (/^#[0-9A-F]{6}$/i.test(v) || /^#([0-9A-F]{3}){1,2}$/i.test(v)) {
-      if (props.name == 'Dark') setTooLight(convert.hex.hsl(v)[2] > 40);
-      else if (props.name == 'Light') setTooLight(convert.hex.hsl(v)[2] < 60);
+      if (props.name == 'Dark') setTooLight(convert.hex.hsl(v)[2] > 60);
+      else if (props.name == 'Light') setTooLight(convert.hex.hsl(v)[2] < 40);
 
       setError(false);
-      props.onChange(v, props.name);
+      props.subtag
+        ? props.onChange(v, `${props.name}_${props.subtag}`)
+        : props.onChange(v, props.name);
     } else {
       setError(true);
     }
@@ -64,7 +66,7 @@ function ColorField(props) {
           errorBorderColor="red.300"
           isInvalid={error}
         />
-        <InputRightElement opacity={tooLight ? 1 : 0}>
+        <InputRightElement display={tooLight ? 'inherit' : 'none'}>
           <Tooltip
             shouldWrapChildren
             label={`Color might be too ${

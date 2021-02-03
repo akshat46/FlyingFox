@@ -18,7 +18,7 @@ function NumberField(props) {
     let v = event.target.value;
     setValue(v);
     if (/^\d+$/.test(v)) {
-      props.onChange(v, props.name);
+      props.onChange(v, props.name, props.parent);
     }
   };
   let icon;

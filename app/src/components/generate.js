@@ -34,7 +34,7 @@ import DropdownField from './dropdown-field';
 const convert = require('color-convert');
 
 function Generator() {
-  function paletteGenerator(callback, color, palette) {
+  function paletteGenerator(color, palette) {
     let arr = [];
     let hsl = convert.hex.hsl(color);
     let paletteProfile = palette;
@@ -45,82 +45,148 @@ function Generator() {
         hsl[2] + paletteProfile[i] > 99 ? 100 : hsl[2] + paletteProfile[i];
       arr.push('#' + convert.hsl.hex(hsl));
     }
-    callback(arr);
+    return arr;
   }
   const colorCallback = (value, name) => {
     switch (name) {
       case 'Dark':
-        setDark(value);
-        paletteGenerator(setDarkPalette, dark, data.paletteProfiles.dark);
+        setDarkMain({
+          ...darkMain,
+          color: value,
+          palette: paletteGenerator(darkMain.color, data.paletteProfiles.dark),
+        });
+        break;
+      case 'Dark_pr':
+        setDarkPrivate({
+          ...darkPrivate,
+          color: value,
+          palette: paletteGenerator(
+            darkPrivate.color,
+            data.paletteProfiles.dark
+          ),
+        });
         break;
       case 'Light':
-        setLight(value);
-        paletteGenerator(setLightPalette, light, data.paletteProfiles.light);
+        setLightMain({
+          ...lightMain,
+          color: value,
+          palette: paletteGenerator(
+            lightMain.color,
+            data.paletteProfiles.light
+          ),
+        });
+        break;
+      case 'Light_pr':
+        setLightPrivate({
+          ...lightPrivate,
+          color: value,
+          palette: paletteGenerator(
+            lightPrivate.color,
+            data.paletteProfiles.light
+          ),
+        });
         break;
       case 'Red':
-        setRed(value);
-        break;
       case 'Yellow':
-        setYellow(value);
-        break;
       case 'Green':
-        setGreen(value);
-        break;
       case 'Accent':
-        setAccent(value);
+        setOtherMain({ ...otherMain, [name.toLowerCase()]: value });
+        break;
+      case 'Red_pr':
+      case 'Yellow_pr':
+      case 'Green_pr':
+      case 'Accent_pr':
+        setOtherPrivate({
+          ...otherPrivate,
+          [name.split('_')[0].toLowerCase()]: value,
+        });
         break;
     }
   };
-  const numberCallback = (value, name) => {
-    switch (name) {
-      case 'Width':
-        setSidebarWidth(value);
-        break;
-      case 'Collapsed Width':
-        setSidebarCollapsedWidth(value);
+  const numberCallback = (value, name, parent) => {
+    name = name.split(' ');
+    name.splice(0, 1, name[0].toLowerCase());
+    name = name.join('');
+    switch (parent) {
+      case 'sidebar':
+        setSidebarValues({ ...sidebarValues, [name]: value });
         break;
     }
   };
 
-  const setDefaultPalette = (name, type) => {
-    let d = config[type][name];
-    let arr = [];
-    for (const s in d) {
-      if (s.endsWith('base')) continue;
-      arr.push(d[s]);
-    }
-    return arr;
-  };
-
+  /* STATES */
   const [selectedConfig, setSelectedConfig] = useState(0);
   const [selectedView, setSelectedView] = useState(0);
-  // const [darkMain, setDarkMain] = useState({color: config.main.dark['dark-base'],})
-  const [dark, setDark] = useState(config.main.dark['dark-base']);
-  const [light, setLight] = useState(config.main.light['light-base']);
-  const [accent, setAccent] = useState(config.main.other['accent']);
-  const [red, setRed] = useState(config.main.other['red']);
-  const [yellow, setYellow] = useState(config.main.other['yellow']);
-  const [green, setGreen] = useState(config.main.other['green']);
-  const [darkPalette, setDarkPalette] = useState(
-    setDefaultPalette('dark', 'main')
-  );
-  const [lightPalette, setLightPalette] = useState(
-    setDefaultPalette('light', 'main')
-  );
-  const [sidebarType, setSidebarType] = useState(data.dropdown.sidebar.default);
-  const [sidebarWidth, setSidebarWidth] = useState(
-    config.main['sidebar-width']
-  );
-  const [sidebarCollapsedWidth, setSidebarCollapsedWidth] = useState(
-    config.main['sidebar-collapsed-width']
-  );
+  const [selectedMode, setSelectedMode] = useState(0);
+  const [darkMain, setDarkMain] = useState({
+    color: config.main.dark['dark-base'],
+    palette: paletteGenerator(
+      config.main.dark['dark-base'],
+      data.paletteProfiles.dark
+    ),
+  });
+  const [lightMain, setLightMain] = useState({
+    color: config.main.light['light-base'],
+    palette: paletteGenerator(
+      config.main.light['light-base'],
+      data.paletteProfiles.light
+    ),
+  });
+  const [otherMain, setOtherMain] = useState({
+    accent: config.main.other['accent'],
+    red: config.main.other['red'],
+    yellow: config.main.other['yellow'],
+    green: config.main.other['green'],
+  });
+  const [darkPrivate, setDarkPrivate] = useState({
+    color: config.private.dark['dark-base'],
+    palette: paletteGenerator(
+      config.private.dark['dark-base'],
+      data.paletteProfiles.dark
+    ),
+  });
+  const [lightPrivate, setLightPrivate] = useState({
+    color: config.private.light['light-base'],
+    palette: paletteGenerator(
+      config.private.light['light-base'],
+      data.paletteProfiles.light
+    ),
+  });
+  const [otherPrivate, setOtherPrivate] = useState({
+    accent: config.private.other['accent'],
+    red: config.private.other['red'],
+    yellow: config.private.other['yellow'],
+    green: config.private.other['green'],
+  });
+  const [sidebarValues, setSidebarValues] = useState({
+    type: data.dropdown.sidebar.default,
+    width: config.main['sidebar-width'],
+    collapsedWidth: config.main['sidebar-collapsed-width'],
+  });
+
   const colorFields = data.colorField.main;
   const colorFieldsPrivate = data.colorField.private;
   const toast = useToast();
 
+  const theme =
+    selectedMode === 0
+      ? {
+          dark: darkMain.color,
+          light: lightMain.color,
+          darkPalette: darkMain.palette,
+          lightPalette: lightMain.palette,
+          other: otherMain,
+        }
+      : {
+          dark: darkPrivate.color,
+          light: lightPrivate.color,
+          darkPalette: darkPrivate.palette,
+          lightPalette: lightPrivate.palette,
+          other: otherPrivate,
+        };
+
   return (
     <Stack direction="row" spacing={0}>
-      paletteGenerator(setDarkPalette, dark);
       <Box w="30%" minW="440px" h="auto" bg="white" p="8" overflowY="auto">
         <ButtonPair
           content={[RiPaletteFill, RiSoundModuleFill]}
@@ -131,6 +197,7 @@ function Generator() {
         />
         {selectedConfig == 0 ? (
           <>
+            {/*** Color Fields ***/}
             <HStack
               spacing={2}
               mb={4}
@@ -165,6 +232,7 @@ function Generator() {
               {colorFieldsPrivate.map(cf => (
                 <ColorField
                   name={cf.name}
+                  subtag="pr"
                   onChange={colorCallback}
                   default={cf.default}
                 />
@@ -173,6 +241,7 @@ function Generator() {
           </>
         ) : (
           <>
+            {/*** Configs ***/}
             <HStack
               spacing={2}
               mb={4}
@@ -187,12 +256,11 @@ function Generator() {
               <DropdownField
                 icon={RiListSettingsFill}
                 name={data.dropdown.sidebar.name}
-                onChange={setSidebarType}
                 options={data.dropdown.sidebar.values.map((v, i) => (
                   <option
                     value={i.toString()}
                     onClick={() => {
-                      setSidebarType(i);
+                      setSidebarValues({ ...sidebarValues, type: i });
                     }}
                     colorScheme="teal"
                   >
@@ -204,6 +272,7 @@ function Generator() {
                 <NumberField
                   name={cf.name}
                   type="width"
+                  parent="sidebar"
                   subtext={cf.subtext}
                   onChange={numberCallback}
                   default={cf.default.replace('px', '')}
@@ -218,34 +287,26 @@ function Generator() {
         w={{ lg: '70%', md: '60%', sm: '100%' }}
         h="100vh"
         p="8"
-        bg={lightPalette[1]}
+        bg={theme.lightPalette[1]}
         pos="fixed"
         right={{ md: '0', sm: '-100%' }}
       >
         <Flex w="100%">
           <ButtonPair
+            // *** Mode ***
             content={[RiFirefoxFill, RiSpyFill]}
-            bgSelected={[darkPalette[1], darkPalette[2]]}
-            color={{ selected: light, regular: dark }}
-            selected={0}
-            onClick={() =>
-              toast({
-                title: 'Work In Progress :(',
-                position: 'bottom-right',
-                description:
-                  'Private mode preview has not been implemented yet.',
-                status: 'error',
-                duration: 5000,
-                isClosable: false,
-              })
-            }
+            bgSelected={[theme.darkPalette[1], theme.darkPalette[2]]}
+            color={{ selected: theme.light, regular: theme.dark }}
+            selected={selectedMode}
+            onClick={setSelectedMode}
             icon
           />
           <Spacer />
           <ButtonPair
+            // *** view ***
             content={[RiBrush3Fill, RiCodeSSlashFill]}
-            bgSelected={[darkPalette[1], darkPalette[2]]}
-            color={{ selected: light, regular: dark }}
+            bgSelected={[theme.darkPalette[1], theme.darkPalette[2]]}
+            color={{ selected: theme.light, regular: theme.dark }}
             alignSelf="end"
             selected={selectedView}
             onClick={setSelectedView}
@@ -254,6 +315,7 @@ function Generator() {
         </Flex>
         {selectedView == 0 ? (
           <Container
+            // *** browser preview ***
             maxW="100%"
             pos="absolute"
             left="50%"
@@ -262,45 +324,52 @@ function Generator() {
             centerContent
           >
             <BrowserPreview
-              dark={dark}
-              darkPalette={darkPalette}
-              light={light}
-              lightPalette={lightPalette}
-              red={red}
-              yellow={yellow}
-              green={green}
+              dark={theme.dark}
+              darkPalette={theme.darkPalette}
+              light={theme.light}
+              lightPalette={theme.lightPalette}
+              red={theme.other.red}
+              yellow={theme.other.yellow}
+              green={theme.other.green}
             >
               <VStack
                 paddingY={12}
                 w="100%"
                 spacing={8}
                 mt={2}
-                borderTop={`solid 2px ${darkPalette[0]}`}
+                borderTop={`solid 2px ${theme.darkPalette[0]}`}
               >
                 <PaletteGroup
-                  colors={[dark, light]}
-                  contrast={darkPalette[3]}
+                  colors={[theme.dark, theme.light]}
+                  contrast={theme.darkPalette[3]}
                   detached
                 />
-                <PaletteGroup colors={lightPalette} />
-                <PaletteGroup colors={darkPalette} />
-                <PaletteGroup colors={[accent, red, yellow, green]} detached />
+                <PaletteGroup colors={theme.lightPalette} />
+                <PaletteGroup colors={theme.darkPalette} />
+                <PaletteGroup
+                  colors={[
+                    theme.other.accent,
+                    theme.other.red,
+                    theme.other.yellow,
+                    theme.other.green,
+                  ]}
+                  detached
+                />
               </VStack>
             </BrowserPreview>
           </Container>
         ) : (
           <Code
-            dark={dark}
-            light={light}
-            darkPalette={darkPalette}
-            lightPalette={lightPalette}
-            red={red}
-            green={green}
-            yellow={yellow}
-            accent={accent}
-            sidebarType={sidebarType}
-            sidebarWidth={sidebarWidth}
-            sidebarCollapsedWidth={sidebarCollapsedWidth}
+            darkMain={darkMain}
+            lightMain={lightMain}
+            otherMain={otherMain}
+            darkPrivate={darkPrivate}
+            lightPrivate={lightPrivate}
+            otherPrivate={otherMain}
+            theme={theme}
+            sidebarType={sidebarValues.type}
+            sidebarWidth={sidebarValues.width}
+            sidebarCollapsedWidth={sidebarValues.collapsedWidth}
           />
         )}
       </Box>
