@@ -1,10 +1,16 @@
-:root{
-    --tab-border-radius: 6px; /* border radius of tabs */
-    --animation-duration: 100ms; /* duration of different animations [0s: off] */
-    --spacing: 15px; /* spacing between tabs. [<15px: compact tabs] */
+:root {
+    --tab-border-radius: 7px; /* border radius of tabs */
+    --animation-duration: 200ms; /* duration of different animations [0s: off] */
+    --spacing: 14px; /* spacing between tabs. [<15px: compact tabs] */
+
+    --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+    --collapsed-width: 60px;
 }
 
-:root{
+:root {
     --dark-0: #151d28;
     --dark-base: #192330;
     --dark-1: #223042;
@@ -37,18 +43,23 @@
     --light-3: #eb3fa3bc;
     --light-4: #ea38b5bc;
 
-    --accent: #e9207e; 
+    --accent: #e9207e;
 }
 
-:root, #background{
-    background:  var(--dark-base);
+#tabbar-container #tabbar {
+    margin-bottom: 15px !important;
 }
 
-#all-tabs{
-   margin: 10px 15px;
+:root,
+#background {
+    background: var(--dark-base);
 }
 
-tab-item:not(collapsed) {
+#all-tabs {
+    margin: 10px 15px;
+}
+
+tab-item:not(.collapsed) {
     margin-top: var(--spacing);
     border-radius: var(--tab-border-radius);
     border: none !important;
@@ -56,21 +67,23 @@ tab-item:not(collapsed) {
     padding-bottom: 10px;
 }
 
-tab-item:not([data-level="0"]){
+tab-item.collapsed {
+    height: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+tab-item:not([data-level="0"]):not(.pinned) {
     border-left: dashed 2px var(--light-4) !important;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    margin-top: calc(var(--spacing)/2);
+    margin-top: calc(var(--spacing) / 2);
 }
 
-tab-item tab-favicon{
+tab-item tab-favicon {
     left: 0;
     filter: grayscale(50%) opacity(80%);
-    transition: left calc(var(--animation-duration)*2) ease-in-out;
-}
-
-tab-item[data-child-ids] .twisty{
-    margin-right: 5px;
+    transition: left calc(var(--animation-duration) * 2) var(--ease-out);
 }
 
 .highlighter {
@@ -82,44 +95,42 @@ tab-item .label {
     padding-bottom: 2px;
 }
 
-
-tab-item .twisty:before{
-   background: var(--light-3) !important;
+tab-item .twisty:before {
+    background: var(--light-3) !important;
 }
 
 tab-item.active .label {
     color: var(--light-0) !important;
 }
 
-
-:root tab-item.active .twisty:before{
-   background: var(--light-2) !important;
-}
-
 tab-item.active {
     background: var(--dark-3) !important;
+}
+
+tab-item:not(.active).highlighted {
+    background: var(--dark-1) !important;
 }
 
 tab-item:not(active):hover {
     background: var(--dark-1);
 }
 
-tab-item:not(:hover) tab-closebox {
-    right: -30px;
+tab-item:hover tab-closebox {
+    right: 10px;
     opacity: 1;
 }
 
 tab-item:not(pinned) tab-closebox {
     position: absolute;
-    margin-top: 5px;
-    right: 10px;
+    margin-top: 2px;
     height: 20px;
     width: 20px;
+    right: -30px;
     border-radius: 50%;
     padding-top: 2px;
     padding-left: 2px;
     background: var(--light-4);
-    transition   : all var(--animation-duration) ease-in-out;
+    transition: all var(--animation-duration) var(--ease-out);
 }
 
 .sound-button:after {
@@ -127,36 +138,40 @@ tab-item:not(pinned) tab-closebox {
     margin-top: 2px;
 }
 
-.counter{
-    color: var(--dark-base) !important;
-    background: var(--accent) !important;
+.counter {
+    color: var(--light-4) !important;
+    background: var(--dark-2) !important;
     border-radius: 7px;
     margin: 2px 2px 0px 0px;
     padding: 0 4px;
+    padding-bottom: 2px;
+    order: -2 !important;
 }
 
-.counter:before, .counter:after{ content: ""}
+.counter:before,
+.counter:after {
+    content: "";
+}
 
 /********LEFT CONTENT TAB(static)*************/
 
-:root.left tab-item{
+:root.left tab-item {
     padding-left: 0;
 }
 
-:root.left tab-item tab-favicon {    
+:root.left tab-item tab-favicon {
     transform: scale(120%);
     margin-right: 5px;
 }
 
 :root.left tab-item .label {
     transform: translateX(10px);
-    transition   : all var(--animation-duration) ease-in-out;
+    transition: all var(--animation-duration) var(--ease-out);
 }
 
 :root.left tab-item:not(.pinned):hover tab-favicon {
     left: -35px;
 }
-
 
 :root.left tab-item[data-child-ids]:not(.pinned):hover tab-favicon {
     left: -40px;
@@ -167,33 +182,60 @@ tab-item:not(pinned) tab-closebox {
     transform: translateX(-25px);
 }
 
+:root.left tab-item[data-child-ids] .twisty {
+    margin-right: 5px;
+}
+
 /********RIGHT CONTENT TAB(hover)*************/
 
+:root.right tab-item:not(.active) tab-favicon {
+    margin-right: calc(var(--collapsed-width) * -0.1) !important;
+}
+
 :root.right tab-item tab-favicon {
-    transform: scale(120%);
+    transform: scale(120%) translateX(calc(var(--collapsed-width) * -0.1));
     order: 1000;
-    filter: grayscale(50%) opacity(80%);
-    transition: all 0.2s ease-in-out;
+    transition: all var(--animation-duration) var(--ease-in-out);
 }
 
 :root.right tab-item.active:not(:hover) tab-favicon {
     filter: grayscale(10%) opacity(80%);
-    transform: scale(150%);
-    margin-right: 15px;
+    transform: scale(120%);
 }
 
-:root.right tab-item:hover tab-favicon,
-:root.right tab-favicon {
-    transform: translateX(30px);
+:root.right tab-item:not(.pinned):hover tab-favicon {
+    left: -30px;
+    margin-left: 25px;
 }
 
-:root.right tab-item:hover tab-favicon {
-    margin-left: -15px;
+:root.right tab-item.active:not(.pinned):hover tab-favicon {
+    left: -20px !important;
+    margin-left: 15px;
 }
-
 
 :root.right tab-item.pinned tab-favicon {
     transform: scale(120%);
+}
+
+:root.right tab-item .label {
+    margin-left: 10px;
+    margin-right: calc(var(--collapsed-width) * 0.3) !important;
+}
+
+:root.right tab-item:not(pinned):hover tab-closebox {
+    right: calc(var(--collapsed-width) * 0.3);
+}
+
+:root.right tab-item:not([data-level="0"]):not(.pinned) {
+    border: none !important;
+    border-right: dashed 2px var(--light-4) !important;
+    border-radius: var(--tab-border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+:root.right .sound-button {
+    order: -1 !important;
 }
 
 :root.right tab-item.active.pinned {
@@ -208,15 +250,11 @@ tab-item:not(pinned) tab-closebox {
 
 /***********************************/
 
-.tab
-    .favicon
-    .favicon-default::before {
+.tab .favicon .favicon-default::before {
     filter: invert(88%) sepia(50%) saturate(1339%) hue-rotate(176deg) brightness(82%) contrast(95%); // change for light theme
 }
 
-.tab[data-current-favicon-uri="undefined"]
-    .favicon
-    .favicon-default::before{
+.tab[data-current-favicon-uri="undefined"] .favicon .favicon-default::before {
     background: url("chrome://branding/content/identity-icons-brand.svg") no-repeat center !important;
     mask: none !important;
 }
@@ -235,8 +273,8 @@ tab-item:not(pinned) tab-closebox {
     margin: 0 5px;
 }
 
-.newtab-button::before{
-   background: var(--light-3) !important;
+.newtab-button::before {
+    background: var(--light-3) !important;
 }
 
 .newtab-action-selector-anchor {
@@ -252,9 +290,9 @@ tab-item:not(pinned) tab-closebox {
 /**********PINNED TAB***************/
 
 tab-item.pinned {
-    margin: 4px;
+    margin: 5px !important;
     padding: 5px !important;
-    transition   : all 0.1s ease-in-out;
+    transition: all 0.1s var(--ease-out);
 }
 
 /***********************************/

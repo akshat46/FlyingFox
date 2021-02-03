@@ -161,8 +161,6 @@
     --toolbar-field-focus-border-color: var(--lwt-toolbar-field-color) !important;
 
     --tab-separator-opacity: 0.35 !important;
-    --sidebar-width: 250px !important;
-    --sidebar-collapsed-width: calc(60px) !important;
 
     --toolbar-field-background-color: var(--light-1) !important;
     --toolbar-field-focus-background-color: var(--light-1) !important;

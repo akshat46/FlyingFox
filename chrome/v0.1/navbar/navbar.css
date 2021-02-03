@@ -23,6 +23,15 @@ toolbar .toolbarbutton-1 {
     margin-right: 3px !important;
 }
 
+#stop-reload-button[animate="true"] .toolbarbutton-animatable-box {
+    transform: translateX(2px) translateY(16px) !important;
+}
+
+.toolbarbutton-1[checked="true"] > .toolbarbutton-icon {
+    background: transparent !important;
+    fill: var(--lwt-toolbarbutton-icon-fill-attention);
+}
+
 toolbar .toolbarbutton-1 > .toolbarbutton-icon {
     border-radius: 7px !important;
     padding: 7px !important;
@@ -32,7 +41,6 @@ toolbar .toolbarbutton-1 > .toolbarbutton-icon {
     opacity: 0.5 !important;
 }
 
-/* Remove Back button circle, fix size */
 #back-button:not(:hover),
 #back-button:not(:hover) > .toolbarbutton-icon {
     background: transparent !important;
@@ -52,13 +60,6 @@ toolbar .toolbarbutton-1 > .toolbarbutton-icon {
     background: var(--lwt-toolbarbutton-hover-background) !important;
 }
 
-/* #home-button > .toolbarbutton-icon, */
-/* #reload-button > .toolbarbutton-icon, */
-/* #fxa-toolbar-menu-button > .toolbarbutton-icon, */
-/* #nav-bar-overflow-button > .toolbarbutton-icon, */
-/* #library-button > .toolbarbutton-icon { */
-/*     padding: var(--navbar-icon-size) !important; */
-/* } */
 #back-button > .toolbarbutton-icon {
     padding: 4px !important;
 }
