@@ -73,7 +73,7 @@ const data = {
     sidebar: {
       name: 'Type',
       default: 0,
-      values: ['Static', 'Hover', 'Overlay'],
+      values: ['Static', 'Hover'],
     },
   },
   syntaxHighlight: (dark, darkPalette, light, accent, yellow, green, red) => ({
