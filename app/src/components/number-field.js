@@ -29,8 +29,8 @@ function NumberField(props) {
   } else {
   }
   return (
-    <Box width="100%" color="gray.600">
-      <VStack spacing={1} float="left" textAlign="left">
+    <HStack width="100%" justify="space-between" align="start" color="gray.600">
+      <VStack spacing={1} maxW="70%" float="left" textAlign="left">
         <HStack spacing={2} alignSelf="start">
           {icon}
           <Text>{props.name}</Text>
@@ -39,7 +39,7 @@ function NumberField(props) {
           {props.subtext}
         </Text>
       </VStack>
-      <NumberInput float="right" value={value}>
+      <NumberInput value={value}>
         <InputGroup size="sm" w="130px">
           <NumberInputField
             type="number"
@@ -52,7 +52,7 @@ function NumberField(props) {
           <InputRightAddon borderRightRadius="md" children={props.unit} />
         </InputGroup>
       </NumberInput>
-    </Box>
+    </HStack>
   );
 }
 

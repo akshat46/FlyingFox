@@ -1,8 +1,11 @@
+/*order of these files is important and should not be changed*/
 @import "icons/extension-icons.css";
-@import "window-controls/window-controls.css"; /* comment this out if you don't want flyingfox to handle maximize/minimize/close buttons */
+@import "window-controls/wc-without-tabline.css";
+/* @import "window-controls/wc-with-tabline.css"; */
+@import "hide-tabline.css";
 @import "userChrome-static.css";
 /* @import "userChrome-hover.css"; */
-/* @import "userChrome-tabline.css"; */
+/* @import "userChrome-overlay.css"; */
 
 :root {
     --dark-0: #151d28;
@@ -24,9 +27,29 @@
     --green: #5cb8a7;
     --red: #c94f6d;
 
-    --sidebar-width: 250px !important; /* expanded width of the sidebar. used for userChrome-static */
-    --sidebar-collapsed-width: 60px !important; /* initial width of the sidebar. used for userChrome-hover */
-    --extension-icon-mask: grayscale(100%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%);
+    --extension-icon-mask: invert(30%) sepia(11%) saturate(1685%) hue-rotate(173deg) brightness(92%) contrast(93%)
+        grayscale(70%);
+    /* --extension-icon-mask: grayscale(100%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%); */
+
+    /* expanded width of the sidebar. 
+    used for userChrome-static, and hover */
+    --sidebar-width: 250px !important;
+    /* initial width of the sidebar. 
+    advised not to change since tst css relies on this value*/
+    --sidebar-collapsed-width: 60px !important;
+
+    --tl-animation-duration: 200ms;
+    /*--tl-tab-background-gradient: */
+    /* uncomment and add gradient value for selected tab gradient*/
+
+    /******WINDOW CONTROL PLACEMENT VAS******/
+    /* larger value moves window controls down, 
+    can be negative(moves controls up)
+    55px if tabline visible, -25px if tabline hidden */
+    --wc-vertical-shift: -25px;
+    /* larger value moves window controls right. 
+    10-20px should be enough */
+    --wc-horizontal-shift: 10px;
 }
 
 :root[privatebrowsingmode="temporary"] {

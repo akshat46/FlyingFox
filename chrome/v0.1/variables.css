@@ -1,3 +1,23 @@
+:root {
+    --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --transition-time: 0.4s !important;
+    --ease-basic: linear;
+
+    --button-size: 32px; /* is this used? */
+    --icon-size: 24px; /* is this used? */
+
+    --downloads-item-height: 48px !important;
+
+    --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor) !important;
+    --toolbar-non-lwt-textcolor: var(--toolbar-color) !important;
+    --toolbar-field-focus-border-color: var(--lwt-toolbar-field-color) !important;
+
+    --toolbar-field-background-color: var(--light-1) !important;
+    --toolbar-field-focus-background-color: var(--light-1) !important;
+}
+
 /* light mode */
 :root:not([style]),
 :root[style*="--lwt-accent-color:rgb(227, 228, 230);"],
@@ -142,28 +162,6 @@
 
     /* sidebar_text */
     --lwt-sidebar-text-color: var(--light-base) !important;
-}
-
-:root {
-    --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
-    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-    --transition-time: 0.4s !important;
-    --ease-basic: linear;
-
-    --button-size: 32px; /* is this used? */
-    --icon-size: 24px; /* is this used? */
-
-    --downloads-item-height: 48px !important;
-
-    --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor) !important;
-    --toolbar-non-lwt-textcolor: var(--toolbar-color) !important;
-    --toolbar-field-focus-border-color: var(--lwt-toolbar-field-color) !important;
-
-    --tab-separator-opacity: 0.35 !important;
-
-    --toolbar-field-background-color: var(--light-1) !important;
-    --toolbar-field-focus-background-color: var(--light-1) !important;
 }
 
 #titlebar,

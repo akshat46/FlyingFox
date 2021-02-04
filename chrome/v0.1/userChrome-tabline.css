@@ -1,0 +1,56 @@
+#tabbrowser-arrowscrollbox {
+    margin-top: 7px;
+}
+
+.tabbrowser-tab::after {
+    border: none !important;
+}
+
+.tab-background .tab-line,
+.tab-background .tab-bottom-line {
+    display: none;
+}
+
+tab[selected="true"] > .tab-stack > .tab-background {
+    background: var(--tl-tab-background-gradient, var(--arrowpanel-dimmed-further)) !important;
+}
+
+tab:not([selected="true"]) > .tab-stack:hover > .tab-background {
+    background: var(--arrowpanel-background) !important;
+}
+
+.tab-stack {
+    border-radius: 7px;
+    margin-right: 5px;
+    overflow: hidden;
+}
+
+.tab-stack .tab-icon-image,
+.tab-stack .tab-label-container {
+    transform: translateX(0px);
+    transition: all var(--tl-animation-duration) var(--ease-out) !important;
+}
+
+.tab-stack .tab-icon-image {
+    transition-duration: calc(var(--tl-animation-duration) * 2) !important;
+}
+
+tab:not([pinned="true"]) .tab-stack:hover .tab-icon-image {
+    transform: translateX(-25px) !important;
+}
+
+.tab-stack:hover .tab-label-container {
+    transform: translateX(-23px) !important;
+}
+
+.tab-stack .tab-close-button {
+    border-radius: 50%;
+    background: var(--lwt-text-color);
+    fill: var(--lwt-accent-color) !important;
+    transform: translateX(30px) !important;
+    transition: all var(--tl-animation-duration) var(--ease-out) !important;
+}
+
+.tab-stack:hover .tab-close-button {
+    transform: translateX(0px) !important;
+}

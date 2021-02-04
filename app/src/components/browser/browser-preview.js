@@ -32,15 +32,19 @@ function BrowserPreview(props) {
     >
       <Flex>
         <HStack spacing={spacing} ml={spacing} fontSize="sm">
-          <RiCheckboxBlankCircleFill
-            style={setTitlebarControlStyles(props.red)}
-          />
-          <RiCheckboxBlankCircleFill
-            style={setTitlebarControlStyles(props.yellow)}
-          />
-          <RiCheckboxBlankCircleFill
-            style={setTitlebarControlStyles(props.green)}
-          />
+          {props.windowControls && (
+            <>
+              <RiCheckboxBlankCircleFill
+                style={setTitlebarControlStyles(props.red)}
+              />
+              <RiCheckboxBlankCircleFill
+                style={setTitlebarControlStyles(props.yellow)}
+              />
+              <RiCheckboxBlankCircleFill
+                style={setTitlebarControlStyles(props.green)}
+              />
+            </>
+          )}
           <HStack pl={spacing} spacing={1}>
             <IconWrapper
               size="lg"

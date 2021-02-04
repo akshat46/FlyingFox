@@ -26,16 +26,3 @@ toolbar {
 #sidebar-splitter {
     display: none !important;
 }
-
-/* hide tabs */
-.tabbrowser-tab {
-    display: none;
-}
-
-#tabs-newtab-button {
-    display: none;
-}
-
-.titlebar-spacer {
-    display: none !important;
-}

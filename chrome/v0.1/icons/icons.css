@@ -40,6 +40,10 @@
     fill: var(--lwt-toolbarbutton-icon-fill) !important;
 }
 
+#reader-mode-button{
+    list-style-image: url(reader-mode.svg) !important;
+}
+
 #star-button[starred],
 #tracking-protection-icon-box[active] {
     list-style-image: url(star-filled.svg) !important;

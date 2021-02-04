@@ -15,6 +15,7 @@ function CodeView({
   sidebarType,
   sidebarWidth,
   sidebarCollapsedWidth,
+  includes,
 }) {
   let files = ['config.css', 'tree-style-tab.css', 'window-controls'];
   const [currentFile, setCurrentFile] = useState(0);
@@ -28,6 +29,13 @@ function CodeView({
     theme.other.red
   );
   let includeSidebarType = data.configSidebarType(sidebarType);
+  let includeExtensionIcons = includes.extensionIcons
+    ? data.includeExtensionIcons
+    : '';
+  let includeHideTabline = includes.hideTabline ? data.includeHideTabline : '';
+  let includeWindowControls = includes.windowControls
+    ? data.includeWindowControls(includes.hideTabline)
+    : '';
   let mainColors = data.configColors(
     darkMain.color,
     darkMain.palette,
@@ -36,7 +44,8 @@ function CodeView({
     otherMain.accent,
     otherMain.yellow,
     otherMain.green,
-    otherMain.red
+    otherMain.red,
+    darkMain.mask
   );
   let configMain = data.configMain(sidebarWidth, sidebarCollapsedWidth);
   let privateColors = data.configColors(
@@ -47,11 +56,16 @@ function CodeView({
     otherPrivate.accent,
     otherPrivate.yellow,
     otherPrivate.green,
-    otherPrivate.red
+    otherPrivate.red,
+    darkPrivate.mask
   );
-  let config = `${includeSidebarType}
+  console.log(darkMain.mask);
+  let config = `/* order of these files is important and should not be changed */
+
+${includeExtensionIcons}${includeWindowControls}${includeHideTabline}${includeSidebarType}
 :root { ${mainColors}
     ${configMain}
+    ${data.configUnset}
 }
 
 :root[privatebrowsingmode="temporary"]{ ${privateColors} 

@@ -1,17 +1,10 @@
-/* move window-controls down */
-#TabsToolbar.browser-toolbar {
-    display: inline-block !important;
-    position: absolute;
-    top: -17px !important;
-    left: 10px;
-}
-
 :root:not([inFullscreen]) toolbar#nav-bar {
     z-index: 1 !important;
     position: relative !important;
-    margin-left: 80px !important; /* shift toolbar to the right based on initial width */
+    margin-left: calc(
+        var(--wc-horizontal-shift) * 2 + 60px
+    ) !important; /* shift toolbar to the right based on initial width */
 }
-
 /*-min max close size*/
 .titlebar-button > .toolbarbutton-icon {
     height: 15px !important;
@@ -23,60 +16,49 @@
 .titlebar-buttonbox {
     display: flex;
     flex-direction: row-reverse;
+    -moz-context-properties: fill, fill-opacity !important;
 }
 
 /* close button */
 .titlebar-close {
+    fill: var(--red) !important;
     opacity: 0.7 !important;
-    list-style-image: url(circle-close.svg) !important;
-}
-:root[privatebrowsingmode="temporary"] .titlebar-close {
-    opacity: 0.7 !important;
-    list-style-image: url(circle-close-p.svg) !important;
+    list-style-image: url(circle.svg) !important;
 }
 
-.titlebar-close:hover, :root[privatebrowsingmode="temporary"] .titlebar-close:hover {
+.titlebar-close:hover {
     opacity: 1 !important;
 }
 
 /* minimize button */
 .titlebar-min {
+    fill: var(--yellow) !important;
     opacity: 0.7 !important;
-    list-style-image: url(circle-min.svg) !important;
-}
-:root[privatebrowsingmode="temporary"] .titlebar-min {
-    opacity: 0.7 !important;
-    list-style-image: url(circle-min-p.svg) !important;
+    list-style-image: url(circle.svg) !important;
 }
 
-.titlebar-min:hover, :root[privatebrowsingmode="temporary"] .titlebar-min:hover {
+.titlebar-min:hover {
     opacity: 1 !important;
 }
 
-/* close button */
+/* maximize button */
 .titlebar-max {
+    fill: var(--green) !important;
     opacity: 0.7 !important;
-    list-style-image: url(circle-max.svg) !important;
-}
-:root[privatebrowsingmode="temporary"] .titlebar-max {
-    opacity: 0.7 !important;
-    list-style-image: url(circle-max-p.svg) !important;
+    list-style-image: url(circle.svg) !important;
 }
 
-.titlebar-max:hover, :root[privatebrowsingmode="temporary"] .titlebar-max:hover {
+.titlebar-max:hover {
     opacity: 1 !important;
 }
 
 /* restore button */
 .titlebar-restore {
+    fill: var(--green) !important;
     opacity: 0.7 !important;
-    list-style-image: url(circle-max.svg) !important;
-}
-:root[privatebrowsingmode="temporary"] .titlebar-restore {
-    opacity: 0.7 !important;
-    list-style-image: url(circle-max-p.svg) !important;
+    list-style-image: url(circle.svg) !important;
 }
 
-.titlebar-restore:hover, :root[privatebrowsingmode="temporary"] .titlebar-restore:hover {
+.titlebar-restore:hover {
     opacity: 1 !important;
 }

@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.6.0",
     "color-convert": "^2.0.1",
     "framer-motion": "^3.2.0",
+    "hex-to-css-filter": "^3.1.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^3.11.0",

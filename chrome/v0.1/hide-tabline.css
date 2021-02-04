@@ -1,0 +1,8 @@
+/* /1* hide tabs *1/ */
+.tabbrowser-tab {
+    display: none;
+}
+
+#tabs-newtab-button {
+    display: none;
+}

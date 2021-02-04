@@ -64,7 +64,8 @@ const data = {
       {
         name: 'Collapsed Width',
         default: config.main['sidebar-collapsed-width'],
-        subtext: 'Only used with hover sidebar.',
+        subtext:
+          'If changed, the --collapsed-width variable in TST CSS should also be changed.',
       },
     ],
   },
@@ -184,7 +185,8 @@ const data = {
     accent,
     yellow,
     green,
-    red
+    red,
+    mask
   ) => `
   --dark-0: ${darkPalette[0]};
   --dark-base: ${dark};
@@ -202,9 +204,13 @@ const data = {
   --yellow: ${yellow};
   --green: ${green};
   --red: ${red};
-  --extension-icon-mask: grayscale(100%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%);`,
+  --extension-icon-mask: grayscale(70%) ${mask}`,
   configMain: (sidebarWidth, sidebarCollapsedWidth) => `
+  /* expanded width of the sidebar. 
+    used for userChrome-static, and hover */
   --sidebar-width: ${sidebarWidth}px; 
+  /* initial width of the sidebar. 
+    advised not to change since tst css relies on this value*/
   --sidebar-collapsed-width: ${sidebarCollapsedWidth}px;`,
   configSidebarType: type => {
     switch (type) {
@@ -216,6 +222,26 @@ const data = {
         return '@import "userChrome-overlay.css";\n';
     }
   },
+  includeExtensionIcons: "@import 'icons/extension-icons.css';\n",
+  includeHideTabline: "@import 'hide-tabline.css';\n",
+  includeWindowControls: hideTabline =>
+    hideTabline
+      ? "@import 'window-controls/wc-without-tabline.css';\n"
+      : "@import 'window-controls/wc-with-tabline.css';\n",
+  configUnset: `
+  --tl-animation-duration: 200ms;
+  /*--tl-tab-background-gradient: */
+  /* uncomment and add gradient value for selected tab gradient*/
+  
+  /******WINDOW CONTROL PLACEMENT VARS******/
+  /* larger value moves window controls down,*/
+  /* can be negative(moves controls up) */
+  /* 55px if tabline visible, -25px if tabline hidden */
+  --wc-vertical-shift: -25px;
+  /* larger value moves window controls right. 
+  10-20px should be enough */
+  --wc-horizontal-shift: 10px;
+    `,
   paletteProfiles: {
     dark: [2, 8, 4, 8, 4],
     light: [-12, -16, -4, -4, -4],

@@ -26,7 +26,7 @@
 
     "sidebar-width": "250",
     "sidebar-collapsed-width": "60",
-    "extension-icon-mask": "grayscale(100%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%)"
+    "extension-icon-mask": "invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%)"
   },
   "private": {
     "dark": {
@@ -54,6 +54,6 @@
       "red": "#C9365D"
     },
 
-    "extension-icon-mask": "grayscale(100%) invert(37%) sepia(47%) saturate(1401%) hue-rotate(288deg) brightness(83%)"
+    "extension-icon-mask": "invert(13%) sepia(80%) saturate(3107%) hue-rotate(256deg) brightness(84%) contrast(93%)"
   }
 }

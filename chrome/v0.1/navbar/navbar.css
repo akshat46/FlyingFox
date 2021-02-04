@@ -1,3 +1,7 @@
+.titlebar-spacer {
+    display: none !important;
+}
+
 toolbox#navigator-toolbox {
     border-bottom: solid 1px black !important;
 }

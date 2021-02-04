@@ -11,6 +11,9 @@ import {
   Spacer,
   Container,
   Select,
+  Checkbox,
+  Badge,
+  Link,
 } from '@chakra-ui/react';
 import {
   RiBrush3Fill,
@@ -18,10 +21,12 @@ import {
   RiFirefoxFill,
   RiListSettingsFill,
   RiPaletteFill,
+  RiSettingsFill,
   RiSideBarFill,
   RiSoundModuleFill,
   RiSpyFill,
 } from 'react-icons/ri';
+import { hexToCSSFilter } from 'hex-to-css-filter';
 import data from '../data';
 import config from '../config.json';
 import ColorField from './color-field';
@@ -48,22 +53,24 @@ function Generator() {
     return arr;
   }
   const colorCallback = (value, name) => {
+    let p;
     switch (name) {
       case 'Dark':
+        p = paletteGenerator(darkMain.color, data.paletteProfiles.dark);
         setDarkMain({
           ...darkMain,
           color: value,
-          palette: paletteGenerator(darkMain.color, data.paletteProfiles.dark),
+          palette: p,
+          mask: hexToCSSFilter(p[3]).filter,
         });
         break;
       case 'Dark_pr':
+        p = paletteGenerator(darkPrivate.color, data.paletteProfiles.dark);
         setDarkPrivate({
           ...darkPrivate,
           color: value,
-          palette: paletteGenerator(
-            darkPrivate.color,
-            data.paletteProfiles.dark
-          ),
+          palette: p,
+          mask: hexToCSSFilter(p[3]).filter,
         });
         break;
       case 'Light':
@@ -124,6 +131,7 @@ function Generator() {
       config.main.dark['dark-base'],
       data.paletteProfiles.dark
     ),
+    mask: config.main['extension-icon-mask'],
   });
   const [lightMain, setLightMain] = useState({
     color: config.main.light['light-base'],
@@ -144,6 +152,7 @@ function Generator() {
       config.private.dark['dark-base'],
       data.paletteProfiles.dark
     ),
+    mask: config.main['extension-icon-mask'],
   });
   const [lightPrivate, setLightPrivate] = useState({
     color: config.private.light['light-base'],
@@ -163,10 +172,21 @@ function Generator() {
     width: config.main['sidebar-width'],
     collapsedWidth: config.main['sidebar-collapsed-width'],
   });
+  const [includes, setIncludes] = useState({
+    extensionIcons: true,
+    windowControls: true,
+    hideTabline: true,
+  });
 
+  const experimentals = ['windowControls'];
+  const applyExperimental = v =>
+    experimentals.includes(v) ? (
+      <Badge variant="subtle" ml="1" colorScheme="teal">
+        Experiemental
+      </Badge>
+    ) : null;
   const colorFields = data.colorField.main;
   const colorFieldsPrivate = data.colorField.private;
-  const toast = useToast();
 
   const theme =
     selectedMode === 0
@@ -242,6 +262,63 @@ function Generator() {
         ) : (
           <>
             {/*** Configs ***/}
+            <HStack
+              spacing={2}
+              mb={4}
+              fontSize="xl"
+              color="gray.600"
+              alignSelf="start"
+            >
+              <RiSettingsFill />
+              <Text fontWeight="bold">General</Text>
+            </HStack>
+            <VStack
+              w="100%"
+              align="start"
+              spacing={6}
+              p="2"
+              pr="10"
+              marginX={4}
+              mb={8}
+            >
+              {Object.entries(includes).map(v => (
+                <>
+                  <Checkbox
+                    isChecked={v[1]}
+                    onChange={e =>
+                      setIncludes({
+                        ...includes,
+                        [v[0]]: !v[1],
+                      })
+                    }
+                    colorScheme="gray"
+                    alignItems="center"
+                    size="md"
+                  >
+                    {v[0].charAt(0).toUpperCase() +
+                      v[0].slice(1).replace(/([a-z])([A-Z])/g, '$1 $2')}
+                    {applyExperimental(v[0])}
+                    {v[0] === 'windowControls' && (
+                      <Text
+                        align="start"
+                        m="0"
+                        p="0"
+                        fontSize="xs"
+                        color="gray.400"
+                      >
+                        Window controls positioning may not work out of the box
+                        and will require tweaking variables{' '}
+                        <Link href="" color="teal.500" isExternal>
+                          as shown here
+                        </Link>
+                        .
+                      </Text>
+                    )}
+                  </Checkbox>
+                </>
+              ))}
+            </VStack>
+            <Divider mb={8} />
             <HStack
               spacing={2}
               mb={4}
@@ -331,6 +408,7 @@ function Generator() {
               red={theme.other.red}
               yellow={theme.other.yellow}
               green={theme.other.green}
+              windowControls={includes.windowControls && includes.hideTabline}
             >
               <VStack
                 paddingY={12}
@@ -370,6 +448,7 @@ function Generator() {
             sidebarType={sidebarValues.type}
             sidebarWidth={sidebarValues.width}
             sidebarCollapsedWidth={sidebarValues.collapsedWidth}
+            includes={includes}
           />
         )}
       </Box>
