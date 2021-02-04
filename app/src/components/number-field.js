@@ -22,9 +22,9 @@ function NumberField(props) {
     }
   };
   let icon;
-  if (props.type == 'width') {
+  if (props.type === 'width') {
     icon = <AiOutlineColumnWidth />;
-  } else if (props.type == 'time') {
+  } else if (props.type === 'time') {
     icon = <RiTimeFill />;
   } else {
   }

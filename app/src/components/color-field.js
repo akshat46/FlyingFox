@@ -54,7 +54,7 @@ function ColorField(props) {
         <Text fontSize="md">{props.name}</Text>
         {/* when color is too light */}
       </HStack>
-      <InputGroup width="130px" size="sm" float="right" size="sm">
+      <InputGroup width="130px" float="right" size="sm">
         <Input
           borderRadius="md"
           value={value}
