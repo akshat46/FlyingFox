@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Box, Select, Text, HStack, VStack } from '@chakra-ui/react';
 
 function DropdownField(props) {

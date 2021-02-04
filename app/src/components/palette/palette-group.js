@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Flex, Box, HStack, Spacer } from '@chakra-ui/react';
+import { HStack } from '@chakra-ui/react';
 import Palette from './palette';
 
 function PaletteGroup(props) {

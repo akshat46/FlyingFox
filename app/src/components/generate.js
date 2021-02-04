@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  useToast,
   Box,
   Text,
   Stack,
@@ -10,7 +9,6 @@ import {
   Flex,
   Spacer,
   Container,
-  Select,
   Checkbox,
   Badge,
   Link,
@@ -108,6 +106,8 @@ function Generator() {
           [name.split('_')[0].toLowerCase()]: value,
         });
         break;
+      default:
+        break;
     }
   };
   const numberCallback = (value, name, parent) => {
@@ -117,6 +117,8 @@ function Generator() {
     switch (parent) {
       case 'sidebar':
         setSidebarValues({ ...sidebarValues, [name]: value });
+        break;
+      default:
         break;
     }
   };
@@ -215,7 +217,7 @@ function Generator() {
           onClick={setSelectedConfig}
           icon
         />
-        {selectedConfig == 0 ? (
+        {selectedConfig === 0 ? (
           <>
             {/*** Color Fields ***/}
             <HStack
@@ -390,7 +392,7 @@ function Generator() {
             icon
           />
         </Flex>
-        {selectedView == 0 ? (
+        {selectedView === 0 ? (
           <Container
             // *** browser preview ***
             maxW="100%"

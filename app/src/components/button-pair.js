@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { ButtonGroup, Button } from '@chakra-ui/react';
 
 function ButtonPair(props) {
@@ -15,15 +14,15 @@ function ButtonPair(props) {
         return (
           <Button
             bgGradient={
-              props.selected == i
+              props.selected === i
                 ? `linear(to-r,${props.bgSelected[0]},${props.bgSelected[1]})`
                 : ''
             }
             bg="transparent"
-            boxShadow={props.selected == i ? shadow : 'none'}
-            color={props.selected == i ? c_sel : c_reg}
+            boxShadow={props.selected === i ? shadow : 'none'}
+            color={props.selected === i ? c_sel : c_reg}
             _hover={
-              props.selected == i
+              props.selected === i
                 ? { background: '' }
                 : { background: props.hoverBg ? props.hoverBg : 'gray.300' }
             }

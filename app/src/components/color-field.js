@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
   Tooltip,
   Box,
@@ -27,8 +26,8 @@ function ColorField(props) {
     v.toLowerCase();
     setValue(v);
     if (/^#[0-9A-F]{6}$/i.test(v) || /^#([0-9A-F]{3}){1,2}$/i.test(v)) {
-      if (props.name == 'Dark') setTooLight(convert.hex.hsl(v)[2] > 60);
-      else if (props.name == 'Light') setTooLight(convert.hex.hsl(v)[2] < 40);
+      if (props.name === 'Dark') setTooLight(convert.hex.hsl(v)[2] > 60);
+      else if (props.name === 'Light') setTooLight(convert.hex.hsl(v)[2] < 40);
 
       setError(false);
       props.subtag
@@ -39,9 +38,9 @@ function ColorField(props) {
     }
   };
   let icon;
-  if (props.name == 'Dark') {
+  if (props.name === 'Dark') {
     icon = <RiContrast2Fill />;
-  } else if (props.name == 'Light') {
+  } else if (props.name === 'Light') {
     icon = <RiContrast2Line />;
   } else {
     icon = <RiPaintFill />;

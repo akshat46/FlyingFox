@@ -6,7 +6,7 @@ import ButtonPair from '../button-pair';
 SyntaxHighlighter.registerLanguage('css', css);
 
 function CodeBlock({ dark, darkPalette, light, style, code, name }) {
-  const { hasCopied, onCopy } = useClipboard(code);
+  const { onCopy } = useClipboard(code);
   const downloadFile = () => {
     const element = document.createElement('a');
     const file = new Blob([code], { type: 'text/plain' });

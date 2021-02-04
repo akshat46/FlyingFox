@@ -220,6 +220,8 @@ const data = {
         return '@import "userChrome-hover.css";\n';
       case 2:
         return '@import "userChrome-overlay.css";\n';
+      default:
+        break;
     }
   },
   includeExtensionIcons: "@import 'icons/extension-icons.css';\n",
