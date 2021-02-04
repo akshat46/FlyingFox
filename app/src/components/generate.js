@@ -152,7 +152,7 @@ function Generator() {
       config.private.dark['dark-base'],
       data.paletteProfiles.dark
     ),
-    mask: config.main['extension-icon-mask'],
+    mask: config.private['extension-icon-mask'],
   });
   const [lightPrivate, setLightPrivate] = useState({
     color: config.private.light['light-base'],
@@ -443,7 +443,7 @@ function Generator() {
             otherMain={otherMain}
             darkPrivate={darkPrivate}
             lightPrivate={lightPrivate}
-            otherPrivate={otherMain}
+            otherPrivate={otherPrivate}
             theme={theme}
             sidebarType={sidebarValues.type}
             sidebarWidth={sidebarValues.width}

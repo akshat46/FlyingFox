@@ -59,6 +59,7 @@ function CodeView({
     otherPrivate.red,
     darkPrivate.mask
   );
+  console.log('privateColors:', privateColors);
   console.log(darkMain.mask);
   let config = `/* order of these files is important and should not be changed */
 

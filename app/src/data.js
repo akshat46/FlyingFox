@@ -242,17 +242,22 @@ const data = {
   10-20px should be enough */
   --wc-horizontal-shift: 10px;
     `,
-  configTST: `:root{
-  --tab-border-radius: 7px; /* border radius of tabs */
-  --animation-duration: 200ms; /* duration of different animations [0s: off] */
-  --spacing: 14px; /* spacing between tabs. [<15px: compact tabs] */
-  
-  --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  
-  --collapsed-width: 60px;
+  configTST: `
+/************UNCUSTOMIZED CSS************/
+:root{
+    --tab-border-radius: 7px; /* border radius of tabs */
+    --animation-duration: 200ms; /* duration of different animations [0s: turn all animations off] */
+    --spacing: 14px; /* spacing between tabs. [<15px: compact tabs] */
+    --distance-from-edge: 10px; /* distance between tabs, and left-right edges of sidebar*/
+
+    --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+    --collapsed-width: 60px;
 }
+
+
 #tabbar-container #tabbar{
    margin-bottom: 15px !important;
 }
@@ -262,7 +267,7 @@ const data = {
 }
 
 #all-tabs{
-   margin: 10px 15px;
+   margin: 10px var(--distance-from-edge);
 }
 
 tab-item:not(.collapsed) {
@@ -288,7 +293,7 @@ tab-item:not([data-level="0"]):not(.pinned){
 
 tab-item tab-favicon{
     left: 0;
-    filter: grayscale(50%) opacity(80%);
+    filter: var(--extension-icon-mask);
     transition: left calc(var(--animation-duration)*2) var(--ease-out);
 }
 
@@ -462,7 +467,7 @@ tab-item:not(pinned) tab-closebox {
 .tab
     .favicon
     .favicon-default::before {
-    filter: invert(88%) sepia(50%) saturate(1339%) hue-rotate(176deg) brightness(82%) contrast(95%); // change for light theme
+    filter: var(--extension-icon-mask); // change for light theme
 }
 
 .tab[data-current-favicon-uri="undefined"]
@@ -512,7 +517,8 @@ tab-item.pinned {
 
 #all-tabs {
     border: none !important;
-}`,
+}
+`,
   paletteProfiles: {
     dark: [2, 8, 4, 8, 4],
     light: [-12, -16, -4, -4, -4],

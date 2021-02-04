@@ -1,16 +1,4 @@
 :root {
-    --tab-border-radius: 7px; /* border radius of tabs */
-    --animation-duration: 200ms; /* duration of different animations [0s: off] */
-    --spacing: 14px; /* spacing between tabs. [<15px: compact tabs] */
-
-    --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
-    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-
-    --collapsed-width: 60px;
-}
-
-:root {
     --dark-0: #151d28;
     --dark-base: #192330;
     --dark-1: #233143;
@@ -38,17 +26,30 @@
     --dark-2: #361b65;
     --dark-3: #472385;
     --dark-4: #502895;
-    --light-0: #fa9eb5;
-    --light-base: #f86288bc;
-    --light-1: #f75079;
-    --light-2: #f63c6b;
-    --light-3: #f5295c;
-    --light-4: #f4154d;
+    --light-0: #cc6b9c;
+    --light-base: #b9407c;
+    --light-1: #ab3b73;
+    --light-2: #9c3569;
+    --light-3: #8d305e;
+    --light-4: #7d2b54;
     --accent: #63cdcf;
     --yellow: #dbc074;
     --green: #5cb8a7;
     --red: #c94f6d;
     --extension-icon-mask: grayscale(85%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%);
+}
+
+:root {
+    --tab-border-radius: 7px; /* border radius of tabs */
+    --animation-duration: 200ms; /* duration of different animations [0s: turn all animations off] */
+    --spacing: 14px; /* spacing between tabs. [<15px: compact tabs] */
+    --distance-from-edge: 10px; /* distance between tabs, and left-right edges of sidebar*/
+
+    --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+    --collapsed-width: 60px;
 }
 
 #tabbar-container #tabbar {
@@ -61,7 +62,7 @@
 }
 
 #all-tabs {
-    margin: 10px 15px;
+    margin: 10px var(--distance-from-edge);
 }
 
 tab-item:not(.collapsed) {
