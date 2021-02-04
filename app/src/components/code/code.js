@@ -17,7 +17,7 @@ function CodeView({
   sidebarCollapsedWidth,
   includes,
 }) {
-  let files = ['config.css', 'tree-style-tab.css', 'window-controls'];
+  let files = ['config.css', 'tree-style-tab.css'];
   const [currentFile, setCurrentFile] = useState(0);
   let syntaxHighlightStyle = data.syntaxHighlight(
     theme.dark,
@@ -70,6 +70,15 @@ ${includeExtensionIcons}${includeWindowControls}${includeHideTabline}${includeSi
 
 :root[privatebrowsingmode="temporary"]{ ${privateColors} 
 }`;
+  let configTST = `
+:root{ ${mainColors}
+}
+
+:root.incognito{ ${privateColors}
+}
+
+${data.configTST}
+    `;
 
   return (
     <VStack
@@ -87,14 +96,25 @@ ${includeExtensionIcons}${includeWindowControls}${includeHideTabline}${includeSi
         selected={currentFile}
         onClick={setCurrentFile}
       />
-      <CodeBlock
-        dark={theme.dark}
-        darkPalette={theme.darkPalette}
-        light={theme.light}
-        style={syntaxHighlightStyle}
-        code={config}
-        name="config.css"
-      />
+      {currentFile === 0 ? (
+        <CodeBlock
+          dark={theme.dark}
+          darkPalette={theme.darkPalette}
+          light={theme.light}
+          style={syntaxHighlightStyle}
+          code={config}
+          name="config.css"
+        />
+      ) : (
+        <CodeBlock
+          dark={theme.dark}
+          darkPalette={theme.darkPalette}
+          light={theme.light}
+          style={syntaxHighlightStyle}
+          code={configTST}
+          name="tree-style-tab.css"
+        />
+      )}
     </VStack>
   );
 }

@@ -7,6 +7,14 @@ SyntaxHighlighter.registerLanguage('css', css);
 
 function CodeBlock({ dark, darkPalette, light, style, code, name }) {
   const { hasCopied, onCopy } = useClipboard(code);
+  const downloadFile = () => {
+    const element = document.createElement('a');
+    const file = new Blob([code], { type: 'text/plain' });
+    element.href = URL.createObjectURL(file);
+    element.download = name;
+    document.body.appendChild(element); // Required for this to work in FireFox
+    element.click();
+  };
   const toast = useToast();
   return (
     <>
@@ -33,7 +41,7 @@ function CodeBlock({ dark, darkPalette, light, style, code, name }) {
                   status: 'success',
                   duration: 2000,
                 });
-              return i === 1 ? onCopy() : null;
+              return i === 1 ? onCopy() : downloadFile();
             }}
             icon
           />

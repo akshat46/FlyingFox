@@ -204,7 +204,7 @@ const data = {
   --yellow: ${yellow};
   --green: ${green};
   --red: ${red};
-  --extension-icon-mask: grayscale(70%) ${mask}`,
+  --extension-icon-mask: grayscale(85%) ${mask}`,
   configMain: (sidebarWidth, sidebarCollapsedWidth) => `
   /* expanded width of the sidebar. 
     used for userChrome-static, and hover */
@@ -242,6 +242,277 @@ const data = {
   10-20px should be enough */
   --wc-horizontal-shift: 10px;
     `,
+  configTST: `:root{
+  --tab-border-radius: 7px; /* border radius of tabs */
+  --animation-duration: 200ms; /* duration of different animations [0s: off] */
+  --spacing: 14px; /* spacing between tabs. [<15px: compact tabs] */
+  
+  --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  
+  --collapsed-width: 60px;
+}
+#tabbar-container #tabbar{
+   margin-bottom: 15px !important;
+}
+
+:root, #background{
+    background:  var(--dark-base) !important;
+}
+
+#all-tabs{
+   margin: 10px 15px;
+}
+
+tab-item:not(.collapsed) {
+    margin-top: var(--spacing);
+    border-radius: var(--tab-border-radius);
+    border: none !important;
+    padding-top: 9px;
+    padding-bottom: 10px;
+}
+
+tab-item.collapsed{
+    height: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+tab-item:not([data-level="0"]):not(.pinned){
+    border-left: dashed 2px var(--light-4) !important;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-top: calc(var(--spacing)/2);
+}
+
+tab-item tab-favicon{
+    left: 0;
+    filter: grayscale(50%) opacity(80%);
+    transition: left calc(var(--animation-duration)*2) var(--ease-out);
+}
+
+.highlighter {
+    display: none !important;
+}
+
+tab-item .label {
+    color: var(--light-2) !important;
+    padding-bottom: 2px;
+}
+
+
+tab-item .twisty:before{
+   background: var(--light-3) !important;
+}
+
+tab-item.active .label {
+    color: var(--light-0) !important;
+}
+
+tab-item.active {
+    background: var(--dark-3) !important;
+}
+
+
+tab-item:not(.active).highlighted{
+    background: var(--dark-1) !important;
+}
+
+tab-item:not(active):hover {
+    background: var(--dark-1);
+}
+
+tab-item:hover tab-closebox {
+    right: 10px;
+    opacity: 1;
+}
+
+tab-item:not(pinned) tab-closebox {
+    position: absolute;
+    margin-top: 2px;
+    height: 20px;
+    width: 20px;
+    right: -30px;
+    border-radius: 50%;
+    padding-top: 2px;
+    padding-left: 2px;
+    background: var(--light-4);
+    transition   : all var(--animation-duration) var(--ease-out);
+}
+
+.sound-button:after {
+    background: var(--light-3) !important;
+    margin-top: 2px;
+}
+
+.counter{
+    color: var(--light-4) !important;
+    background: var(--dark-2) !important;
+    border-radius: 7px;
+    margin: 2px 2px 0px 0px;
+    padding: 0 4px;
+    padding-bottom: 2px;
+    order: -2 !important;
+}
+
+.counter:before, .counter:after{ content: ""}
+
+/********LEFT CONTENT TAB(static)*************/
+
+:root.left tab-item{
+    padding-left: 0;
+}
+
+:root.left tab-item tab-favicon {    
+    transform: scale(120%);
+    margin-right: 5px;
+}
+
+:root.left tab-item .label {
+    transform: translateX(10px);
+    transition   : all var(--animation-duration) var(--ease-out);
+}
+
+:root.left tab-item:not(.pinned):hover tab-favicon {
+    left: -35px;
+}
+
+:root.left tab-item[data-child-ids]:not(.pinned):hover tab-favicon {
+    left: -40px;
+}
+
+:root.left tab-item:hover .label,
+:root.left .label {
+    transform: translateX(-25px);
+}
+
+:root.left tab-item[data-child-ids] .twisty{
+    margin-right: 5px;
+}
+
+/********RIGHT CONTENT TAB(hover)*************/
+
+:root.right tab-item:not(.active) tab-favicon{
+    margin-right: calc(var(--collapsed-width)*-0.1) !important;
+}
+
+:root.right tab-item tab-favicon {
+    transform: scale(120%) translateX(calc(var(--collapsed-width)*-0.1));
+    order: 1000;
+    transition: all var(--animation-duration) var(--ease-in-out);
+}
+
+:root.right tab-item.active:not(:hover) tab-favicon {
+    filter: grayscale(10%) opacity(80%);
+    transform: scale(120%);
+}
+
+:root.right tab-item:not(.pinned):hover tab-favicon {
+    left: -30px;
+    margin-left: 25px;
+}
+
+:root.right tab-item.active:not(.pinned):hover tab-favicon {
+    left: -20px !important;
+    margin-left: 15px;
+}
+
+:root.right tab-item.pinned tab-favicon {
+    transform: scale(120%);
+}
+
+:root.right tab-item .label {
+    margin-left: 10px;
+    margin-right: calc(var(--collapsed-width)*0.3) !important;
+}
+
+:root.right tab-item:not(pinned):hover tab-closebox{
+    right: calc(var(--collapsed-width)*0.3);
+}
+
+:root.right tab-item:not([data-level="0"]):not(.pinned){
+    border: none !important;
+    border-right: dashed 2px var(--light-4) !important;
+    border-radius: var(--tab-border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+:root.right tab-item.active:not([data-level="0"]):not(.pinned){
+   margin-right: 5px !important;
+}
+
+:root.right .sound-button{
+    order: -1 !important;
+}
+
+:root.right tab-item.active.pinned {
+    position: relative;
+    left: 190px !important;
+}
+
+:root.right tab-item.active.pinned tab-favicon {
+    transform: scale(130%) !important;
+    margin-left: 7px;
+}
+
+/***********************************/
+
+.tab
+    .favicon
+    .favicon-default::before {
+    filter: invert(88%) sepia(50%) saturate(1339%) hue-rotate(176deg) brightness(82%) contrast(95%); // change for light theme
+}
+
+.tab[data-current-favicon-uri="undefined"]
+    .favicon
+    .favicon-default::before{
+    background: url("chrome://branding/content/identity-icons-brand.svg") no-repeat center !important;
+    mask: none !important;
+}
+
+/***********NEW TAB BUTTON**********/
+
+.newtab-button-box {
+    border: none !important;
+    margin: 0 50px;
+}
+
+.newtab-button {
+    border: none !important;
+    border-radius: 8px;
+    padding: 8px 0 !important;
+    margin: 0 5px;
+}
+
+.newtab-button::before{
+   background: var(--light-3) !important;
+}
+
+.newtab-action-selector-anchor {
+    border: none !important;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.newtab-button:hover {
+    background: var(--dark-1);
+}
+
+/**********PINNED TAB***************/
+
+tab-item.pinned {
+    margin: 5px !important;
+    padding: 5px !important;
+    transition   : all 0.1s var(--ease-out);
+}
+
+/***********************************/
+
+#all-tabs {
+    border: none !important;
+}`,
   paletteProfiles: {
     dark: [2, 8, 4, 8, 4],
     light: [-12, -16, -4, -4, -4],
