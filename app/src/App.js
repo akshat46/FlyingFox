@@ -1,7 +1,22 @@
 import React from 'react';
-import { ChakraProvider, theme } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  ChakraProvider,
+  HStack,
+  Image,
+  Text,
+  theme,
+  VStack,
+} from '@chakra-ui/react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import Generator from './components/generate';
+import {
+  RiBrush4Fill,
+  RiBrush4Line,
+  RiDownloadLine,
+  RiGithubFill,
+} from 'react-icons/ri';
 
 function App() {
   return (
@@ -16,7 +31,81 @@ function App() {
 }
 
 const LandingPage = () => {
-  return <Link to="/generate">Customize</Link>;
+  return (
+    <Box
+      w="100vw"
+      h="100vh"
+      m="0"
+      p="0"
+      bgGradient="linear(to-r, #925178, #A47780)"
+    >
+      <VStack
+        pos="absolute"
+        top="30%"
+        left="50%"
+        transform="translate(-50%, -50%)"
+      >
+        <Image
+          src={`${process.env.PUBLIC_URL}/name-logo.png`}
+          w="40vw"
+          alt="flyingfox-logo"
+          pointerEvents="none"
+        />
+        <Text mb="4" p="0" fontSize="lg" color="#192330">
+          A minimal Firefox theme.
+        </Text>
+        <HStack spacing="8">
+          <Button
+            onClick={() =>
+              window.open(
+                'https://github.com/akshat46/FlyingFox/releases',
+                '_blank'
+              )
+            }
+            size="lg"
+            p="8"
+            borderColor="green.500"
+            borderRadius="lg"
+            boxShadow="xl"
+            color="#59A9BB"
+            bg="#192330"
+            _hover={{ backgroundColor: '#223042' }}
+            _active={{ backgroundColor: '#384F6B' }}
+            leftIcon={<RiDownloadLine />}
+          >
+            Download
+          </Button>
+          <Link to="/generate">
+            <Button
+              href="https://github.com/akshat46/FlyingFox/releases"
+              size="lg"
+              p="8"
+              borderColor="green.500"
+              borderRadius="lg"
+              boxShadow="xl"
+              color="#192330"
+              bg="#59A9BB"
+              _hover={{ backgroundColor: 'cyan.500' }}
+              _active={{ backgroundColor: '#384F6B' }}
+              leftIcon={<RiBrush4Line />}
+            >
+              Customize
+            </Button>
+          </Link>
+        </HStack>
+      </VStack>
+      <Image
+        src={`${process.env.PUBLIC_URL}/preview.png`}
+        pos="absolute"
+        bottom="0"
+        left="50%"
+        transform="translateX(-50%)"
+        w="70vw"
+        alt="preview"
+        pointerEvents="none"
+      />
+    </Box>
+  );
 };
 
 export default App;
