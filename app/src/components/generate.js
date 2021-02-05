@@ -121,6 +121,7 @@ function Generator() {
         break;
       case 'general':
         setGeneral({ ...general, [name]: value });
+        break;
       default:
         break;
     }

@@ -11,12 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import Generator from './components/generate';
-import {
-  RiBrush4Fill,
-  RiBrush4Line,
-  RiDownloadLine,
-  RiGithubFill,
-} from 'react-icons/ri';
+import { RiBrush4Line, RiDownloadLine } from 'react-icons/ri';
 
 function App() {
   return (
