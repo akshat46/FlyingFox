@@ -1,7 +1,6 @@
 #sidebar-box {
     z-index: 1000 !important;
     position: relative !important;
-    padding-top: calc(-1 * var(--menubar-height));
     min-width: var(--sidebar-collapsed-width) !important;
     max-width: var(--sidebar-collapsed-width) !important;
 }
@@ -13,9 +12,11 @@
 
 /* inner width = expanded width & move inner to only show initial-width long section */
 #sidebar-box #sidebar {
+    position: absolute !important;
     min-width: var(--sidebar-width) !important;
     max-width: var(--sidebar-width) !important;
-    transform: translateX(calc(var(--sidebar-collapsed-width) - var(--sidebar-width))) !important;
+    width: var(--sidebar-width) !important;
+    transform: translateX(calc(var(--sidebar-collapsed-width) - var(--sidebar-width)));
     transition: all var(--transition-time) var(--ease-out);
 }
 
@@ -35,7 +36,7 @@
 }
 
 #sidebar {
-    border-right: solid 1px black !important;
+    border-right: solid var(--dividers) var(--sidebar-shadow-color) !important;
 }
 
 toolbar {

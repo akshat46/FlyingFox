@@ -12,6 +12,7 @@ import {
   Checkbox,
   Badge,
   Link,
+  Image,
 } from '@chakra-ui/react';
 import {
   RiBrush3Fill,
@@ -118,6 +119,8 @@ function Generator() {
       case 'sidebar':
         setSidebarValues({ ...sidebarValues, [name]: value });
         break;
+      case 'general':
+        setGeneral({ ...general, [name]: value });
       default:
         break;
     }
@@ -179,6 +182,9 @@ function Generator() {
     windowControls: true,
     hideTabline: true,
   });
+  const [general, setGeneral] = useState({
+    dividerWidth: '2',
+  });
 
   const experimentals = ['windowControls'];
   const applyExperimental = v =>
@@ -210,6 +216,12 @@ function Generator() {
   return (
     <Stack direction="row" spacing={0}>
       <Box w="30%" minW="440px" h="auto" bg="white" p="8" overflowY="auto">
+        <Image
+          src={`${process.env.PUBLIC_URL}/name-logo.png`}
+          h="40px"
+          alt="flyingfox-logo"
+          mb="8"
+        />
         <ButtonPair
           content={[RiPaletteFill, RiSoundModuleFill]}
           bgSelected={['#63CDCF', 'teal.300']}
@@ -319,6 +331,15 @@ function Generator() {
                   </Checkbox>
                 </>
               ))}
+              <NumberField
+                name="Divider Width"
+                type="width"
+                parent="general"
+                subtext="Divider width for sidebar and navbar. Set 0 to turn dividers off."
+                onChange={numberCallback}
+                default={general.dividerWidth}
+                unit="px"
+              />
             </VStack>
             <Divider mb={8} />
             <HStack
@@ -417,7 +438,7 @@ function Generator() {
                 w="100%"
                 spacing={8}
                 mt={2}
-                borderTop={`solid 2px ${theme.darkPalette[0]}`}
+                borderTop={`solid ${general.dividerWidth}px ${darkMain.palette[0]}`}
               >
                 <PaletteGroup
                   colors={[theme.dark, theme.light]}
@@ -451,6 +472,7 @@ function Generator() {
             sidebarWidth={sidebarValues.width}
             sidebarCollapsedWidth={sidebarValues.collapsedWidth}
             includes={includes}
+            general={general}
           />
         )}
       </Box>

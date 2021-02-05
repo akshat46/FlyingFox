@@ -224,6 +224,7 @@ const data = {
         break;
     }
   },
+  configDividers: dividerWidth => `--dividers: ${dividerWidth}px;`,
   includeExtensionIcons: "@import 'icons/extension-icons.css';\n",
   includeHideTabline: "@import 'hide-tabline.css';\n",
   includeWindowControls: hideTabline =>

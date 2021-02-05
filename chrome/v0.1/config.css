@@ -22,7 +22,7 @@
   --yellow: #dbc074;
   --green: #5cb8a7;
   --red: #c94f6d;
-  --extension-icon-mask: grayscale(85%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%)
+  --extension-icon-mask: grayscale(85%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%);
     
   /* expanded width of the sidebar. 
     used for userChrome-static, and hover */
@@ -30,6 +30,8 @@
   /* initial width of the sidebar. 
     advised not to change since tst css relies on this value*/
   --sidebar-collapsed-width: 60px;
+
+  --dividers: 2px;
     
   --tl-animation-duration: 200ms;
   /*--tl-tab-background-gradient: */
@@ -59,9 +61,9 @@
   --light-2: #9C3569;
   --light-3: #8D305E;
   --light-4: #7D2B54;
-  --accent: #36C9BD;
+  --accent: #e9207e;
   --yellow: #C9B336;
   --green: #36C987;
   --red: #C9365D;
-  --extension-icon-mask: grayscale(85%) invert(13%) sepia(80%) saturate(3107%) hue-rotate(256deg) brightness(84%) contrast(93%) 
+  --extension-icon-mask: grayscale(85%) invert(13%) sepia(80%) saturate(3107%) hue-rotate(256deg) brightness(84%) contrast(93%); 
 }

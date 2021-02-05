@@ -16,6 +16,7 @@ function CodeView({
   sidebarWidth,
   sidebarCollapsedWidth,
   includes,
+  general,
 }) {
   let files = ['config.css', 'tree-style-tab.css'];
   const [currentFile, setCurrentFile] = useState(0);
@@ -65,7 +66,8 @@ function CodeView({
 
 ${includeExtensionIcons}${includeWindowControls}${includeHideTabline}${includeSidebarType}
 :root { ${mainColors}
-    ${configMain}
+    ${configMain}\n
+  ${data.configDividers(general.dividerWidth)}
     ${data.configUnset}
 }
 

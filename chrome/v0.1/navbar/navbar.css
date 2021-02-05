@@ -3,7 +3,7 @@
 }
 
 toolbox#navigator-toolbox {
-    border-bottom: solid 1px black !important;
+    border-bottom: solid var(--dividers) var(--sidebar-shadow-color) !important;
 }
 
 #nav-bar {
