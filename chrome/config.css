@@ -3,7 +3,7 @@
 @import "icons/extension-icons.css";
 @import "window-controls/wc-without-tabline.css";
 @import "hide-tabline.css";
-@import "userChrome-hover.css";
+@import "userChrome-static.css";
 
 :root {
     --dark-0: #151d28;
