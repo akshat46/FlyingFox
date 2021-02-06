@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { AiOutlineColumnWidth } from 'react-icons/ai';
 import { RiTimeFill } from 'react-icons/ri';
+import SubText from './sub-text';
 
 function NumberField(props) {
   const [value, setValue] = React.useState(props.default);
@@ -34,9 +35,7 @@ function NumberField(props) {
           {icon}
           <Text>{props.name}</Text>
         </HStack>
-        <Text fontSize="xs" color="gray.400" alignSelf="start">
-          {props.subtext}
-        </Text>
+        <SubText>{props.subtext}</SubText>
       </VStack>
       <NumberInput value={value}>
         <InputGroup size="sm" w="130px">

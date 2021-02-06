@@ -1,43 +1,8 @@
-/* material firefox imports */
-@import "global/variables.css";
-@import "global/global.css";
-@import "icons/icons.css";
-@import "tabbar/tabbar.css";
-@import "navbar/navbar.css";
-@import "personalbar/personalbar.css";
-@import "popup/popup.css";
-@import "urlbar/urlbar.css";
-@import "findbar/findbar.css";
-@import "vars.css";
-
-/* show bookmarks toolbar on new tab only */
-#main-window #PersonalToolbar {
-    visibility: collapse !important;
-    z-index: 1 !important;
-    position: relative !important;
-    margin-left: var(--initial-width); /* shift toolbar to the right based on initial width */
-    margin-top: var(--toolbar-height) !important;
-}
-
-#main-window[title^="Firefox Developer Edition"] #PersonalToolbar {
-    visibility: visible !important;
-    margin-top: -1px !important;
-}
-
-/* 
-There's two main sidebar components. 
-1. #sidebar-box (outer)
-2. #sidebar (inner) 
- */
-/* lock outer to height by doing the inverse margin of the toolbar element */
-/* set outer width = initial width */
 #sidebar-box {
     z-index: 1000 !important;
     position: relative !important;
-    background: var(--sidebar-background-color) !important;
-    padding-top: calc(-1 * var(--menubar-height));
-    min-width: var(--initial-width) !important;
-    max-width: var(--initial-width) !important;
+    min-width: var(--sidebar-collapsed-width) !important;
+    max-width: var(--sidebar-collapsed-width) !important;
 }
 
 #sidebar-header,
@@ -47,46 +12,51 @@ There's two main sidebar components.
 
 /* inner width = expanded width & move inner to only show initial-width long section */
 #sidebar-box #sidebar {
+    position: absolute !important;
     min-width: var(--sidebar-width) !important;
     max-width: var(--sidebar-width) !important;
-    background: var(--sidebar-background-color) !important;
-    transform: translateX(calc(var(--initial-width) - var(--sidebar-width))) !important;
-    transition: all 0.2s ease-in-out;
-    margin-top: var(--menubar-height) !important;
+    width: var(--sidebar-width) !important;
+    transform: translateX(calc(var(--sidebar-collapsed-width) - var(--sidebar-width)));
+    transition: all var(--transition-time) var(--ease-out);
 }
 
 /* move inner to show entire sidebar */
 #sidebar-box #sidebar:hover {
     transform: translateX(0) !important;
-    box-shadow: 2px 0 33px var(--shadow-color);
+    box-shadow: 2px 0 33px -3px var(--sidebar-shadow-color);
 }
 
 #sidebar-box[sidebarcommand="viewBookmarksSidebar"] #sidebar {
     transform: translateX(0) !important;
-    box-shadow: 2px 0 33px var(--shadow-color);
+    box-shadow: 2px 0 33px -3px var(--sidebar-shadow-color);
 }
-
-#main-window[title^="Firefox Developer Edition"] #sidebar-box {
-    margin-top: var(--toolmenubar-height) !important;
+/* hide sidebar header for tree style tabs sidebar */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    display: none;
 }
 
 #sidebar {
-    border-right: none !important;
-}
-
-toolbar#nav-bar {
-    padding-top: 12px;
-    padding-bottom: 7px;
-    margin-left: var(--initial-width);
-    padding-left: 7px;
-    border: none !important;
+    border-right: solid var(--dividers) var(--sidebar-shadow-color) !important;
 }
 
 toolbar {
     border: none !important;
 }
 
-/* hide normal horizontal tab bar */
-#TabsToolbar {
+/* Hide splitter, when using Tree Style Tab. */
+#sidebar-splitter {
+    display: none !important;
+}
+
+/* hide tabs */
+.tabbrowser-tab {
     display: none;
+}
+
+#tabs-newtab-button {
+    display: none;
+}
+
+.titlebar-spacer {
+    display: none !important;
 }

@@ -9,7 +9,6 @@ import {
   Flex,
   Spacer,
   Container,
-  Checkbox,
   Badge,
   Link,
   Image,
@@ -35,25 +34,28 @@ import PaletteGroup from './palette/palette-group';
 import ButtonPair from './button-pair';
 import Code from './code/code';
 import DropdownField from './dropdown-field';
+import _Checkbox from './checkbox';
 const convert = require('color-convert');
 
 function Generator() {
   function paletteGenerator(color, palette) {
     let arr = [];
     let hsl = convert.hex.hsl(color);
-    let paletteProfile = palette;
-    hsl[2] = hsl[2] > paletteProfile[0] ? hsl[2] - paletteProfile[0] : hsl[2];
+    hsl[2] = hsl[2] > Math.abs(palette[0]) + 4 ? hsl[2] - palette[0] : hsl[2];
+    hsl[2] = hsl[2] > 100 ? 100 : hsl[2];
     arr.push('#' + convert.hsl.hex(hsl));
-    for (let i = 1; i < paletteProfile.length; i++) {
-      hsl[2] =
-        hsl[2] + paletteProfile[i] > 99 ? 100 : hsl[2] + paletteProfile[i];
+    for (let i = 1; i < palette.length; i++) {
+      hsl[2] = hsl[2] + palette[i] > 99 ? 100 : hsl[2] + palette[i];
+      hsl[1] = hsl[1] > 49 ? hsl[1] - palette[i] * 1.5 : hsl[1];
       arr.push('#' + convert.hsl.hex(hsl));
     }
     return arr;
   }
   const colorCallback = (value, name) => {
     let p;
-    switch (name) {
+    switch (
+      name // _pr suffix for private
+    ) {
       case 'Dark':
         p = paletteGenerator(darkMain.color, data.paletteProfiles.dark);
         setDarkMain({
@@ -187,13 +189,12 @@ function Generator() {
     dividerWidth: '2',
   });
 
-  const experimentals = ['windowControls'];
-  const applyExperimental = v =>
-    experimentals.includes(v) ? (
-      <Badge variant="subtle" ml="1" colorScheme="teal">
-        Experiemental
-      </Badge>
-    ) : null;
+  const _Badge = props => (
+    <Badge variant="subtle" ml="1" colorScheme={props.color}>
+      {props.name}
+    </Badge>
+  );
+
   const colorFields = data.colorField.main;
   const colorFieldsPrivate = data.colorField.private;
 
@@ -296,42 +297,60 @@ function Generator() {
               marginX={4}
               mb={8}
             >
-              {Object.entries(includes).map(v => (
-                <>
-                  <Checkbox
-                    isChecked={v[1]}
-                    onChange={e =>
-                      setIncludes({
-                        ...includes,
-                        [v[0]]: !v[1],
-                      })
-                    }
-                    colorScheme="gray"
-                    alignItems="center"
-                    size="md"
-                  >
-                    {v[0].charAt(0).toUpperCase() +
-                      v[0].slice(1).replace(/([a-z])([A-Z])/g, '$1 $2')}
-                    {applyExperimental(v[0])}
-                    {v[0] === 'windowControls' && (
-                      <Text
-                        align="start"
-                        m="0"
-                        p="0"
-                        fontSize="xs"
-                        color="gray.400"
-                      >
-                        Window controls positioning may not work out of the box
-                        and will require tweaking variables{' '}
-                        <Link href="" color="teal.500" isExternal>
-                          as shown here
-                        </Link>
-                        .
-                      </Text>
-                    )}
-                  </Checkbox>
-                </>
-              ))}
+              <_Checkbox
+                isChecked={includes.extensionIcons}
+                onChange={e =>
+                  setIncludes({
+                    ...includes,
+                    extensionIcons: e.target.checked,
+                  })
+                }
+              >
+                Handle Extension Icons
+              </_Checkbox>
+              <_Checkbox
+                isChecked={includes.hideTabline}
+                onChange={e =>
+                  setIncludes({
+                    ...includes,
+                    hideTabline: e.target.checked,
+                    windowControls: e.target.checked
+                      ? includes.windowControls
+                      : false,
+                  })
+                }
+                subText={
+                  !includes.hideTabline
+                    ? 'WIP. Window controls are only handled if tabline is hidden.'
+                    : null
+                }
+                badge={{ name: 'no preview', color: 'red' }}
+              >
+                Hide Tabline
+              </_Checkbox>
+              <_Checkbox
+                isChecked={includes.windowControls}
+                onChange={e =>
+                  setIncludes({
+                    ...includes,
+                    windowControls: e.target.checked,
+                  })
+                }
+                disabled={!includes.hideTabline}
+                badge={{ name: 'experimental', color: 'teal' }}
+                subText={
+                  <>
+                    Window controls positioning may not work out of the box and
+                    will require tweaking variables{' '}
+                    <Link href="" color="teal.500" isExternal>
+                      as shown here
+                    </Link>
+                    .
+                  </>
+                }
+              >
+                Window Controls
+              </_Checkbox>
               <NumberField
                 name="Divider Width"
                 type="width"
@@ -352,6 +371,7 @@ function Generator() {
             >
               <RiSideBarFill />
               <Text fontWeight="bold">Sidebar</Text>
+              <_Badge color="red" name="no preview" />
             </HStack>
             <VStack w="100%" spacing={6} p="2" pr="10" marginX={4} mb={8}>
               <DropdownField

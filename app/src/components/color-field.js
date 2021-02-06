@@ -59,7 +59,6 @@ function ColorField(props) {
           borderRadius="md"
           value={value}
           onChange={handleChange}
-          onKeyPress={handleChange}
           onBlur={handleChange}
           placeholder={props.default}
           variant="filled"
