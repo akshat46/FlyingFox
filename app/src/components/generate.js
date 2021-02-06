@@ -34,7 +34,7 @@ import PaletteGroup from './palette/palette-group';
 import ButtonPair from './button-pair';
 import Code from './code/code';
 import DropdownField from './dropdown-field';
-import _Checkbox from './checkbox';
+import CustomCheckbox from './checkbox';
 const convert = require('color-convert');
 
 function Generator() {
@@ -189,7 +189,7 @@ function Generator() {
     dividerWidth: '2',
   });
 
-  const _Badge = props => (
+  const CustomBadge = props => (
     <Badge variant="subtle" ml="1" colorScheme={props.color}>
       {props.name}
     </Badge>
@@ -297,7 +297,7 @@ function Generator() {
               marginX={4}
               mb={8}
             >
-              <_Checkbox
+              <CustomCheckbox
                 isChecked={includes.extensionIcons}
                 onChange={e =>
                   setIncludes({
@@ -307,8 +307,8 @@ function Generator() {
                 }
               >
                 Handle Extension Icons
-              </_Checkbox>
-              <_Checkbox
+              </CustomCheckbox>
+              <CustomCheckbox
                 isChecked={includes.hideTabline}
                 onChange={e =>
                   setIncludes({
@@ -327,8 +327,8 @@ function Generator() {
                 badge={{ name: 'no preview', color: 'red' }}
               >
                 Hide Tabline
-              </_Checkbox>
-              <_Checkbox
+              </CustomCheckbox>
+              <CustomCheckbox
                 isChecked={includes.windowControls}
                 onChange={e =>
                   setIncludes({
@@ -350,7 +350,7 @@ function Generator() {
                 }
               >
                 Window Controls
-              </_Checkbox>
+              </CustomCheckbox>
               <NumberField
                 name="Divider Width"
                 type="width"
@@ -371,7 +371,7 @@ function Generator() {
             >
               <RiSideBarFill />
               <Text fontWeight="bold">Sidebar</Text>
-              <_Badge color="red" name="no preview" />
+              <CustomBadge color="red" name="no preview" />
             </HStack>
             <VStack w="100%" spacing={6} p="2" pr="10" marginX={4} mb={8}>
               <DropdownField
