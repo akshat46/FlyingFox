@@ -80,7 +80,7 @@ ${includeExtensionIcons}${includeWindowControls}${includeHideTabline}${includeSi
 :root.incognito{ ${privateColors}
 }
 
-${data.configTST}
+${data.configTST(sidebarCollapsedWidth)}
     `;
 
   return (

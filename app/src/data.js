@@ -245,8 +245,7 @@ const data = {
   10-20px should be enough */
   --wc-horizontal-shift: 10px;
     `,
-  configTST: `
-/************UNCUSTOMIZED CSS************/
+  configTST: collapsedWidth => `
 :root{
     --tab-border-radius: 7px; /* border radius of tabs */
     --animation-duration: 200ms; /* duration of different animations [0s: turn all animations off] */
@@ -257,10 +256,10 @@ const data = {
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
-    --collapsed-width: 60px;
+    --collapsed-width: ${collapsedWidth}px;
 }
 
-
+/************UNCUSTOMIZED CSS************/
 #tabbar-container #tabbar{
    margin-bottom: 15px !important;
 }
