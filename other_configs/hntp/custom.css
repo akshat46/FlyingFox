@@ -1,0 +1,95 @@
+/*
+  color-1..color5 are the ones used to color the main bookmark folder's links
+  color-*-a: start gradient color
+  color-*-a: end gradient color
+  color-*-a=color-*-b to have the links be solid instead of gradient
+*/
+:root{
+  --accent-color-1: #6b5874; /* color for hover. same as active-tab gradient from tst*/
+  --accent-color-2: #d5749d;  
+  --color-1-a     : #D1719F; 
+  --color-1-b     : #d18faf; 
+  --color-2-a     : #31A6AD; 
+  --color-2-b     : #69aaad; 
+  --color-3-a     : #D7A398; 
+  --color-3-b     : #ddbba0; 
+  --color-4-a     : #89a7d9; 
+  --color-4-b     : #a3b8d9; 
+  --color-5-a     : #2cc1d5; 
+  --color-5-b     : #4dc5d5; 
+  --foloder-color : #28282f
+}
+
+#main a { 
+  position     : relative;
+  margin-bottom: 30px;
+  box-sizing   : border-box;
+  min-width    : 100px;
+  transition   : all 0.2s ease-in-out !important;
+}
+
+li a::before{
+  position  : absolute;
+  content   : "";
+  top       : 0;
+  right     : 0;
+  bottom    : 0;
+  left      : 0;
+  background: linear-gradient(to right, var(--accent-color-1), var(--accent-color-2)) !important;
+  opacity   : 0;
+  z-index   : -1;
+  transition: opacity 0.3s linear;
+}
+
+a:hover::before{
+  opacity: 1;
+}
+
+#main li a:hover{
+ box-shadow: 0 10px 20px -5px #6b5874 !important;
+ transform : scale(1.1) translateY(-5px);
+}
+
+
+#main a .icon{
+  filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.5)) opacity(80%);
+}
+
+#main li:nth-of-type(5n) a{
+  background: linear-gradient(to right, var(--color-1-a), var(--color-1-b));
+  box-shadow: 0 5px 20px -5px var(--color-1-a);
+}
+
+#main li:nth-of-type(5n+1) a{
+  background: linear-gradient(to right, var(--color-2-a), var(--color-2-b));
+  box-shadow: 0 5px 20px -5px var(--color-2-a);
+}
+
+#main li:nth-of-type(5n+2) a{
+  background: linear-gradient(to right, var(--color-3-a), var(--color-3-b));
+  box-shadow: 0 5px 20px -5px var(--color-3-a);
+}
+
+#main li:nth-of-type(5n+3) a{
+  background: linear-gradient(to right, var(--color-4-a), var(--color-4-b));
+  box-shadow: 0 5px 20px -5px var(--color-4-a);
+}
+
+#main li:nth-of-type(5n+4) a{
+  background: linear-gradient(to right, var(--color-5-a), var(--color-5-b));
+  box-shadow: 0 5px 20px -5px var(--color-5-a);
+}
+
+.folder{
+  background: var(--foloder-color) !important;
+  box-shadow: 0 5px 20px -5px var(--foloder-color) !important;
+}
+
+#main .null a{
+  background: var(--foloder-color) !important;
+  box-shadow: 0 5px 20px -5px var(--foloder-color) !important;
+}
+
+#main .column {
+  margin-right: 20px;
+}

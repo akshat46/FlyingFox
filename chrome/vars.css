@@ -1,9 +1,0 @@
-:root {
-  --initial-width           : 70px;     /* initial width of the sidebar. Only used with userChrome-hover */
-  --sidebar-width           : 250px;    /* expanded width of the sidebar. used for both userChrome-overlay and userChrome-static */
-  --toolbar-height          : 0;
-  --menubar-height          : -40px;
-  --toolmenubar-height      : -40px;    /* sum of previous two */
-  --shadow-color            : #28282F;  /* shadow color. set to #00000000 for no shadow. same as folder color from hntp and tab-hover color from tst*/
-  --sidebar-background-color: #31313a;
-}

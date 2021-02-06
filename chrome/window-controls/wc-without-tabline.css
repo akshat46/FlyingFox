@@ -1,0 +1,8 @@
+@import "window-controls.css";
+
+#TabsToolbar.browser-toolbar {
+    display: inline-block !important;
+    position: absolute;
+    top: var(--wc-vertical-shift) !important;
+    left: var(--wc-horizontal-shift) !important;
+}

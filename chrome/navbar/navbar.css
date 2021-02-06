@@ -1,0 +1,132 @@
+.titlebar-spacer {
+    display: none !important;
+}
+
+toolbox#navigator-toolbox {
+    border-bottom: solid var(--dividers) var(--sidebar-shadow-color) !important;
+}
+
+#nav-bar {
+    min-height: 36px !important;
+    box-shadow: none !important;
+    padding-inline: 5px 6px !important;
+    background-color: var(--toolbar-bgcolor) !important;
+    padding: 8px !important;
+}
+
+.private-browsing-indicator {
+    display: none !important;
+}
+
+#reload-button[disabled]:not(:-moz-window-inactive) > .toolbarbutton-icon {
+    opacity: 1 !important;
+}
+
+toolbar .toolbarbutton-1 {
+    margin-left: 3px !important;
+    margin-right: 3px !important;
+}
+
+#stop-reload-button[animate="true"] .toolbarbutton-animatable-box {
+    transform: translateX(2px) translateY(16px) !important;
+}
+
+.toolbarbutton-1[checked="true"] > .toolbarbutton-icon {
+    background: transparent !important;
+    fill: var(--lwt-toolbarbutton-icon-fill-attention);
+}
+
+toolbar .toolbarbutton-1 > .toolbarbutton-icon {
+    border-radius: 7px !important;
+    padding: 7px !important;
+}
+
+:root:not([customizing]) #back-button[disabled="true"] {
+    opacity: 0.5 !important;
+}
+
+#back-button:not(:hover),
+#back-button:not(:hover) > .toolbarbutton-icon {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#back-button:hover,
+#back-button:hover > .toolbarbutton-icon {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+#back-button:hover:not([disabled]) > .toolbarbutton-icon {
+    background: var(--lwt-toolbarbutton-hover-background) !important;
+}
+
+#back-button > .toolbarbutton-icon {
+    padding: 4px !important;
+}
+#forward-button > .toolbarbutton-icon {
+    padding: 3px !important;
+}
+toolbar:not([customizing="true"])
+    .toolbarbutton-1:not(.titlebar-button):not(#back-button):not(#forward-button)
+    > .toolbarbutton-icon {
+    padding: 6px !important;
+}
+.toolbarbutton-1 .toolbarbutton-badge-stack #fxa-avatar-image {
+    padding: 1px !important;
+}
+
+/* Windows */
+#PanelUI-button {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#PanelUI-menu-button[badge-status|="update"] .toolbarbutton-badge {
+    display: none !important;
+}
+
+:root[privatebrowsingmode] #fxa-toolbar-menu-button {
+    pointer-events: none !important;
+}
+
+/* show "Private" label for en languages only */
+:root[titlemodifier="(Private Browsing)"] #fxa-toolbar-menu-button::before {
+    content: "Private" !important;
+    display: -moz-box !important;
+    margin-inline-start: 12px !important;
+    margin-inline-end: 6px !important;
+}
+
+#nav-bar-customization-target {
+    overflow: visible !important;
+}
+
+.toolbarbutton-animatable-box {
+    transform: translateX(-80px) !important;
+    top: 1px !important;
+    z-index: 10 !important;
+}
+
+#PersonalToolbar {
+    margin-top: -40px !important;
+    opacity: 0;
+    transition: all var(--transition-time) var(--ease-out) !important;
+}
+
+toolbox[id="navigator-toolbox"]:hover #PersonalToolbar {
+    opacity: 1;
+    margin: 0 !important;
+}
+
+#PlacesToolbarItems {
+    margin: 7px 4px !important;
+}
+
+toolbarbutton[class="bookmark-item"]:not(:hover) {
+    opacity: 0.6 !important;
+}

@@ -1,0 +1,34 @@
+#customization-footer button,
+#editBookmarkPanelBottomButtons button {
+    -moz-appearance: none !important;
+    border: none !important;
+    padding: 7px !important;
+    color: var(--arrowpanel-color) !important;
+    background: var(--arrowpanel-background) !important;
+    border-radius: 5px !important;
+    margin-left: 10px !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 300ms ease-in-out !important;
+}
+
+#editBookmarkPanelBottomButtons button,
+#editBMPanel_foldersExpander button {
+    background: var(--lwt-accent-color) !important;
+}
+button#editBookmarkPanelDoneButton {
+    color: var(--lwt-accent-color) !important;
+    background-color: var(--lwt-toolbarbutton-icon-fill-attention) !important;
+}
+
+button:hover {
+    transform: translateY(-2px) !important;
+}
+
+#editBookmarkPanel input {
+    -moz-appearance: none !important;
+    border-radius: 5px;
+    padding: 7px;
+    background: var(--lwt-accent-color) !important;
+    background-color: var(--lwt-accent-color) !important;
+    border-color: var(--arrowpanel-dimmed-further) !important;
+}
