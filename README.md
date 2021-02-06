@@ -4,4 +4,4 @@
 
 <h3 align="center">Visit <a href="http://flyingfox.netlify.app">flyingfox.netlify.app</a> to customize</h3>
 
-### [See wiki for more details](https://github.com/akshat46/FlyingFox/wiki
+#### <p align="center"><a href="https://github.com/akshat46/FlyingFox/wiki">See wiki for more details</a></p>
