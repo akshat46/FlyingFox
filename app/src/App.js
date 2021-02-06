@@ -27,13 +27,7 @@ function App() {
 
 const LandingPage = () => {
   return (
-    <Box
-      w="100vw"
-      h="100vh"
-      m="0"
-      p="0"
-      bgGradient="linear(to-r, #925178, #A47780)"
-    >
+    <Box w="100vw" h="100vh" m="0" p="0" bg="#A1B5CE">
       <VStack
         pos="absolute"
         top="30%"
@@ -61,7 +55,7 @@ const LandingPage = () => {
             p="8"
             borderColor="green.500"
             borderRadius="lg"
-            boxShadow="xl"
+            boxShadow="0 5px 25px -10px #192330A0, -5px 0 10px -5px #192330A0, 5px 0 10px -5px #192330A0"
             color="#59A9BB"
             bg="#192330"
             _hover={{ backgroundColor: '#223042' }}
@@ -77,11 +71,11 @@ const LandingPage = () => {
               p="8"
               borderColor="green.500"
               borderRadius="lg"
-              boxShadow="xl"
+              boxShadow="0 5px 25px -10px #5AA6C7c0, -5px 0 10px -5px #5AA6C7A0, 5px 0 10px -5px #5AA6C7A0"
               color="#192330"
-              bg="#59A9BB"
-              _hover={{ backgroundColor: 'cyan.500' }}
-              _active={{ backgroundColor: '#384F6B' }}
+              bgGradient="linear(to-l, #63CDCF, #5AA6C7)"
+              _hover={{ backgroundColor: '#94ABC7' }}
+              _active={{ backgroundColor: '#7996B9' }}
               leftIcon={<RiBrush4Line />}
             >
               Customize
