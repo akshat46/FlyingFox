@@ -251,6 +251,7 @@ const data = {
     --animation-duration: 200ms; /* duration of different animations [0s: turn all animations off] */
     --spacing: 14px; /* spacing between tabs. [<15px: compact tabs] */
     --distance-from-edge: 10px; /* distance between tabs, and left-right edges of sidebar*/
+    --hover-text-spacing: 0.1; /* should be left alone. with hover sidebar, if text is visible in collapsed status, increase this */
 
     --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -408,6 +409,7 @@ tab-item:not(pinned) tab-closebox {
     transform: scale(120%) translateX(calc(var(--collapsed-width)*-0.1));
     order: 1000;
     transition: all var(--animation-duration) var(--ease-in-out);
+    margin-left: calc(var(--collapsed-width)*var(--hover-text-spacing)) !important;
 }
 
 :root.right tab-item.active:not(:hover) tab-favicon {
