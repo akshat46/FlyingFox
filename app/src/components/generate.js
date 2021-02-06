@@ -342,7 +342,11 @@ function Generator() {
                   <>
                     Window controls positioning may not work out of the box and
                     will require tweaking variables{' '}
-                    <Link href="" color="teal.500" isExternal>
+                    <Link
+                      href="https://github.com/akshat46/FlyingFox/wiki/5.-Window-Controls"
+                      color="teal.500"
+                      isExternal
+                    >
                       as shown here
                     </Link>
                     .
