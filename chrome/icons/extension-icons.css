@@ -22,7 +22,8 @@
     list-style-image: url(custom-adblock.svg) !important;
 }
 
-.webextension-browser-action[data-extensionid="support@lastpass.com"] {
+.webextension-browser-action[data-extensionid="support@lastpass.com"],
+.webextension-browser-action[data-extensionid="{eec37db0-22ad-4bf1-9068-5ae08df8c7e9}"] {
     list-style-image: url(key.svg) !important;
 }
 
@@ -36,8 +37,4 @@
 
 .webextension-browser-action[data-extensionid="{7a7b1d36-d7a4-481b-92c6-9f5427cb9eb1}"] {
     list-style-image: url(bookmark.svg) !important;
-}
-
-.webextension-browser-action[data-extensionid="{eec37db0-22ad-4bf1-9068-5ae08df8c7e9}"] {
-    list-style-image: url(key.svg) !important;
 }
