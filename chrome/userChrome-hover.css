@@ -60,3 +60,70 @@ toolbar {
 .titlebar-spacer {
     display: none !important;
 }
+
+:root {
+	--night_color1: #2E3440;
+	--night_color2: #3B4252;
+	--night_color3: #434C5E;
+	--night_color4: #4C566A;
+	
+	--snow_color1: #D8DEE9;
+	--snow_color2: #E5E9F0;
+	--snow_color3: #ECEFF4;
+	
+	--frost_color1: #8FBCBB;
+	--frost_color2: #88C0D0;
+	--frost_color3: #81A1C1;
+	--frost_color4: #5E81AC;
+	
+	--aurora_color1: #BF616A;
+	--aurora_color2: #D08770;
+	--aurora_color3: #EBCB8B;
+	--aurora_color4: #A3BE8C;
+	--aurora_color5: #B48EAD;
+}
+
+/* the 12px image renders a 10px icon, and the 10px upscaled gets rounded to 12.5, which
+* rounds up to 13px, which makes the icon one pixel too big on 1.25dppx. Fix: */
+@media (min-resolution: 1.20dppx) and (max-resolution: 1.45dppx) {
+.titlebar-button > .toolbarbutton-icon {
+	width: 12px !important;
+	height: 12px !important;
+}
+}
+
+/* 175% dpi should result in the same device pixel sizes as 150% dpi. */
+@media (min-resolution: 1.45dppx) and (max-resolution: 1.70dppx) {
+.titlebar-button > .toolbarbutton-icon {
+	width: 12px !important;
+	height: 12px !important;
+}
+}
+
+/* 175% dpi should result in the same device pixel sizes as 150% dpi. */
+@media (min-resolution: 1.70dppx) and (max-resolution: 1.95dppx) {
+.titlebar-button > .toolbarbutton-icon {
+	width: 12px !important;
+	height: 12px !important;
+}
+}
+
+.titlebar-button:hover > .toolbarbutton-icon {
+	background: none !important;
+}
+.titlebar-button.titlebar-min > .toolbarbutton-icon {
+	background: var(--aurora_color3) !important;
+}
+.titlebar-button.titlebar-max > .toolbarbutton-icon,
+.titlebar-button.titlebar-restore > .toolbarbutton-icon {
+	background: var(--aurora_color4) !important;
+}
+.titlebar-button.titlebar-close > .toolbarbutton-icon {
+    background: var(--aurora_color1) !important;
+}
+.titlebar-button.titlebar-min:hover > .toolbarbutton-icon,
+.titlebar-button.titlebar-max:hover > .toolbarbutton-icon,
+.titlebar-button.titlebar-restore:hover > .toolbarbutton-icon,
+.titlebar-button.titlebar-close:hover > .toolbarbutton-icon {
+	background: var(--night_color4) !important;
+}
