@@ -4,5 +4,5 @@
     display: inline-block !important;
     position: absolute;
     top: var(--wc-vertical-shift) !important;
-    left: var(--wc-horizontal-shift) !important;
+    left: var(--wc-left-space) !important;
 }

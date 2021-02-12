@@ -19,10 +19,9 @@
     --light-3: #87a0c0;
     --light-4: #7996b9;
     --accent: #63cdcf;
-    --accent: #59a0bb;
-    --yellow: #ad9a90;
-    --green: #4a818a;
-    --red: #925178;
+    --yellow: #dbc074;
+    --green: #5cb8a7;
+    --red: #c94f6d;
     --extension-icon-mask: grayscale(85%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%);
 
     /* expanded width of the sidebar. 
@@ -42,10 +41,11 @@
     /* larger value moves window controls down,*/
     /* can be negative(moves controls up) */
     /* 55px if tabline visible, -25px if tabline hidden */
-    --wc-vertical-shift: -25px;
+    --wc-vertical-shift: 15px;
     /* larger value moves window controls right. 
   10-20px should be enough */
-    --wc-horizontal-shift: 10px;
+    --wc-left-space: 10px;
+    --wc-right-space: 15px;
 }
 
 :root[privatebrowsingmode="temporary"] {

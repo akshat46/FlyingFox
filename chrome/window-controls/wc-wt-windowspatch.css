@@ -1,0 +1,9 @@
+/********************************/
+/* windows10 specific ***********/
+/* patches for window-controls. */
+/********************************/
+
+/* makes space between top edge and navigation bar when maximized */
+:root[sizemode="maximized"] #navigator-toolbox {
+    padding-top: 10px !important;
+}

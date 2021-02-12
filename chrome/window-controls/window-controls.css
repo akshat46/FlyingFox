@@ -2,15 +2,31 @@
     z-index: 1 !important;
     position: relative !important;
     margin-left: calc(
-        var(--wc-horizontal-shift) * 2 + 60px
+        var(--wc-right-space) * 2 + 60px
     ) !important; /* shift toolbar to the right based on initial width */
 }
+
 /*-min max close size*/
 .titlebar-button > .toolbarbutton-icon {
-    height: 15px !important;
-    min-height: 15px !important;
-    width: 15px !important;
-    min-width: 15px !important;
+    height: 14px !important;
+    min-height: 14px !important;
+    width: 14px !important;
+    min-width: 14px !important;
+}
+
+#TabsToolbar .toolbar-items{
+    display: none !important;
+}
+
+#titlebar{
+    -moz-appearance: none !important;
+}
+
+.titlebar-button {
+	transition: all 0.3s ease !important;
+	padding: 0px 8px !important;
+	background: none !important;
+    -moz-context-properties: fill, fill-opacity !important;
 }
 
 .titlebar-buttonbox {
