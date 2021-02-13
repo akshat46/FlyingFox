@@ -12,6 +12,8 @@ jobs:
     zip:
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@master
+            - uses: montudor/action-zip@v0.1.1
             - name: Zip Folder
               run: zip -r release.zip zip -r flyingfox-0.1.${{github.run_number}}.zip chrome treestyletab other_configs
 
