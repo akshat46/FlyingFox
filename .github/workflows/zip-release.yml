@@ -20,8 +20,8 @@ jobs:
       - uses: montudor/action-zip@v0.1.1
         with:
           # zip required folders: chrome, other_configs, treestyletab
-          args: zip -r flyingfox-0.1.${{github.run_number}}.zip dir/chrome
-          run: echo ${pwd}
+          args: zip -r flyingfox-0.1.${{github.run_number}}.zip flyingfox
+      - run: echo ${pwd}
       
 #   release:
 #     # release zipped file
