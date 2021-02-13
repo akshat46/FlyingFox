@@ -16,12 +16,15 @@ jobs:
   # First job for zipping
   zip:
     runs-on: ubuntu-latest
-    steps:
-      - uses: montudor/action-zip@v0.1.1
-        with:
-          # zip required folders: chrome, other_configs, treestyletab
-          args: zip -r flyingfox-0.1.${{github.run_number}}.zip flyingfox
-      - run: echo ${pwd}
+    steps: 
+    - uses: actions/checkout@master
+    - name: Zip Folder
+      run: zip -r flyingfox-0.1.${{github.run_number}}.zip .
+#     steps:
+#       - uses: montudor/action-zip@v0.1.1
+#         with:
+#           # zip required folders: chrome, other_configs, treestyletab
+#           args: zip -r flyingfox-0.1.${{github.run_number}}.zip chrome
       
 #   release:
 #     # release zipped file
