@@ -37,6 +37,10 @@ function CodeView({
   let includeWindowControls = includes.windowControls
     ? data.includeWindowControls(includes.hideTabline)
     : '';
+  let includeWindowControlsWindowsPatch =
+    includes.windowControls && includes.windowControlsWindowsPatch
+      ? data.includeWindowControlsWindowsPatch
+      : '';
   let mainColors = data.configColors(
     darkMain.color,
     darkMain.palette,
@@ -64,7 +68,7 @@ function CodeView({
   console.log(darkMain.mask);
   let config = `/* order of these files is important and should not be changed */
 
-${includeExtensionIcons}${includeWindowControls}${includeHideTabline}${includeSidebarType}
+${includeExtensionIcons}${includeWindowControls}${includeWindowControlsWindowsPatch}${includeHideTabline}${includeSidebarType}
 :root { ${mainColors}
     ${configMain}\n
   ${data.configDividers(general.dividerWidth)}
@@ -84,15 +88,9 @@ ${data.configTST(sidebarCollapsedWidth)}
     `;
 
   return (
-    <VStack
-      padding="8"
-      w="90%"
-      spacing="4"
-      m="0 auto"
-      mt={2}
-      fontFamily="monospace"
-    >
+    <VStack padding="8" w="90%" spacing="4" m="0 auto" fontFamily="monospace">
       <ButtonPair
+        styles={{ mb: '2' }}
         content={files}
         bgSelected={[theme.darkPalette[1], theme.darkPalette[2]]}
         color={{ selected: theme.light, regular: theme.dark }}

@@ -38,14 +38,18 @@
     /* uncomment and add gradient value for selected tab gradient*/
 
     /******WINDOW CONTROL PLACEMENT VARS******/
+    --wc-vertical-shift: 15px;
     /* larger value moves window controls down,*/
     /* can be negative(moves controls up) */
-    /* 55px if tabline visible, -25px if tabline hidden */
-    --wc-vertical-shift: 15px;
-    /* larger value moves window controls right. 
-  10-20px should be enough */
-    --wc-left-space: 10px;
-    --wc-right-space: 15px;
+    /* Experiemntal: 55px if tabline visible, -25px if tabline hidden */
+    --wc-left-space: 10px; /* add space to the left of window controls*/
+    --wc-right-space: 15px; /* add space to the right of window controls*/
+    /* left-space shifts window-controls */
+    /* if you want to shift window controls to the left: positive value */
+    /* if you want to shift them to the right: smaller or negative value */
+    /* right-space shifts rest of the navbar (forward,backward,urlbar,etc.) to the right */
+    /* if you want to increase/decrease space between window-controls and navbars: */
+    /* set positive/smaller or negative value for right-space*/
 }
 
 :root[privatebrowsingmode="temporary"] {
@@ -68,4 +72,3 @@
     --extension-icon-mask: grayscale(85%) invert(13%) sepia(80%) saturate(3107%) hue-rotate(256deg) brightness(84%)
         contrast(93%);
 }
-

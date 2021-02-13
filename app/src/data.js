@@ -231,6 +231,8 @@ const data = {
     hideTabline
       ? "@import 'window-controls/wc-without-tabline.css';\n"
       : "@import 'window-controls/wc-with-tabline.css';\n",
+  includeWindowControlsWindowsPatch:
+    "@import 'window-controls/wc-wt-windowspatch.css';\n",
   configUnset: `
   --tl-animation-duration: 200ms;
   /*--tl-tab-background-gradient: */
@@ -240,10 +242,15 @@ const data = {
   /* larger value moves window controls down,*/
   /* can be negative(moves controls up) */
   /* 55px if tabline visible, -25px if tabline hidden */
-  --wc-vertical-shift: -25px;
-  /* larger value moves window controls right. 
-  10-20px should be enough */
-  --wc-horizontal-shift: 10px;
+  --wc-vertical-shift: 15px;
+  --wc-left-space: 10px; /* add space to the left of window controls*/
+  --wc-right-space: 15px; /* add space to the right of window controls*/
+  /* left-space shifts window-controls */
+  /* if you want to shift them to the left: positive value */
+  /* and if you want to shift them to the right: smaller or negative value */
+  /* right-space shifts rest of the navbar (forward,backward,urlbar,etc.) to the right */
+  /* if you want to increase/decrease space between window-controls and navbars: */
+  /* set positive/negative value for right-space*/
     `,
   configTST: collapsedWidth => `
 :root{
