@@ -1,5 +1,5 @@
 #tabbrowser-arrowscrollbox {
-    margin-top: 7px;
+    margin: 7px 14px 7px 14px;
 }
 
 .tabbrowser-tab::after {
