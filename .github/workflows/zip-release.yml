@@ -20,17 +20,17 @@ jobs:
       - uses: montudor/action-zip@v0.1.1
         with:
           # zip required folders: chrome, other_configs, treestyletab
-          args: zip -qq -r flyingfox-0.1.${{github.run_id}}.zip chrome other_configs treestyletab
+          args: zip -r flyingfox-0.1.${{github.run_number}}.zip chrome other_configs treestyletab
       
-  release:
-    # release zipped file
-    runs-on: ubuntu-latest
-    steps:
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: false
-          draft: true
-          files: |
-            flyingfox-0.1.${{github.run_id}}.zip
+#   release:
+#     # release zipped file
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: "marvinpinto/action-automatic-releases@latest"
+#         with:
+#           repo_token: "${{ secrets.GITHUB_TOKEN }}"
+#           automatic_release_tag: "latest"
+#           prerelease: false
+#           draft: true
+#           files: |
+#             flyingfox-0.1.${{github.run_id}}.zip
