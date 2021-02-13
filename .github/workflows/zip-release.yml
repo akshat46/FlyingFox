@@ -1,0 +1,35 @@
+# This is a basic workflow to help you get started with Actions
+
+name: action-zip
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # First job for zipping
+  zip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: montudor/action-zip@v0.1.1
+        with:
+          # zip required folders: chrome, other_configs, treestyletab
+          args: zip -qq -r flyingfox-0.1.${{github.run_id}}.zip chrome other_configs treestyletab
+      
+  release:
+    # release zipped file
+    runs-on: ubuntu-latest
+    steps:
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          draft: true
+          files: |
+            flyingfox-0.1.${{github.run_id}}.zip
