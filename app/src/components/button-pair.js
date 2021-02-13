@@ -5,8 +5,8 @@ function ButtonPair(props) {
   let shadow = `0 5px 25px -10px ${props.bgSelected[0]}A0, -5px 0 10px -5px ${props.bgSelected[0]}A0, 5px 0 10px -5px ${props.bgSelected[0]}A0`;
   return (
     <ButtonGroup
+      {...props.styles}
       alignSelf={props.alignSelf}
-      mb={8}
       colorScheme="black"
       size="sm"
     >

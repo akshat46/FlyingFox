@@ -11,6 +11,7 @@ const CustomBadge = props => (
 const CustomCheckbox = props => {
   return (
     <Checkbox
+      {...props.styles}
       isChecked={props.isChecked}
       onChange={e => props.onChange(e)}
       colorScheme="gray"

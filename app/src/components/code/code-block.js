@@ -28,6 +28,7 @@ function CodeBlock({ dark, darkPalette, light, style, code, name }) {
       >
         <Box mb="-16" alignSelf="end">
           <ButtonPair
+            styles={{ mb: '8' }}
             content={[RiDownload2Fill, RiFileCopy2Fill]}
             bgSelected={[darkPalette[1], darkPalette[2]]}
             hoverBg={darkPalette[2]}

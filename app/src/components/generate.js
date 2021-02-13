@@ -183,6 +183,7 @@ function Generator() {
   const [includes, setIncludes] = useState({
     extensionIcons: true,
     windowControls: true,
+    windowControlsWindowsPatch: false,
     hideTabline: true,
   });
   const [general, setGeneral] = useState({
@@ -225,6 +226,7 @@ function Generator() {
           mb="8"
         />
         <ButtonPair
+          styles={{ mb: '8', ml: '-10px' }}
           content={[RiPaletteFill, RiSoundModuleFill]}
           bgSelected={['#63CDCF', 'teal.300']}
           selected={selectedConfig}
@@ -355,6 +357,32 @@ function Generator() {
               >
                 Window Controls
               </CustomCheckbox>
+              <CustomCheckbox
+                styles={{ pl: '6' }}
+                isChecked={includes.windowControlsWindowsPatch}
+                onChange={e =>
+                  setIncludes({
+                    ...includes,
+                    windowControlsWindowsPatch: e.target.checked,
+                  })
+                }
+                disabled={!includes.windowControls}
+                subText={
+                  <>
+                    See{' '}
+                    <Link
+                      href="https://github.com/akshat46/FlyingFox/wiki/5.-Window-Controls#windows-patch"
+                      color="teal.500"
+                      isExternal
+                    >
+                      wiki
+                    </Link>{' '}
+                    for more details.
+                  </>
+                }
+              >
+                Window Controls Windows 10 Patch
+              </CustomCheckbox>
               <NumberField
                 name="Divider Width"
                 type="width"
@@ -442,6 +470,8 @@ function Generator() {
           <Container
             // *** browser preview ***
             maxW="100%"
+            m="0"
+            p="0"
             pos="absolute"
             left="50%"
             top="50%"
