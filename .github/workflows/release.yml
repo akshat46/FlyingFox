@@ -1,0 +1,30 @@
+on:
+    # Triggers the workflow on push or pull request events but only for the master branch
+    push:
+        branches: [main]
+
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+    # zipping
+    zip-release:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - uses: montudor/action-zip@v0.1.1
+            - name: Zip Folder
+              run: zip -r flyingfox.zip chrome other_configs treestyletab
+            - name: Tar Folder
+              run: tar -czf flyingfox.tar.gz chrome other_configs treestyletab
+            - name: Release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              uses: ridedott/release-me-action@master
+              with:
+                  disable-changelog: true
+                  release-branches: '["master"]'
+                  release-assets: |
+                      flyingfox.zip
+                      flyingfox.tar.gz
