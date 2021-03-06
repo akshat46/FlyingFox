@@ -15,9 +15,9 @@ jobs:
             - uses: actions/checkout@master
             - uses: montudor/action-zip@v0.1.1
             - name: Zip Folder
-              run: zip -r flyingfox.zip chrome other_configs treestyletab
+              run: zip -r flyingfox.zip chrome other_configs treestyletab user.js
             - name: Tar Folder
-              run: tar -czf flyingfox.tar.gz chrome other_configs treestyletab
+              run: tar -czf flyingfox.tar.gz chrome other_configs treestyletab user.js
             - name: Release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
