@@ -8,7 +8,7 @@
 
 <p align="center"><img width="720" src="https://github.com/akshat46/FlyingFox/blob/master/img/demo-hover.gif"></p>
 
-<p align="center"><a href="https://github.com/akshat46/FlyingFox/wiki">See wiki for more details</a></p>
+<h2 align="center"><a href="https://github.com/akshat46/FlyingFox/wiki">See wiki for more details</a></h2>
 
 ## Acknowledgments 
 
