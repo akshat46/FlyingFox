@@ -1,0 +1,13 @@
+#TabsToolbar.browser-toolbar {
+    left: auto !important;
+    right: var(--wc-right-space) !important;
+}
+
+:root:not([inFullscreen]) toolbar#nav-bar {
+    margin-left: 0 !important;
+    margin-right: calc(var(--wc-right-space) * 2 + 60px) !important;
+}
+
+.titlebar-buttonbox {
+    flex-direction: row !important;
+}
