@@ -53,6 +53,11 @@
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
     --collapsed-width: 60px;
+  
+    --contextual-identity-color-blue: #63B3ED;
+    --contextual-identity-color-orange: #F6AD55;
+    --contextual-identity-color-green: #68D391;
+    --contextual-identity-color-pink: #F687B3;
 }
 
 /************UNCUSTOMIZED CSS************/
@@ -103,7 +108,6 @@ tab-item .label {
     color: var(--light-2) !important;
     padding-bottom: 2px;
 }
-
 
 tab-item .twisty:before{
    background: var(--light-3) !important;
@@ -188,10 +192,6 @@ tab-item:not(pinned) tab-closebox {
     transform: scale(120%) translateX(-20px) !important;
 }
 
-:root.left tab-item[data-child-ids]:not(.pinned):hover tab-favicon {
-    transform: scale(120%) translateX(-15px);
-}
-
 :root.left tab-item:not([data-child-ids]):hover .label {
     transform: translateX(-15px);
 }
@@ -253,6 +253,43 @@ tab-item.pinned {
     margin: 5px !important;
     padding: 5px !important;
     transition   : all 0.1s var(--ease-out);
+}
+
+/**********CONTAINERS***************/
+
+.contextual-identity-marker{
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+}
+
+tab-item.active .contextual-identity-marker {
+    display: none !important;
+}
+
+.contextual-identity-firefox-container-1:not(.active),
+.contextual-identity-firefox-container-2:not(.active),
+.contextual-identity-firefox-container-3:not(.active),
+.contextual-identity-firefox-container-4:not(.active){
+   border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+tab-item.active.contextual-identity-firefox-container-1 {
+    background: linear-gradient(to right, #3182CE , #0BC5EA) !important;
+}
+
+tab-item.active.contextual-identity-firefox-container-2 {
+    background: linear-gradient(to right, #DD6B20 , #F56565) !important;
+}
+
+tab-item.active.contextual-identity-firefox-container-3 {
+   background: linear-gradient(to right, #38A169 , #38B2AC) !important;
+}
+
+tab-item.active.contextual-identity-firefox-container-4 {
+   background: linear-gradient(to right, #D53F8C , #9F7AEA) !important;
 }
 
 /***********************************/

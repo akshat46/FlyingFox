@@ -308,6 +308,43 @@ tab-item.pinned {
     transition: all 0.1s var(--ease-out);
 }
 
+/**********CONTAINERS***************/
+
+.contextual-identity-marker {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+}
+
+tab-item.active .contextual-identity-marker {
+    display: none !important;
+}
+
+.contextual-identity-firefox-container-1:not(.active),
+.contextual-identity-firefox-container-2:not(.active),
+.contextual-identity-firefox-container-3:not(.active),
+.contextual-identity-firefox-container-4:not(.active) {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+
+tab-item.active.contextual-identity-firefox-container-1 {
+    background: linear-gradient(to right, #3182ce, #0bc5ea) !important;
+}
+
+tab-item.active.contextual-identity-firefox-container-2 {
+    background: linear-gradient(to right, #dd6b20, #f56565) !important;
+}
+
+tab-item.active.contextual-identity-firefox-container-3 {
+    background: linear-gradient(to right, #38a169, #38b2ac) !important;
+}
+
+tab-item.active.contextual-identity-firefox-container-4 {
+    background: linear-gradient(to right, #d53f8c, #9f7aea) !important;
+}
+
 /***********************************/
 
 #all-tabs {
