@@ -15,7 +15,7 @@
 }
 
 #sidebar {
-    border-right: solid 1px black !important;
+    border-right: solid var(--dividers) var(--sidebar-shadow-color) !important;
 }
 
 toolbar {
