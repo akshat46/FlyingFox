@@ -209,6 +209,28 @@
     --toolbarbutton-active-background: var(--lwt-toolbarbutton-active-background, hsla(0, 0%, 100%, 0.17)) !important;
 }
 
+/* Container identity colors */
+
+.identity-color-pink {
+    --identity-tab-color: #ED64A6 !important;
+    --identity-icon-color: #ED64A6 !important;
+}
+
+.identity-color-blue {
+    --identity-tab-color: #4299E1 !important;
+    --identity-icon-color: #4299E1 !important;
+}
+
+.identity-color-green {
+    --identity-tab-color: #48BB78 !important;
+    --identity-icon-color: #48BB78 !important;
+}
+
+.identity-color-orange {
+    --identity-tab-color: #ED8936 !important;
+    --identity-icon-color: #ED8936 !important;
+}
+
 /* /1* special case for urlbar buttons *1/ */
 /* :-moz-any(#urlbar, #searchbar) { */
 /*     --toolbarbutton-hover-background: var(--dark-4) !important; */
