@@ -23,7 +23,6 @@
 }
 
 .urlbarView-no-wrap {
-    height: 100% !important;
     align-items: center !important;
     margin-inline-start: 0 !important;
     max-width: 100% !important;
