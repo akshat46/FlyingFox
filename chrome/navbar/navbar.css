@@ -3,15 +3,16 @@
 }
 
 toolbox#navigator-toolbox {
+    padding: 8px 0 !important;
     border-bottom: solid var(--dividers) var(--sidebar-shadow-color) !important;
 }
 
 #nav-bar {
-    min-height: 36px !important;
     box-shadow: none !important;
     padding-inline: 5px 6px !important;
     background-color: var(--toolbar-bgcolor) !important;
-    padding: 8px !important;
+    margin-bottom: 8px;
+    
 }
 
 .private-browsing-indicator {
@@ -121,10 +122,6 @@ toolbar:not([customizing="true"])
 toolbox[id="navigator-toolbox"]:hover #PersonalToolbar {
     opacity: 1;
     margin: 0 !important;
-}
-
-#PlacesToolbarItems {
-    margin: 7px 4px !important;
 }
 
 toolbarbutton[class="bookmark-item"]:not(:hover) {
