@@ -3,7 +3,7 @@
 }
 
 toolbox#navigator-toolbox {
-    padding: 8px 0 !important;
+    padding-top: 8px !important;
     border-bottom: solid var(--dividers) var(--sidebar-shadow-color) !important;
 }
 
@@ -12,7 +12,6 @@ toolbox#navigator-toolbox {
     padding-inline: 5px 6px !important;
     background-color: var(--toolbar-bgcolor) !important;
     margin-bottom: 8px;
-    
 }
 
 .private-browsing-indicator {
@@ -114,14 +113,21 @@ toolbar:not([customizing="true"])
 }
 
 #PersonalToolbar {
-    margin-top: -40px !important;
-    opacity: 0;
+    margin-top: -32px !important;
+    transition: all var(--transition-time) var(--ease-out) !important;
+}
+
+#PersonalToolbar .bookmark-item {
+    transform: translateY(70px) !important;
     transition: all var(--transition-time) var(--ease-out) !important;
 }
 
 toolbox[id="navigator-toolbox"]:hover #PersonalToolbar {
-    opacity: 1;
     margin: 0 !important;
+}
+
+toolbox[id="navigator-toolbox"]:hover #PersonalToolbar .bookmark-item {
+    transform: translateY(0px) !important;
 }
 
 toolbarbutton[class="bookmark-item"]:not(:hover) {
