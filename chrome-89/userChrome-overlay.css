@@ -1,0 +1,100 @@
+/* material firefox imports */
+@import "global/variables.css";
+@import "global/global.css";
+@import "icons/icons.css";
+@import "tabbar/tabbar.css";
+@import "navbar/navbar.css";
+@import "personalbar/personalbar.css";
+@import "popup/popup.css";
+@import "urlbar/urlbar.css";
+@import "findbar/findbar.css";
+
+/* Vars Import */
+@import "vars.css";
+
+/* show bookmarks toolbar on new tab only */
+#main-window #PersonalToolbar {
+    visibility: collapse !important;
+    z-index: 1 !important;
+    position: relative !important;
+    margin-left: var(--initial-width); /* shift toolbar to the right based on initial width */
+    margin-top: var(--toolbar-height) !important;
+}
+
+#main-window[title^="Firefox Developer Edition"] #PersonalToolbar {
+    visibility: visible !important;
+    margin-top: -1px !important;
+}
+
+/* 
+There's two main sidebar components. 
+1. #sidebar-box (outer)
+2. #sidebar (inner) 
+*/
+/* lock outer to height by doing the inverse margin of the toolbar element */
+/* set outer width = initial width */
+#sidebar-box {
+    z-index: 1000 !important;
+    position: relative !important;
+    margin-top: var(--menubar-height) !important;
+    padding-top: calc(-1 * var(--menubar-height));
+    max-width: 0px;
+    min-width: 0px;
+}
+
+#sidebar-header {
+    color: var(--sidebar-background-color) !important;
+}
+
+/* inner width = expanded width & move inner to only show initial-width long section */
+#sidebar-box #sidebar {
+    min-width: var(--sidebar-width) !important;
+    max-width: var(--sidebar-width) !important;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 2px 0 33px -5px var(--shadow-color);
+    background: var(--sidebar-background-color) !important;
+}
+
+#main-window[title^="Firefox Developer Edition"] #sidebar-box {
+    margin-top: var(--toolmenubar-height) !important;
+}
+
+/* hide sidebar header for tree style tabs sidebar */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    display: none;
+}
+
+#sidebar {
+    border-right: none !important;
+}
+
+toolbar#nav-bar {
+    padding-top: 12px;
+    padding-bottom: 7px;
+    margin-left: var(--initial-width);
+    padding-left: 7px;
+    border: none !important;
+}
+
+toolbar {
+    border: none !important;
+}
+
+/* Hide splitter, when using Tree Style Tab. */
+#sidebar-splitter {
+    display: none !important;
+}
+
+/* hide normal horizontal tab bar */
+#TabsToolbar {
+    display: none;
+}
+
+/* Show firefox titlebar */
+/* .tabbrowser-tab { */
+/*     display: none; */
+/* } */
+
+/* #tabs-newtab-button { */
+/*     display: none; */
+/* } */

@@ -1,0 +1,114 @@
+#tabbrowser-arrowscrollbox {
+    margin: 7px 14px 7px 14px;
+}
+
+.tabbrowser-tab::after {
+    border: none !important;
+}
+
+.tab-background .tab-line,
+.tab-background .tab-bottom-line {
+    display: none;
+}
+
+tab[selected="true"] > .tab-stack > .tab-background {
+    background: var(--tl-tab-background-gradient, var(--arrowpanel-dimmed-further)) !important;
+}
+
+tab:not([selected="true"]) > .tab-stack:hover > .tab-background {
+    background: var(--arrowpanel-background) !important;
+}
+
+.tab-stack {
+    border-radius: 7px;
+    margin-right: 5px;
+    overflow: hidden;
+}
+
+.tab-stack .tab-icon-image,
+.tab-stack .tab-label-container {
+    transform: translateX(0px);
+    transition: all var(--tl-animation-duration) var(--ease-out) !important;
+}
+
+.tab-stack .tab-icon-image {
+    transition-duration: calc(var(--tl-animation-duration) * 2) !important;
+}
+
+tab:not([pinned="true"]) .tab-stack:hover .tab-icon-image {
+    transform: translateX(-25px) !important;
+}
+
+.tab-stack:hover .tab-label-container {
+    transform: translateX(-23px) !important;
+}
+
+/* containers */
+tab:not([selected="true"]).identity-color-blue > .tab-stack,
+tab:not([selected="true"]).identity-color-orange > .tab-stack,
+tab:not([selected="true"]).identity-color-green > .tab-stack,
+tab:not([selected="true"]).identity-color-pink > .tab-stack{
+    border-radius: 0 0 7px 7px !important;
+}
+
+tab[selected="true"].identity-color-blue > .tab-stack .tab-label-container,
+tab[selected="true"].identity-color-orange > .tab-stack .tab-label-container,
+tab[selected="true"].identity-color-green > .tab-stack .tab-label-container,
+tab[selected="true"].identity-color-pink > .tab-stack .tab-label-container{
+   color: #000 !important;
+}
+
+/* blue */
+tab[selected="true"].identity-color-blue > .tab-stack > .tab-background{
+   background: linear-gradient(to right, #3182CE , #0BC5EA) !important;
+}
+
+tab:not([selected="true"]).identity-color-blue > .tab-stack > .tab-background{
+    border-top: solid 4px #63B3ED !important;
+}
+
+/* orange */
+tab[selected="true"].identity-color-orange > .tab-stack > .tab-background{
+   background: linear-gradient(to right, #DD6B20 , #F56565) !important;
+}
+
+tab:not([selected="true"]).identity-color-orange > .tab-stack > .tab-background{
+    border-top: solid 4px #F6AD55 !important;
+}
+
+/* green */
+tab[selected="true"].identity-color-green > .tab-stack > .tab-background{
+   background: linear-gradient(to right, #38A169 , #38B2AC) !important;
+}
+
+tab:not([selected="true"]).identity-color-green > .tab-stack > .tab-background{
+    border-top: solid 4px #68D391 !important;
+}
+
+/* pink */
+tab[selected="true"].identity-color-pink > .tab-stack > .tab-background{
+   background: linear-gradient(to right, #D53F8C , #9F7AEA) !important;
+}
+
+tab:not([selected="true"]).identity-color-pink > .tab-stack > .tab-background{
+    border-top: solid 4px #F687B3 !important;
+}
+
+
+.tab-stack .tab-close-button {
+    border-radius: 50%;
+    margin-left: -20px !important;
+    background: var(--lwt-text-color);
+    fill: var(--lwt-accent-color) !important;
+    transform: translateX(30px) !important;
+    transition: all var(--tl-animation-duration) var(--ease-out) !important;
+}
+
+.tab-stack:hover .tab-close-button {
+    transform: translateX(0px) !important;
+}
+
+#tabbrowser-tabs[closebuttons="activetab"] > #tabbrowser-arrowscrollbox > 
+.tabbrowser-tab > .tab-stack > .tab-content > .tab-close-button:not([selected="true"]){
+    display: block !important;
+}

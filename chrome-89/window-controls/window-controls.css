@@ -1,0 +1,71 @@
+/*-min max close size*/
+.titlebar-button > .toolbarbutton-icon {
+    height: 14px !important;
+    min-height: 14px !important;
+    width: 14px !important;
+    min-width: 14px !important;
+}
+
+#titlebar {
+    -moz-appearance: none !important;
+}
+
+.titlebar-button {
+    transition: all 0.3s ease !important;
+    padding: 0px 8px !important;
+    background: none !important;
+    -moz-context-properties: fill, fill-opacity !important;
+}
+
+.titlebar-buttonbox {
+    display: flex;
+    -moz-context-properties: fill, fill-opacity !important;
+}
+
+/* close button */
+.titlebar-close {
+    -moz-appearance: none !important;
+    fill: var(--red) !important;
+    opacity: 0.7 !important;
+    list-style-image: url(circle.svg) !important;
+}
+
+.titlebar-close:hover {
+    opacity: 1 !important;
+}
+
+/* minimize button */
+.titlebar-min {
+    -moz-appearance: none !important;
+    fill: var(--yellow) !important;
+    opacity: 0.7 !important;
+    list-style-image: url(circle.svg) !important;
+}
+
+.titlebar-min:hover {
+    opacity: 1 !important;
+}
+
+/* maximize button */
+.titlebar-max {
+    -moz-appearance: none !important;
+    fill: var(--green) !important;
+    opacity: 0.7 !important;
+    list-style-image: url(circle.svg) !important;
+}
+
+.titlebar-max:hover {
+    opacity: 1 !important;
+}
+
+/* restore button */
+.titlebar-restore {
+    -moz-appearance: none !important;
+    fill: var(--green) !important;
+    opacity: 0.7 !important;
+    list-style-image: url(circle.svg) !important;
+}
+
+.titlebar-restore:hover {
+    opacity: 1 !important;
+}

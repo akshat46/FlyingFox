@@ -1,0 +1,24 @@
+@import "window-controls.css";
+
+:root:not([inFullscreen]) toolbar#nav-bar {
+    z-index: 1 !important;
+    position: relative !important;
+    margin-left: calc(
+        var(--wc-right-space) * 2 + 60px
+    ) !important; /* shift toolbar to the right based on initial width */
+}
+
+#TabsToolbar .toolbar-items {
+    display: none !important;
+}
+
+.titlebar-buttonbox {
+    flex-direction: row-reverse;
+}
+
+#TabsToolbar.browser-toolbar {
+    display: inline-block !important;
+    position: absolute;
+    top: var(--wc-vertical-shift) !important;
+    left: var(--wc-left-space) !important;
+}

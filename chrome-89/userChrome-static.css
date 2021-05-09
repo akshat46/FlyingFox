@@ -1,0 +1,28 @@
+#main-window[title^="Firefox Developer Edition"] #PersonalToolbar {
+    visibility: visible !important;
+    margin-top: -1px !important;
+}
+
+#sidebar-box #sidebar {
+    min-width: var(--sidebar-width) !important;
+    max-width: var(--sidebar-width) !important;
+    box-shadow: none !important;
+}
+
+/* hide sidebar header for tree style tabs sidebar */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    display: none;
+}
+
+#sidebar {
+    border-right: solid var(--dividers) var(--sidebar-shadow-color) !important;
+}
+
+toolbar {
+    border: none !important;
+}
+
+/* Hide splitter, when using Tree Style Tab. */
+#sidebar-splitter {
+    display: none !important;
+}

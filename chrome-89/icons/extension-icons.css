@@ -1,0 +1,40 @@
+.webextension-browser-action > .toolbarbutton-badge-stack > .toolbarbutton-badge {
+    background-color: var(--lwt-toolbarbutton-icon-fill-attention) !important;
+    color: var(--dark-base) !important;
+}
+
+/**extension filter based on --light-base**/
+.webextension-browser-action:not(badge):not(#ublock0_raymondhill_net-browser-action):not(#support_lastpass_com-browser-action):not(#privacy_privacy_com-browser-action):not(#addon_darkreader_org-browser-action):not(#_7a7b1d36-d7a4-481b-92c6-9f5427cb9eb1_-browser-action):not(#_eec37db0-22ad-4bf1-9068-5ae08df8c7e9_-browser-action)
+    > .toolbarbutton-badge-stack
+    > .toolbarbutton-icon {
+    padding: 1px !important;
+    filter: var(--extension-icon-mask);
+}
+
+:root[privatebrowsingmode="temporary"]
+    .webextension-browser-action:not(#ublock0_raymondhill_net-browser-action):not(#support_lastpass_com-browser-action):not(#privacy_privacy_com-browser-action):not(#addon_darkreader_org-browser-action):not(#_7a7b1d36-d7a4-481b-92c6-9f5427cb9eb1_-browser-action):not(#_eec37db0-22ad-4bf1-9068-5ae08df8c7e9_-browser-action)
+    > .toolbarbutton-badge-stack
+    > .toolbarbutton-icon {
+    filter: var(--extension-icon-mask);
+}
+
+.webextension-browser-action[data-extensionid="uBlock0@raymondhill.net"] {
+    list-style-image: url(custom-adblock.svg) !important;
+}
+
+.webextension-browser-action[data-extensionid="support@lastpass.com"],
+.webextension-browser-action[data-extensionid="{eec37db0-22ad-4bf1-9068-5ae08df8c7e9}"] {
+    list-style-image: url(key.svg) !important;
+}
+
+.webextension-browser-action[data-extensionid="privacy@privacy.com"] {
+    list-style-image: url(bank-card.svg) !important;
+}
+
+.webextension-browser-action[data-extensionid="addon@darkreader.org"] {
+    list-style-image: url(dark-mode.svg) !important;
+}
+
+.webextension-browser-action[data-extensionid="{7a7b1d36-d7a4-481b-92c6-9f5427cb9eb1}"] {
+    list-style-image: url(bookmark.svg) !important;
+}

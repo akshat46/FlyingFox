@@ -1,0 +1,16 @@
+@import "window-controls.css";
+@import "wc-without-tabline.css";
+
+#TabsToolbar.browser-toolbar {
+    left: auto !important;
+    right: var(--wc-right-space) !important;
+}
+
+:root:not([inFullscreen]) toolbar#nav-bar {
+    margin-left: 0 !important;
+    margin-right: calc(var(--wc-left-space) * 2 + 60px) !important;
+}
+
+.titlebar-buttonbox {
+    flex-direction: row !important;
+}

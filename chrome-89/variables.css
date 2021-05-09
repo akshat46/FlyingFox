@@ -1,0 +1,243 @@
+:root {
+    --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --transition-time: 0.4s !important;
+    --ease-basic: linear;
+
+    --button-size: 32px; /* is this used? */
+    --icon-size: 24px; /* is this used? */
+
+    --downloads-item-height: 48px !important;
+
+    --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor) !important;
+    --toolbar-non-lwt-textcolor: var(--toolbar-color) !important;
+    --toolbar-field-focus-border-color: var(--lwt-toolbar-field-color) !important;
+
+    --toolbar-field-background-color: var(--light-1) !important;
+    --toolbar-field-focus-background-color: var(--light-1) !important;
+}
+
+/* light mode */
+:root:not([style]),
+:root[style*="--lwt-accent-color:rgb(227, 228, 230);"],
+:root[style*="--lwt-accent-color:white;"] {
+    /* accentcolor */
+    --lwt-accent-color: var(--light-base) !important;
+
+    /* textcolor */
+    --lwt-text-color: var(--dark-base) !important;
+
+    /* toolbar */
+    --toolbar-bgcolor: var(--light-base) !important;
+
+    /* toolbar_text */
+    --toolbar-color: var(--dark-1) !important;
+
+    --urlbarView-popup-title: var(--dark-1) !important;
+
+    --urlbarView-popup-url: var(--dark-4) !important;
+
+    /* toolbar_bottom_separator */
+    --toolbox-border-bottom-color: var(--light-base) !important; /* legacy */
+    --chrome-content-separator-color: var(--light-base) !important;
+
+    /* icons */
+    --lwt-toolbarbutton-icon-fill: var(--dark-1) !important;
+
+    /* icons_attention */
+    --lwt-toolbarbutton-icon-fill-attention: var(--accent) !important;
+
+    /* button_background_hover */
+    --lwt-toolbarbutton-hover-background: var(--light-2) !important;
+
+    /* button_background_active */
+    --lwt-toolbarbutton-active-background: var(--light-4) !important;
+
+    --lwt-toolbar-field-color: var(--dark-2) !important;
+
+    /* popup */
+    --arrowpanel-background: var(--light-1) !important;
+    --arrowpanel-dimmed: var(--light-2) !important; /* hover color */
+    --arrowpanel-dimmed-further: var(--light-3) !important; /* hover color */
+
+    /* popup_text */
+    --arrowpanel-color: var(--dark-1) !important;
+    --autocomplete-popup-color: var(--dark-1) !important;
+    --panel-disabled-color: hsla(0, 0%, 100%, 0.5) !important;
+
+    /* popup_border */
+    --arrowpanel-border-color: var(--light-1) !important;
+    --autocomplete-popup-border-color: var(--light-1) !important;
+
+    /* popup_highlight */
+    --autocomplete-popup-highlight-background: var(--light-2) !important;
+
+    /* popup_highlight_text */
+    --autocomplete-popup-highlight-color: var(--dark-2) !important;
+
+    /* urlbar icon */
+    --toolbarbutton-hover-background: var(--light-4) !important;
+    --toolbarbutton-active-background: var(--light-base) !important;
+
+    --sidebar-shadow-color: var(--dark-4);
+}
+
+/* don't bother with sidebar in light mode */
+
+/* dark mode */
+:root[style*="--lwt-accent-color:rgb(12, 12, 13);"] {
+    /* accentcolor */
+    --lwt-accent-color: var(--dark-base) !important;
+
+    /* textcolor */
+    --lwt-text-color: var(--light-base) !important;
+
+    /* toolbar */
+    --toolbar-bgcolor: var(--dark-base) !important;
+
+    /* toolbar_text */
+    --toolbar-color: var(--light-1) !important;
+
+    --urlbarView-popup-title: var(--light-1) !important;
+
+    --urlbarView-popup-url: var(--light-4) !important;
+
+    /* toolbar_bottom_separator */
+    --toolbox-border-bottom-color: var(--dark-base) !important; /* legacy */
+    --chrome-content-separator-color: var(--dark-base) !important;
+
+    /* icons */
+    --lwt-toolbarbutton-icon-fill: var(--light-1) !important;
+
+    /* icons_attention */
+    --lwt-toolbarbutton-icon-fill-attention: var(--accent) !important;
+
+    /* button_background_hover */
+    --lwt-toolbarbutton-hover-background: var(--dark-2) !important;
+
+    /* button_background_active */
+    --lwt-toolbarbutton-active-background: var(--dark-4) !important;
+
+    --lwt-toolbar-field-color: var(--light-2) !important;
+
+    /* popup */
+    --arrowpanel-background: var(--dark-1) !important;
+    --arrowpanel-dimmed: var(--dark-2) !important; /* hover color */
+    --arrowpanel-dimmed-further: var(--dark-3) !important; /* hover color */
+
+    /* popup_text */
+    --arrowpanel-color: var(--light-1) !important;
+    --autocomplete-popup-color: var(--light-1) !important;
+    --panel-disabled-color: hsla(0, 0%, 100%, 0.5) !important;
+
+    /* popup_border */
+    --arrowpanel-border-color: var(--dark-1) !important;
+    --autocomplete-popup-border-color: var(--dark-1) !important;
+
+    /* popup_highlight */
+    --autocomplete-popup-highlight-background: var(--dark-2) !important;
+
+    /* popup_highlight_text */
+    --autocomplete-popup-highlight-color: var(--light-2) !important;
+
+    /* urlbar icon */
+    --toolbarbutton-hover-background: var(--dark-4) !important;
+    --toolbarbutton-active-background: var(--dark-base) !important;
+
+    --sidebar-shadow-color: var(--dark-0);
+}
+
+:-moz-any(#sidebar-box, #sidebar) {
+    /* sidebar */
+    --sidebar-background-color: var(--dark-base) !important;
+
+    /* sidebar_text */
+    --sidebar-text-color: #f1f3ee !important;
+}
+
+:-moz-any(.sidebar-panel, body)[style*="--lwt-sidebar-background-color:rgb(56, 56, 61);"] {
+    /* sidebar */
+    --lwt-sidebar-background-color: var(--dark-base) !important;
+
+    /* sidebar_text */
+    --lwt-sidebar-text-color: var(--light-base) !important;
+}
+
+#titlebar,
+#tabbrowser-tabs {
+    --tab-min-height: 34px !important;
+}
+
+:root:-moz-any(:-moz-lwtheme-brighttext, [privatebrowsingmode="temporary"]) {
+    --toolbar-field-background-color: var(--dark-1) !important;
+    --toolbar-field-hover-background-color: var(--dark-1) !important;
+    --toolbar-field-focus-background-color: var(--dark-1) !important;
+}
+
+:root:not(:-moz-lwtheme):not([privatebrowsingmode="temporary"]) {
+    --toolbar-bgcolor: hsl(0, 0%, 100%) !important;
+    --toolbar-color: hsl(213, 5%, 39%) !important;
+    --toolbox-border-bottom-color: hsl(0, 0%, 70%) !important;
+}
+
+@media (-moz-mac-yosemite-theme) {
+    :root[extradragspace] {
+        --space-above-tabbar: 8px !important;
+    }
+}
+
+/* Ubuntu */
+@media (-moz-gtk-csd-available) {
+    :root:not(:-moz-lwtheme):not([privatebrowsingmode="temporary"]) {
+        --toolbar-bgcolor: -moz-dialog !important;
+        --toolbar-color: -moz-dialogtext !important;
+    }
+}
+
+:root:-moz-lwtheme-darktext,
+:root toolbar:not([brighttext]),
+.tabbrowser-tab[visuallyselected] {
+    --toolbarbutton-hover-background: var(--lwt-toolbarbutton-hover-background, hsla(0, 0%, 0%, 0.07)) !important;
+    --toolbarbutton-active-background: var(--lwt-toolbarbutton-active-background, hsla(0, 0%, 0%, 0.11)) !important;
+}
+
+:root:-moz-lwtheme-brighttext,
+:root toolbar[brighttext],
+.tabbrowser-tab[visuallyselected]:-moz-lwtheme-brighttext {
+    --toolbarbutton-hover-background: var(--lwt-toolbarbutton-hover-background, hsla(0, 0%, 100%, 0.1)) !important;
+    --toolbarbutton-active-background: var(--lwt-toolbarbutton-active-background, hsla(0, 0%, 100%, 0.17)) !important;
+}
+
+/* Container identity colors */
+
+.identity-color-pink {
+    --identity-tab-color: #ED64A6 !important;
+    --identity-icon-color: #ED64A6 !important;
+}
+
+.identity-color-blue {
+    --identity-tab-color: #4299E1 !important;
+    --identity-icon-color: #4299E1 !important;
+}
+
+.identity-color-green {
+    --identity-tab-color: #48BB78 !important;
+    --identity-icon-color: #48BB78 !important;
+}
+
+.identity-color-orange {
+    --identity-tab-color: #ED8936 !important;
+    --identity-icon-color: #ED8936 !important;
+}
+
+/* /1* special case for urlbar buttons *1/ */
+/* :-moz-any(#urlbar, #searchbar) { */
+/*     --toolbarbutton-hover-background: var(--dark-4) !important; */
+/*     --toolbarbutton-active-background: var(--dark-base) !important; */
+/* } */
+
+/* :root:-moz-any([privatebrowsingmode="temporary"], :-moz-lwtheme-brighttext) :-moz-any(#urlbar, #searchbar) { */
+/*     --toolbarbutton-hover-background: var(--dark-4) !important; */
+/*     --toolbarbutton-active-background: var(--dark-base) !important; */
+/* } */

@@ -1,0 +1,6 @@
+@import "window-controls.css";
+
+#TabsToolbar.browser-toolbar {
+    margin-left: var(--wc-left-space);
+    margin-right: var(--wc-right-space);
+}
