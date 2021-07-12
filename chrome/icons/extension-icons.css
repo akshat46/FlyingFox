@@ -4,7 +4,7 @@
 }
 
 /**extension filter based on --light-base**/
-.webextension-browser-action:not(badge):not(#ublock0_raymondhill_net-browser-action):not(#support_lastpass_com-browser-action):not(#privacy_privacy_com-browser-action):not(#addon_darkreader_org-browser-action):not(#_7a7b1d36-d7a4-481b-92c6-9f5427cb9eb1_-browser-action):not(#_eec37db0-22ad-4bf1-9068-5ae08df8c7e9_-browser-action)
+.webextension-browser-action:not(badge):not(#ublock0_raymondhill_net-browser-action):not(#support_lastpass_com-browser-action):not(#privacy_privacy_com-browser-action):not(#addon_darkreader_org-browser-action):not(#_7a7b1d36-d7a4-481b-92c6-9f5427cb9eb1_-browser-action):not(#_eec37db0-22ad-4bf1-9068-5ae08df8c7e9_-browser-action):not(#_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action)
     > .toolbarbutton-badge-stack
     > .toolbarbutton-icon {
     padding: 1px !important;
@@ -12,7 +12,7 @@
 }
 
 :root[privatebrowsingmode="temporary"]
-    .webextension-browser-action:not(#ublock0_raymondhill_net-browser-action):not(#support_lastpass_com-browser-action):not(#privacy_privacy_com-browser-action):not(#addon_darkreader_org-browser-action):not(#_7a7b1d36-d7a4-481b-92c6-9f5427cb9eb1_-browser-action):not(#_eec37db0-22ad-4bf1-9068-5ae08df8c7e9_-browser-action)
+    .webextension-browser-action:not(#ublock0_raymondhill_net-browser-action):not(#support_lastpass_com-browser-action):not(#privacy_privacy_com-browser-action):not(#addon_darkreader_org-browser-action):not(#_7a7b1d36-d7a4-481b-92c6-9f5427cb9eb1_-browser-action):not(#_eec37db0-22ad-4bf1-9068-5ae08df8c7e9_-browser-action):not(#_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action)
     > .toolbarbutton-badge-stack
     > .toolbarbutton-icon {
     filter: var(--extension-icon-mask);
@@ -22,8 +22,9 @@
     list-style-image: url(custom-adblock.svg) !important;
 }
 
+.webextension-browser-action[data-extensionid="{d634138d-c276-4fc8-924b-40a0ea21d284}"], /** 1password **/
 .webextension-browser-action[data-extensionid="support@lastpass.com"],
-.webextension-browser-action[data-extensionid="{eec37db0-22ad-4bf1-9068-5ae08df8c7e9}"] {
+.webextension-browser-action[data-extensionid="{eec37db0-22ad-4bf1-9068-5ae08df8c7e9}"] { /** gopassbridge **/
     list-style-image: url(key.svg) !important;
 }
 
@@ -35,6 +36,6 @@
     list-style-image: url(dark-mode.svg) !important;
 }
 
-.webextension-browser-action[data-extensionid="{7a7b1d36-d7a4-481b-92c6-9f5427cb9eb1}"] {
+.webextension-browser-action[data-extensionid="{7a7b1d36-d7a4-481b-92c6-9f5427cb9eb1}"] { /** wallabager **/
     list-style-image: url(bookmark.svg) !important;
 }
