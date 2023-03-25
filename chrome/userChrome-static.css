@@ -4,8 +4,10 @@
 }
 
 #sidebar-box #sidebar {
+    position: absolute !important;
     min-width: var(--sidebar-width) !important;
     max-width: var(--sidebar-width) !important;
+    width: var(--sidebar-width) !important;
     box-shadow: none !important;
 }
 
@@ -25,4 +27,19 @@ toolbar {
 /* Hide splitter, when using Tree Style Tab. */
 #sidebar-splitter {
     display: none !important;
+}
+
+#sidebar-box {
+    min-width: var(--sidebar-width) !important;
+    max-width: var(--sidebar-width) !important;
+}
+
+#sidebar-header,
+#sidebar-splitter {
+    display: none !important;
+}
+
+/* hide sidebar header for tree style tabs sidebar */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    display: none;
 }
