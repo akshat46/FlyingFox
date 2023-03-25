@@ -16,7 +16,7 @@
   --yellow: #dbc074;
   --green: #5cb8a7;
   --red: #c94f6d;
-  --extension-icon-mask: grayscale(85%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%);
+/*  --extension-icon-mask: grayscale(0%) invert(75%) sepia(%) saturate(862%) hue-rotate(173deg) brightness(88%); */
 }
 
 :root.incognito{ 
@@ -43,8 +43,8 @@
 :root{
     --tab-border-radius: 7px; /* border radius of tabs */
     --animation-duration: 200ms; /* duration of different animations [0s: turn all animations off] */
-    --spacing: 14px; /* spacing between tabs. [<15px: compact tabs] */
-    --distance-from-edge: 10px; /* distance between tabs, and left-right edges of sidebar*/
+    --spacing: 10px; /* spacing between tabs. [<15px: compact tabs] */
+    --distance-from-edge: 12px; /* distance between tabs, and left-right edges of sidebar*/
     --hover-text-spacing: 0.2; /* should be left alone. with hover sidebar, if text is visible in collapsed status, increase this */
 
 
@@ -77,8 +77,7 @@ tab-item:not(.collapsed) {
     margin-top: var(--spacing);
     border-radius: var(--tab-border-radius);
     border: none !important;
-    padding-top: 9px;
-    padding-bottom: 10px;
+    padding-bottom: 2px;
 }
 
 tab-item.collapsed{
@@ -137,15 +136,14 @@ tab-item:hover tab-closebox {
 
 tab-item:not(pinned) tab-closebox {
     position: absolute;
-    margin-top: 2px;
     height: 20px;
     width: 20px;
     right: -30px;
-    border-radius: 50%;
+    border-radius: 6px;
     padding-top: 2px;
     padding-left: 2px;
     background: var(--light-4);
-    transition   : all var(--animation-duration) var(--ease-out);
+    transition: right var(--animation-duration) var(--ease-out);
 }
 
 .sound-button:after {
@@ -178,7 +176,7 @@ tab-item:not(pinned) tab-closebox {
 }
 
 :root.left tab-item .sound-button:after {
-    transform: translateX(0px); !important;
+    transform: translate(30px, -5px); !important;
     transition: all calc(var(--animation-duration)*2.2) var(--ease-out) !important;
 }
 
@@ -251,8 +249,7 @@ tab-item:not(pinned) tab-closebox {
 
 tab-item.pinned {
     margin: 5px !important;
-    padding: 5px !important;
-    transition   : all 0.1s var(--ease-out);
+    transition  : all 0.1s var(--ease-out);
 }
 
 /**********CONTAINERS***************/
@@ -298,3 +295,19 @@ tab-item.active.contextual-identity-firefox-container-4 {
     border: none !important;
 }
 
+tab-item .background, .after-tabs button:hover::before, .after-tabs [role="button"]:hover::before, #subpanel-selector-anchor:hover::before {
+	background-color: unset !important;
+	background-image: unset !important;
+	border-radius: unset !important;
+}
+
+tab-item tab-closebox {
+	background: none transparent;
+	border: none 0 transparent;
+	margin: var(--tab-closebox-negative-offset) 0;
+	padding: 0;
+}
+
+tab-item.active .background, tab-item.active tab-item-substance:hover .background, tab-item.bundled-active .background, tab-item.bundled-active tab-item-substance:hover .background, .mutiple-highlighted > tab-item.highlighted .background, .mutiple-highlighted > tab-item.highlighted tab-item-substance:hover .background {
+	box-shadow: none !important;
+}
