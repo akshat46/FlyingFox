@@ -1,97 +1,102 @@
-:root {
-    --dark-0: #151d28;
-    --dark-base: #192330;
-    --dark-1: #233143;
-    --dark-2: #2a3b51;
-    --dark-3: #374e6c;
-    --dark-4: #3e5879;
-    --light-0: #d7dfea;
-    --light-base: #afc0d5;
-    --light-1: #a1b5ce;
-    --light-2: #94abc7;
-    --light-3: #87a0c0;
-    --light-4: #7996b9;
-    --accent: #63cdcf;
-    --yellow: #dbc074;
-    --green: #5cb8a7;
-    --red: #c94f6d;
-    --extension-icon-mask: grayscale(85%) invert(75%) sepia(8%) saturate(862%) hue-rotate(173deg) brightness(88%);
+
+:root{ 
+  --dark-0: #151D28;
+  --dark-base: #192330;
+  --dark-1: #233143;
+  --dark-2: #2A3B51;
+  --dark-3: #374E6C;
+  --dark-4: #3E5879;
+  --light-0: #D7DFEA;
+  --light-base: #afc0d5;
+  --light-1: #A1B5CE;
+  --light-2: #94ABC7;
+  --light-3: #87A0C0;
+  --light-4: #7996B9;
+  --accent: #63cdcf;
+  --yellow: #dbc074;
+  --green: #5cb8a7;
+  --red: #c94f6d;
+/*  --extension-icon-mask: grayscale(0%) invert(75%) sepia(%) saturate(862%) hue-rotate(173deg) brightness(88%); */
 }
 
-:root.incognito {
-    --dark-0: #1c0e34;
-    --dark-base: #20103c;
-    --dark-1: #2f1d4e;
-    --dark-2: #38225d;
-    --dark-3: #4a2d7b;
-    --dark-4: #53338a;
-    --light-0: #cc6b9c;
-    --light-base: #b9407c;
-    --light-1: #ab3b73;
-    --light-2: #9c3569;
-    --light-3: #8d305e;
-    --light-4: #7d2b54;
-    --accent: #e9207e;
-    --yellow: #c9b336;
-    --green: #36c987;
-    --red: #c9365d;
-    --extension-icon-mask: grayscale(85%) invert(13%) sepia(80%) saturate(3107%) hue-rotate(256deg) brightness(84%)
-        contrast(93%);
+:root.incognito{ 
+  --dark-0: #1C0E34;
+  --dark-base: #20103c;
+  --dark-1: #2F1D4E;
+  --dark-2: #38225D;
+  --dark-3: #4A2D7B;
+  --dark-4: #53338A;
+  --light-0: #CC6B9C;
+  --light-base: #B9407C;
+  --light-1: #AB3B73;
+  --light-2: #9C3569;
+  --light-3: #8D305E;
+  --light-4: #7D2B54;
+  --accent: #e9207e;
+  --yellow: #C9B336;
+  --green: #36C987;
+  --red: #C9365D;
+  --extension-icon-mask: grayscale(85%) invert(13%) sepia(80%) saturate(3107%) hue-rotate(256deg) brightness(84%) contrast(93%);
 }
 
-:root {
+
+:root{
     --tab-border-radius: 7px; /* border radius of tabs */
     --animation-duration: 200ms; /* duration of different animations [0s: turn all animations off] */
-    --spacing: 14px; /* spacing between tabs. [<15px: compact tabs] */
-    --distance-from-edge: 10px; /* distance between tabs, and left-right edges of sidebar*/
-    --hover-text-spacing: 0.05; /* should be left alone. with hover sidebar, if text is visible in collapsed status, increase this */
+    --spacing: 10px; /* spacing between tabs. [<15px: compact tabs] */
+    --distance-from-edge: 12px; /* distance between tabs, and left-right edges of sidebar*/
+    --hover-text-spacing: 0.2; /* should be left alone. with hover sidebar, if text is visible in collapsed status, increase this */
+
 
     --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
     --collapsed-width: 60px;
+  
+    --contextual-identity-color-blue: #63B3ED;
+    --contextual-identity-color-orange: #F6AD55;
+    --contextual-identity-color-green: #68D391;
+    --contextual-identity-color-pink: #F687B3;
 }
 
 /************UNCUSTOMIZED CSS************/
-#tabbar-container #tabbar {
-    margin-bottom: 15px !important;
+#tabbar-container #tabbar{
+   margin-bottom: 15px !important;
 }
 
-:root,
-#background {
-    background: var(--dark-base) !important;
+:root, #background{
+    background:  var(--dark-base) !important;
 }
 
-#all-tabs {
-    margin: 10px var(--distance-from-edge);
+#all-tabs{
+   margin: 10px var(--distance-from-edge);
 }
 
 tab-item:not(.collapsed) {
     margin-top: var(--spacing);
     border-radius: var(--tab-border-radius);
     border: none !important;
-    padding-top: 9px;
-    padding-bottom: 10px;
+    padding-bottom: 2px;
 }
 
-tab-item.collapsed {
+tab-item.collapsed{
     height: 0;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-tab-item:not([data-level="0"]):not(.pinned) {
+tab-item:not([data-level="0"]):not(.pinned){
     border-left: dashed 2px var(--light-4) !important;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    margin-top: calc(var(--spacing) / 2);
+    margin-top: calc(var(--spacing)/2);
 }
 
-tab-item tab-favicon {
+tab-item tab-favicon{
     left: 0;
     filter: var(--extension-icon-mask);
-    transition: left calc(var(--animation-duration) * 2) var(--ease-out);
+    transition: transform calc(var(--animation-duration)*2) var(--ease-out);
 }
 
 .highlighter {
@@ -103,8 +108,8 @@ tab-item .label {
     padding-bottom: 2px;
 }
 
-tab-item .twisty:before {
-    background: var(--light-3) !important;
+tab-item .twisty:before{
+   background: var(--light-3) !important;
 }
 
 tab-item.active .label {
@@ -115,7 +120,8 @@ tab-item.active {
     background: var(--dark-3) !important;
 }
 
-tab-item:not(.active).highlighted {
+
+tab-item:not(.active).highlighted{
     background: var(--dark-1) !important;
 }
 
@@ -130,144 +136,73 @@ tab-item:hover tab-closebox {
 
 tab-item:not(pinned) tab-closebox {
     position: absolute;
-    margin-top: 2px;
     height: 20px;
     width: 20px;
     right: -30px;
-    border-radius: 50%;
+    border-radius: 6px;
     padding-top: 2px;
     padding-left: 2px;
     background: var(--light-4);
-    transition: all var(--animation-duration) var(--ease-out);
+    transition: right var(--animation-duration) var(--ease-out);
 }
 
 .sound-button:after {
     background: var(--light-3) !important;
-    margin-top: 2px;
-}
-
-.counter {
-    color: var(--light-4) !important;
-    background: var(--dark-2) !important;
-    border-radius: 7px;
-    margin: 2px 2px 0px 0px;
-    padding: 0 4px;
-    padding-bottom: 2px;
-    order: -2 !important;
-}
-
-.counter:before,
-.counter:after {
-    content: "";
-}
-
-/********LEFT CONTENT TAB(static)*************/
-
-:root.left tab-item {
-    padding-left: 0;
-}
-
-:root.left tab-item tab-favicon {
-    transform: scale(120%);
     margin-right: 5px;
 }
 
-:root.left tab-item .label {
-    transform: translateX(10px);
+.counter{
+    color: var(--light-4) !important;
+    background: var(--dark-2) !important;
+    border-radius: 7px;
+    margin: 2px 4px 0px 0px;
+    padding: 0 4px;
+    padding-bottom: 2px;
+    order: -1 !important;
+}
+
+.counter:before, .counter:after{ content: ""}
+
+/********LEFT CONTENT TAB(hover)*************/
+
+:root.left tab-item{
+    padding-left: 0px;
+}
+
+:root.left tab-item tab-favicon {
+    margin-right: calc(var(--collapsed-width)*0.25) !important;
+    transform: scale(120%) translateX(0px) !important;
+}
+
+:root.left tab-item .label{
+    transform: translateX(0px);
+    margin-right: calc(var(--collapsed-width)*var(--hover-text-spacing)) !important;
     transition: all var(--animation-duration) var(--ease-out);
 }
 
 :root.left tab-item:not(.pinned):hover tab-favicon {
-    left: -35px;
+    transform: scale(120%) translateX(-10px) !important;
 }
 
-:root.left tab-item[data-child-ids]:not(.pinned):hover tab-favicon {
-    left: -40px;
+:root.left tab-item:not([data-child-ids]):hover .label {
+    transform: translateX(-10px);
 }
 
-:root.left tab-item:hover .label,
-:root.left .label {
-    transform: translateX(-25px);
-}
-
-:root.left tab-item[data-child-ids] .twisty {
-    margin-right: 5px;
-}
-
-/********RIGHT CONTENT TAB(hover)*************/
-
-:root.right tab-item:not(.active) tab-favicon {
-    margin-right: calc(var(--collapsed-width) * -0.1) !important;
-}
-
-:root.right tab-item tab-favicon {
-    transform: scale(120%) translateX(calc(var(--collapsed-width) * -0.1));
-    order: 1000;
-    transition: all var(--animation-duration) var(--ease-in-out);
-    margin-left: calc(var(--collapsed-width) * var(--hover-text-spacing)) !important;
-}
-
-:root.right tab-item.active:not(:hover) tab-favicon {
-    filter: grayscale(10%) opacity(80%);
-    transform: scale(120%);
-}
-
-:root.right tab-item:not(.pinned):hover tab-favicon {
-    left: -30px;
-    margin-left: 25px;
-}
-
-:root.right tab-item.active:not(.pinned):hover tab-favicon {
-    left: -20px !important;
-    margin-left: 15px;
-}
-
-:root.right tab-item.pinned tab-favicon {
-    transform: scale(120%);
-}
-
-:root.right tab-item .label {
-    margin-left: 10px;
-    margin-right: calc(var(--collapsed-width) * 0.3) !important;
-}
-
-:root.right tab-item:not(pinned):hover tab-closebox {
-    right: calc(var(--collapsed-width) * 0.3);
-}
-
-:root.right tab-item:not([data-level="0"]):not(.pinned) {
-    border: none !important;
-    border-right: dashed 2px var(--light-4) !important;
-    border-radius: var(--tab-border-radius);
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-:root.right tab-item.active:not([data-level="0"]):not(.pinned) {
-    margin-right: 5px !important;
-}
-
-:root.right .sound-button {
-    order: -1 !important;
-}
-
-:root.right tab-item.active.pinned {
-    position: relative;
-    left: 190px !important;
-}
-
-:root.right tab-item.active.pinned tab-favicon {
-    transform: scale(130%) !important;
-    margin-left: 7px;
+:root.left tab-item[data-child-ids] .twisty{
+    margin-left: 5px;
 }
 
 /***********************************/
 
-.tab .favicon .favicon-default::before {
-    filter: var(--extension-icon-mask); // change for light theme
+.tab
+    .favicon
+    .favicon-default::before {
+    filter: var(--extension-icon-mask); /* change for light theme */
 }
 
-.tab[data-current-favicon-uri="undefined"] .favicon .favicon-default::before {
+.tab[data-current-favicon-uri="undefined"]
+    .favicon
+    .favicon-default::before{
     background: url("chrome://branding/content/identity-icons-brand.svg") no-repeat center !important;
     mask: none !important;
 }
@@ -283,11 +218,11 @@ tab-item:not(pinned) tab-closebox {
     border: none !important;
     border-radius: 8px;
     padding: 8px 0 !important;
-    margin: 0 5px;
+
 }
 
-.newtab-button::before {
-    background: var(--light-3) !important;
+.newtab-button::before{
+   background: var(--light-3) !important;
 }
 
 .newtab-action-selector-anchor {
@@ -304,13 +239,12 @@ tab-item:not(pinned) tab-closebox {
 
 tab-item.pinned {
     margin: 5px !important;
-    padding: 5px !important;
-    transition: all 0.1s var(--ease-out);
+    transition  : all 0.1s var(--ease-out);
 }
 
 /**********CONTAINERS***************/
 
-.contextual-identity-marker {
+.contextual-identity-marker{
     position: absolute !important;
     left: 0 !important;
     top: 0 !important;
@@ -324,29 +258,46 @@ tab-item.active .contextual-identity-marker {
 .contextual-identity-firefox-container-1:not(.active),
 .contextual-identity-firefox-container-2:not(.active),
 .contextual-identity-firefox-container-3:not(.active),
-.contextual-identity-firefox-container-4:not(.active) {
-    border-top-left-radius: 0px !important;
-    border-bottom-left-radius: 0px !important;
+.contextual-identity-firefox-container-4:not(.active){
+   border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
 }
 
 tab-item.active.contextual-identity-firefox-container-1 {
-    background: linear-gradient(to right, #3182ce, #0bc5ea) !important;
+    background: linear-gradient(to right, #3182CE , #0BC5EA) !important;
 }
 
 tab-item.active.contextual-identity-firefox-container-2 {
-    background: linear-gradient(to right, #dd6b20, #f56565) !important;
+    background: linear-gradient(to right, #DD6B20 , #F56565) !important;
 }
 
 tab-item.active.contextual-identity-firefox-container-3 {
-    background: linear-gradient(to right, #38a169, #38b2ac) !important;
+   background: linear-gradient(to right, #38A169 , #38B2AC) !important;
 }
 
 tab-item.active.contextual-identity-firefox-container-4 {
-    background: linear-gradient(to right, #d53f8c, #9f7aea) !important;
+   background: linear-gradient(to right, #D53F8C , #9F7AEA) !important;
 }
 
 /***********************************/
 
 #all-tabs {
     border: none !important;
+}
+
+tab-item .background, .after-tabs button:hover::before, .after-tabs [role="button"]:hover::before, #subpanel-selector-anchor:hover::before {
+	background-color: unset !important;
+	background-image: unset !important;
+	border-radius: unset !important;
+}
+
+tab-item tab-closebox {
+	background: none transparent;
+	border: none 0 transparent;
+	margin: var(--tab-closebox-negative-offset) 0;
+	padding: 0;
+}
+
+tab-item.active .background, tab-item.active tab-item-substance:hover .background, tab-item.bundled-active .background, tab-item.bundled-active tab-item-substance:hover .background, .mutiple-highlighted > tab-item.highlighted .background, .mutiple-highlighted > tab-item.highlighted tab-item-substance:hover .background {
+	box-shadow: none !important;
 }
