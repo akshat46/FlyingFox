@@ -14,6 +14,11 @@ toolbox#navigator-toolbox {
     padding: 8px !important;
 }
 
+toolbar .toolbarbutton-1 > .toolbarbutton-icon {
+	width: calc(2 * var(--toolbarbutton-inner-padding) + 14px) !important;;
+	height: calc(2 * var(--toolbarbutton-inner-padding) + 14px) !important;;
+}
+
 .private-browsing-indicator {
     display: none !important;
 }
@@ -22,13 +27,12 @@ toolbox#navigator-toolbox {
     opacity: 1 !important;
 }
 
-toolbar .toolbarbutton-1 {
-    margin-left: 3px !important;
-    margin-right: 3px !important;
-}
-
 #stop-reload-button[animate="true"] .toolbarbutton-animatable-box {
     transform: translateX(2px) translateY(16px) !important;
+}
+
+toolbar .toolbarbutton-1 {
+    fill: var(--lwt-toolbarbutton-icon-fill) !important;
 }
 
 .toolbarbutton-1[checked="true"] > .toolbarbutton-icon {
@@ -130,3 +134,4 @@ toolbox[id="navigator-toolbox"]:hover #PersonalToolbar {
 toolbarbutton[class="bookmark-item"]:not(:hover) {
     opacity: 0.6 !important;
 }
+
