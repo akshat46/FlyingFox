@@ -39,6 +39,7 @@ panel[type="autocomplete-richlistbox"] > .autocomplete-richlistbox,
 #PopupSearchAutoComplete > *,
 .menupopup-arrowscrollbox {
     background: var(--arrowpanel-background) !important;
+    border: 1px solid var(--arrowpanel-background) !important;
 }
 
 /* themes a menupopup (or other root level / shadow dom popup) as a panel */
@@ -48,7 +49,7 @@ panel[type="autocomplete-richlistbox"] > .autocomplete-richlistbox,
 .menupopup-arrowscrollbox {
     margin: 0 !important;
     padding: 8px 0 !important;
-    border-radius: 4px !important;
+    border-radius: 7px !important;
     color: inherit !important;
 }
 
@@ -117,23 +118,18 @@ menupopup menu,
     height: 32px !important;
     padding: 0 16px !important;
     border: 0 !important;
-    background: 0 !important;
-    color: inherit !important;
-    fill-opacity: initial !important;
 }
 
-menupopup menuitem:hover:not([disabled="true"]),
-menupopup menu:hover:not([disabled="true"]),
-.autocomplete-richlistitem:hover:not([disabled="true"]):not([selected="true"]) {
-    background-color: var(--arrowpanel-dimmed) !important;
+#context-navigation menu:where([_moz-menuactive="true"]:not([disabled="true"])),
+#context-navigation menuitem:where([_moz-menuactive="true"]:not([disabled="true"])),
+#context-navigation > .menuitem-iconic[_moz-menuactive="true"] > .menu-iconic-left > .menu-iconic-icon {
+  background-color: transparent !important;;
 }
 
-menupopup menuitem:hover:active:not([disabled="true"]),
-menupopup menu:hover:active:not([disabled="true"]),
-.autocomplete-richlistitem:hover:active:not([disabled="true"]),
-.autocomplete-richlistitem[selected="true"] {
+menu:where([_moz-menuactive="true"]:not([disabled="true"])),
+menuitem:where([_moz-menuactive="true"]:not([disabled="true"])) {
     background-color: var(--arrowpanel-dimmed-further) !important;
-}
+  }
 
 menupopup menuitem[disabled="true"],
 menupopup menu[disabled="true"],
@@ -159,16 +155,13 @@ menupopup {
     --scrollbutton-display: none !important;
 }
 
-#scrollbutton-up[part],
-#scrollbutton-down[part] {
-    display: var(--scrollbutton-display) !important;
-}
-
+/*
 .menuitem-iconic,
-.menu-iconic-icon /* .menu-iconic-icons not necessarily within a .menuitem-iconic (don't ask me why...) */ {
+.menu-iconic-icon  .menu-iconic-icons not necessarily within a .menuitem-iconic (don't ask me why...)  {
     fill: currentColor !important;
     -moz-context-properties: fill, fill-opacity, stroke, stroke-opacity !important;
 }
+*/
 
 .menuitem-iconic[class*="identity-color"] .menu-iconic-icon {
     fill: var(--identity-icon-color) !important;
@@ -227,15 +220,6 @@ menu[container="true"] > .menu-iconic-left > .menu-iconic-icon {
     list-style-image: url(folder.svg) !important;
 }
 
-#context-navigation {
-    background: 0 !important;
-}
-
-#context-navigation .menuitem-iconic {
-    background: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
 
 #context-navigation .menu-iconic-left {
     border-radius: 50% !important;
@@ -250,12 +234,16 @@ menu[container="true"] > .menu-iconic-left > .menu-iconic-icon {
 }
 
 #context-navigation .menuitem-iconic:hover:not([disabled]) .menu-iconic-left {
-    background-color: var(--arrowpanel-dimmed) !important;
+    background-color: transparent !important;
 }
 
 #context-navigation .menuitem-iconic:hover:active:not([disabled]) .menu-iconic-left {
-    background-color: var(--arrowpanel-dimmed-further) !important;
+    background-color: transparent !important;
 }
+
+#context-navigation > .menuitem-iconic[_moz-menuactive="true"] > .menu-iconic-left > .menu-iconic-icon {
+    background-color: transparent !important;;
+  }
 
 panel[type="arrow"] {
     -moz-window-shadow: none !important;
@@ -290,7 +278,7 @@ panel[type="arrow"][side="right"] {
     display: none !important;
 }
 
-/* .subview-subheader, */
+/* .subview-subheader, 
 panelview .toolbarbutton-1,
 .subviewbutton,
 .widget-overflow-list .toolbarbutton-1,
@@ -311,6 +299,7 @@ panelview .toolbarbutton-1,
 .panel-banner-item label {
     padding-inline-start: 0 !important;
 }
+*/
 
 #appMenu-zoom-controls > .subviewbutton,
 #appMenu-edit-controls > .subviewbutton {
@@ -909,3 +898,4 @@ richlistitem:-moz-any([originaltype="generatedPassword"], [originaltype="loginWi
         content: url(menu-right-2x.svg) !important;
     }
 }
+
