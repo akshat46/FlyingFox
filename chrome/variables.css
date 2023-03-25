@@ -1,27 +1,30 @@
 :root {
     --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
-    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-out: cubic-bezier(.22,.08,.63,.74);
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-    --transition-time: 0.4s !important;
+    --transition-time: 0.3s !important;
     --ease-basic: linear;
 
-    --button-size: 32px; /* is this used? */
-    --icon-size: 24px; /* is this used? */
+    --button-size: 32px !important;; /* is this used? */
+    --icon-size: 24px !important;; /* is this used? */
 
     --downloads-item-height: 48px !important;
 
     --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor) !important;
     --toolbar-non-lwt-textcolor: var(--toolbar-color) !important;
     --toolbar-field-focus-border-color: var(--lwt-toolbar-field-color) !important;
+    --toolbarbutton-height: var(--button-size) !important;
 
-    --toolbar-field-background-color: var(--light-1) !important;
-    --toolbar-field-focus-background-color: var(--light-1) !important;
+    --toolbar-field-background-color: var(--dark-1) !important;
+    --toolbar-field-focus-background-color: var(--dark-1) !important;
+    --button-hover-bgcolor: transparent !important;
+    --button-bgcolor: transparent !important;
+
 }
 
 /* light mode */
-:root:not([style]),
-:root[style*="--lwt-accent-color:rgb(227, 228, 230);"],
-:root[style*="--lwt-accent-color:white;"] {
+@media (prefers-color-scheme: light) {
+:root {
     /* accentcolor */
     --lwt-accent-color: var(--light-base) !important;
 
@@ -81,12 +84,13 @@
     --toolbarbutton-active-background: var(--light-base) !important;
 
     --sidebar-shadow-color: var(--dark-4);
+    }
 }
-
 /* don't bother with sidebar in light mode */
 
 /* dark mode */
-:root[style*="--lwt-accent-color:rgb(12, 12, 13);"] {
+@media (prefers-color-scheme: dark) {
+:root {
     /* accentcolor */
     --lwt-accent-color: var(--dark-base) !important;
 
@@ -163,6 +167,7 @@
     /* sidebar_text */
     --lwt-sidebar-text-color: var(--light-base) !important;
 }
+    }
 
 #titlebar,
 #tabbrowser-tabs {
@@ -241,3 +246,4 @@
 /*     --toolbarbutton-hover-background: var(--dark-4) !important; */
 /*     --toolbarbutton-active-background: var(--dark-base) !important; */
 /* } */
+
