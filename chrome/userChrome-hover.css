@@ -22,12 +22,12 @@
 
 /* move inner to show entire sidebar */
 #sidebar-box #sidebar:hover {
-    transform: translateX(0) !important;
+    transform: translateX(0px) !important;
     box-shadow: 2px 0 33px -3px var(--sidebar-shadow-color);
 }
 
 #sidebar-box[sidebarcommand="viewBookmarksSidebar"] #sidebar {
-    transform: translateX(0) !important;
+    transform: translateX(0px) !important;
     box-shadow: 2px 0 33px -3px var(--sidebar-shadow-color);
 }
 /* hide sidebar header for tree style tabs sidebar */
@@ -45,18 +45,5 @@ toolbar {
 
 /* Hide splitter, when using Tree Style Tab. */
 #sidebar-splitter {
-    display: none !important;
-}
-
-/* hide tabs */
-.tabbrowser-tab {
-    display: none;
-}
-
-#tabs-newtab-button {
-    display: none;
-}
-
-.titlebar-spacer {
     display: none !important;
 }
