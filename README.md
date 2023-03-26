@@ -19,3 +19,6 @@ Original repo has been quiet the past year so I updated myself to get it working
 Some of the code, namely urlbar and popups CSS are slighltly edited versions of the ones from [Material Fox](https://github.com/muckSponge/MaterialFox).
 
 All the icons are from [Remix Icons](https://remixicon.com/)
+
+## Customization 
+add the boolean "Color.Reshading" to about:config for the original FlyingFox color mask. 
