@@ -110,12 +110,6 @@ toolbar:not([customizing="true"])
     overflow: visible !important;
 }
 
-.toolbarbutton-animatable-box {
-    transform: translateX(-80px) !important;
-    top: 1px !important;
-    z-index: 10 !important;
-}
-
 #PersonalToolbar {
     margin-top: -40px !important;
     opacity: 0;
